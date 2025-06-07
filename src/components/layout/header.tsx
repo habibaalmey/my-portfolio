@@ -30,7 +30,7 @@ export function Header() {
         </nav>
         <div className="flex items-center space-x-4">
           <a
-            href="/cv.pdf" 
+            href="/cv.pdf"
             download="CV-Aperture.pdf"
             className={cn(
               buttonVariants({ variant: 'default', size: 'sm' }),
