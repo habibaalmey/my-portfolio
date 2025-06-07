@@ -76,7 +76,7 @@ const projectsData = [
 
 export function ProjectsSection() {
   return (
-    <SectionContainer id="projects" className="bg-background px-4 md:px-6">
+    <SectionContainer id="projects" className="bg-yellow-starfield px-4 md:px-6">
       <SectionTitle icon={LayoutGrid}>Project Experience</SectionTitle>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
         {projectsData.map((project, index) => (
