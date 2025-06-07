@@ -8,7 +8,6 @@ import { SectionTitle } from '@/components/layout/section-title';
 import { AnimatedSectionWrapper } from '@/components/ui/animated-section-wrapper';
 import Link from 'next/link';
 import { Badge } from '@/components/ui/badge';
-import { cn } from '@/lib/utils';
 
 const aboutMeText = "I am a fourth-year Computer Science student with a passion for the intersection of business and information technology. I am highly organized and detail-oriented, consistently delivering quality results in both academic research and industry projects. With particular expertise in data analysis and machine learning, my experience enables me to solve problems with technical precision while understanding business needs.";
 
@@ -38,16 +37,19 @@ export function AboutMeSection() {
           <AnimatedSectionWrapper>
             <div className="flex flex-col md:flex-row items-center md:items-start gap-10 md:gap-16">
               <div className="md:w-1/3 flex-shrink-0 flex flex-col items-center">
-                <div className="binary-border-profile-image rounded-lg shadow-xl mb-6 md:mb-0">
-                  <Image
-                    src="https://placehold.co/300x300.png"
-                    alt="Habiba Almetnawy"
-                    width={300}
-                    height={300}
-                    className="rounded-lg relative z-10 transform transition-all duration-300 ease-in-out hover:scale-[1.03]"
-                    data-ai-hint="profile portrait"
-                    priority
-                  />
+                <div className="laptop-frame-profile-image mb-6 md:mb-0">
+                  <div className="webcam-dot"></div>
+                  <div className="image-screen">
+                    <Image
+                      src="https://placehold.co/300x300.png"
+                      alt="Habiba Almetnawy"
+                      width={300}
+                      height={300}
+                      className="rounded-sm transform transition-all duration-300 ease-in-out hover:scale-[1.03]"
+                      data-ai-hint="profile portrait"
+                      priority
+                    />
+                  </div>
                 </div>
               </div>
               <div className="md:w-2/3 text-center md:text-left">

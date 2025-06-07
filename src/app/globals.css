@@ -92,10 +92,11 @@
     @apply border-border;
   }
   html {
+    color: hsl(var(--foreground)); /* Explicitly set color for cursor inheritance */
     cursor: url("data:image/svg+xml,%3Csvg width='16' height='16' viewBox='0 0 16 16' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Crect x='0.75' y='0.75' width='14.5' height='14.5' rx='1.25' stroke='currentColor' stroke-width='1.5'/%3E%3C/svg%3E") 8 8, auto;
   }
   body {
-    @apply text-foreground;
+    /* text-foreground is inherited from html's color */
     background: linear-gradient(-45deg, hsl(var(--primary)), hsl(var(--accent)), hsl(var(--secondary)), hsl(var(--background)), hsl(var(--background)));
     background-size: 400% 400%;
     animation: animate-gradient-x 25s ease infinite;
@@ -130,21 +131,25 @@
     transform: translateY(1px);
   }
 
-  .binary-border-profile-image {
-    @apply relative p-3 rounded-lg overflow-hidden;
-  }
-  .binary-border-profile-image::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cstyle%3Etext { font-family: 'Source Code Pro', monospace; font-size: 12px; }%3C/style%3E%3Ctext fill='currentColor' x='5' y='15'%3E0%3C/text%3E %3Ctext fill='currentColor' x='35' y='15'%3E1%3C/text%3E%3Ctext fill='currentColor' x='20' y='35'%3E1%3C/text%3E %3Ctext fill='currentColor' x='50' y='35'%3E0%3C/text%3E%3Ctext fill='currentColor' x='5' y='55'%3E1%3C/text%3E %3Ctext fill='currentColor' x='35' y='55'%3E0%3C/text%3E%3C/svg%3E");
-    background-repeat: repeat;
-    background-size: 50px 50px;
-    color: hsl(var(--primary) / 0.15); 
-    z-index: 0;
-    animation: binary-flow 10s linear infinite; 
+  .laptop-frame-profile-image {
+    @apply relative p-2 bg-muted rounded-lg shadow-lg; /* This is the laptop body/bezel */
+    border-bottom: 8px solid hsl(var(--card)); /* Darker base for keyboard area */
+    border-left: 2px solid hsl(var(--card));
+    border-right: 2px solid hsl(var(--card));
+    border-top: 2px solid hsl(var(--card));
+    width: fit-content; /* Ensure the frame doesn't stretch unnecessarily */
+    margin-left: auto; /* Center it if in a flex container */
+    margin-right: auto;
   }
 
+  .laptop-frame-profile-image .image-screen { /* This will wrap the actual Next/Image */
+    @apply bg-background p-1 rounded-sm; /* The actual screen area, slightly inset */
+  }
+
+  .laptop-frame-profile-image .webcam-dot {
+    @apply absolute top-1 left-1/2 -translate-x-1/2 w-1.5 h-1.5 bg-border rounded-full z-10;
+  }
+  
   .card-lightbulb {
     @apply bg-card overflow-visible; /* Allow glow to extend */
   }
@@ -258,3 +263,4 @@
   }
 
 }
+

@@ -37,8 +37,7 @@ export function Header() {
     )}>
       <div className="container mx-auto flex h-20 max-w-screen-2xl items-center justify-between px-4 md:px-6">
         <Link href="/" className="flex items-center space-x-2" onClick={isMobileMenuOpen ? closeMobileMenu : undefined}>
-          {/* Updated name styling to use font-pixel via typewriter-text which uses font-code */}
-          <div className="text-2xl md:text-3xl text-primary overflow-hidden whitespace-nowrap">
+          <div className="text-3xl md:text-4xl text-primary overflow-hidden whitespace-nowrap">
              <span className="font-pixel typewriter-text">{fullName}</span>
           </div>
         </Link>
@@ -76,7 +75,7 @@ export function Header() {
             <SheetContent side="right" className="w-full max-w-xs bg-background p-6">
               <div className="flex flex-col space-y-2">
                 <Link href="/" className="flex items-center space-x-2 mb-6" onClick={closeMobileMenu}>
-                   <div className="text-2xl text-primary overflow-hidden whitespace-nowrap">
+                   <div className="text-3xl text-primary overflow-hidden whitespace-nowrap">
                      <span className="font-pixel typewriter-text">{fullName}</span>
                   </div>
                 </Link>
