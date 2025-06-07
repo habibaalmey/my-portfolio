@@ -16,7 +16,7 @@ export default function HomePage() {
         <AboutMeSection />
         
         <ExperienceSection />
-        <div className="my-16 h-px w-full bg-[hsl(var(--background))]"></div>
+        {/* Separator between Work and Projects removed */}
         <ProjectsSection />
         
         {/* Separator between Projects and Highlights removed */}
