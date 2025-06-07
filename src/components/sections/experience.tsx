@@ -53,14 +53,16 @@ const experiences = [
 
 export function ExperienceSection() {
   return (
-    <SectionContainer id="experience" className="bg-muted/50">
-      <SectionTitle icon={Briefcase}>Internship Experience</SectionTitle>
+    <SectionContainer id="experience"> {/* Removed className="bg-muted/50" */}
+      <SectionTitle icon={Briefcase}>Work Experience</SectionTitle>
       
       <div className="relative pl-6 md:pl-8">
+        {/* Timeline line */}
         <div className="absolute left-0 top-0 bottom-0 w-1 bg-primary/20 rounded-full" style={{ transform: 'translateX(calc(0.75rem - 2px))' }}></div>
 
         {experiences.map((exp, index) => (
           <div key={index} className="relative mb-10 md:mb-12 last:mb-0">
+            {/* Timeline dot */}
             <div className="absolute -left-[calc(0.75rem-1px)] top-[0.3rem] h-3 w-3 rounded-full border-2 border-primary bg-background ring-4 ring-background"></div>
 
             <AnimatedSectionWrapper delay={`duration-700 delay-${index * 150}`}>

@@ -13,6 +13,9 @@ const aboutMeText = "I am a fourth-year Computer Science student with a passion 
 const skills = [
   'Python', 'JavaScript', 'SQL', 'Java', 'C++', 'HTML', 'CSS',
   'React', 'Next.js', 'Tailwind CSS', 'LangChain', 'RAG',
+  'Machine Learning', 'Data Analysis', 'AI Development', 'Power BI', 'Git',
+  'Python', 'JavaScript', 'SQL', 'Java', 'C++', 'HTML', 'CSS',
+  'React', 'Next.js', 'Tailwind CSS', 'LangChain', 'RAG',
   'Machine Learning', 'Data Analysis', 'AI Development', 'Power BI', 'Git'
 ];
 
@@ -24,10 +27,10 @@ const SkillBadge = ({ skill }: { skill: string }) => (
 
 export function AboutMeSection() {
   return (
-    <section id="about" className="bg-muted/50">
-      {/* Constrained content part */}
-      <div className="py-16 md:py-24">
-        <div className="container mx-auto max-w-5xl px-4 md:px-6">
+    <section id="about">
+      {/* Part 1: Summary, Contact, CV - Darker Background */}
+      <div className="bg-background">
+        <div className="container mx-auto max-w-5xl px-4 py-16 md:px-6 md:py-24">
           <SectionTitle>About Me</SectionTitle>
           <AnimatedSectionWrapper>
             <div className="max-w-4xl mx-auto text-center">
@@ -53,16 +56,16 @@ export function AboutMeSection() {
         </div>
       </div>
 
-      {/* Full-width skills ribbon part */}
-      <div className="w-full overflow-hidden pb-16 md:pb-24">
+      {/* Part 2: Full-width skills ribbon - Lighter Muted Background */}
+      <div className="w-full overflow-hidden bg-muted/50 py-16 md:py-24">
         <div className="relative flex group group-hover:pause-animation">
           <div className="flex animate-marquee whitespace-nowrap">
             {skills.map((skill, index) => <SkillBadge key={`s1-${index}`} skill={skill} />)}
-            {skills.map((skill, index) => <SkillBadge key={`s2-${index}`} skill={skill} />)}
+            {skills.map((skill, index) => <SkillBadge key={`s2-${index}`} skill={skill} />)} {/* Duplicate for seamless loop */}
           </div>
           <div className="absolute top-0 flex animate-marquee2 whitespace-nowrap">
             {skills.map((skill, index) => <SkillBadge key={`s3-${index}`} skill={skill} />)}
-            {skills.map((skill, index) => <SkillBadge key={`s4-${index}`} skill={skill} />)}
+            {skills.map((skill, index) => <SkillBadge key={`s4-${index}`} skill={skill} />)} {/* Duplicate for seamless loop */}
           </div>
         </div>
       </div>
