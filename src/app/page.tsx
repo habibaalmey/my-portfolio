@@ -14,13 +14,18 @@ export default function HomePage() {
       <Header />
       <main className="flex-grow">
         <AboutMeSection />
-        <ExperienceSection />
+        
         <ProjectsSection />
+        <div className="my-16 h-2 w-full bg-[hsl(var(--background))] shadow-lg"></div>
+        <ExperienceSection />
+        
         {/* Separator between Projects and Highlights removed */}
         <HighlightsSection />
+        
         {/* Separator between Highlights and Honors & Awards removed */}
         <HonorsAwardsSection />
-        {/* Separator below HonorsAwardsSection was already removed and will remain so */}
+        
+        <Separator className="my-12 md:my-16 separator-creative-dashed" />
       </main>
       <Footer />
     </div>

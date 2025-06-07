@@ -230,7 +230,7 @@
   }
 
   .bg-blue-gradient-flow {
-    background: linear-gradient(-45deg, hsl(var(--background)), hsl(var(--secondary)), hsl(var(--card)), hsl(210 70% 45%));
+    background: linear-gradient(-45deg, hsl(var(--background)), hsl(var(--secondary)), hsl(var(--card)), hsl(210 70% 45%), hsl(220 50% 25%));
     background-size: 300% 300%;
     animation: animate-gradient-x 20s ease infinite;
     border-top: 1px solid hsl(var(--border)/0.3); 
