@@ -56,34 +56,34 @@ body {
   }
 
   .dark {
-    /* Dark Theme (Dark Purple, Black, White) */
-    --background: 240 10% 4%; /* Very Dark Blue-Black, near black */
+    /* Dark Theme (Dark Purple, Black, White) - Adjusted for less intensity */
+    --background: 240 8% 8%; /* Slightly lighter dark blue-black */
     --foreground: 0 0% 98%; /* White */
 
-    --card: 240 8% 10%; /* Dark Gray, slightly lighter than background */
+    --card: 240 6% 12%; /* Slightly lighter dark gray for cards */
     --card-foreground: 0 0% 98%; /* White */
 
-    --popover: 240 8% 12%; /* Slightly lighter dark gray for popovers */
+    --popover: 240 8% 15%; /* Slightly lighter dark gray for popovers */
     --popover-foreground: 0 0% 98%; /* White */
 
-    --primary: 270 60% 50%; /* Vibrant Dark Purple */
+    --primary: 270 60% 55%; /* Vibrant Dark Purple (Kept for primary actions) */
     --primary-foreground: 0 0% 98%; /* White */
 
-    --secondary: 270 50% 65%; /* Lighter/Softer Purple */
+    --secondary: 270 50% 70%; /* Lighter/Softer Purple (Adjusted for harmony) */
     --secondary-foreground: 0 0% 98%; /* White */
 
-    --muted: 240 5% 18%; /* Muted Dark Gray */
-    --muted-foreground: 240 5% 65%; /* Light Gray for muted text */
+    --muted: 240 5% 20%; /* Muted Dark Gray (Slightly lighter) */
+    --muted-foreground: 240 5% 70%; /* Light Gray for muted text (Slightly brighter) */
 
-    --accent: 280 70% 60%; /* A slightly different, vibrant purple for accents */
+    --accent: 280 70% 65%; /* A slightly different, vibrant purple for accents (Kept for pop) */
     --accent-foreground: 0 0% 98%; /* White */
 
     --destructive: 0 70% 50%; 
     --destructive-foreground: 0 0% 98%;
 
-    --border: 240 5% 25%; /* Dark Gray border */
-    --input: 240 5% 25%; /* Dark Gray input background */
-    --ring: 270 60% 55%; /* Primary purple for focus rings */
+    --border: 240 5% 30%; /* Dark Gray border (Slightly lighter) */
+    --input: 240 5% 28%; /* Dark Gray input background (Slightly lighter) */
+    --ring: 270 60% 60%; /* Primary purple for focus rings (Slightly brighter) */
     
     --sidebar-background: 240 10% 6%;
     --sidebar-foreground: 0 0% 95%;

@@ -17,7 +17,7 @@ export function SectionTitle({ className, children, icon: Icon }: SectionTitlePr
         {Icon && <Icon className="h-8 w-8 text-accent" />}
         {children}
       </h2>
-      <div className="mt-3 h-1 w-20 bg-accent rounded-full"></div>
+      <div className="mt-4 h-1.5 w-28 bg-accent rounded-full"></div>
     </div>
   );
 }
