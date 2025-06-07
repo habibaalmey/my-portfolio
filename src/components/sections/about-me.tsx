@@ -10,13 +10,13 @@ import { Badge } from '@/components/ui/badge';
 
 const aboutMeText = "I am a fourth-year Computer Science student with a passion for the intersection of business and information technology. I am highly organized and detail-oriented, consistently delivering quality results in both academic research and industry projects. With particular expertise in data analysis and machine learning, my experience enables me to solve problems with technical precision while understanding business needs.";
 
+// Reduced list of skills for a shorter ribbon
 const skills = [
-  'Python', 'JavaScript', 'SQL', 'Java', 'C++', 'HTML', 'CSS',
-  'React', 'Next.js', 'Tailwind CSS', 'LangChain', 'RAG',
-  'Machine Learning', 'Data Analysis', 'AI Development', 'Power BI', 'Git',
-  'Python', 'JavaScript', 'SQL', 'Java', 'C++', 'HTML', 'CSS',
-  'React', 'Next.js', 'Tailwind CSS', 'LangChain', 'RAG',
-  'Machine Learning', 'Data Analysis', 'AI Development', 'Power BI', 'Git'
+  'Python', 'JavaScript', 'React', 'Next.js', 'Tailwind CSS',
+  'Machine Learning', 'AI Development', 'Git', 'SQL', 'Java',
+  // Duplicates for seamless loop
+  'Python', 'JavaScript', 'React', 'Next.js', 'Tailwind CSS',
+  'Machine Learning', 'AI Development', 'Git', 'SQL', 'Java',
 ];
 
 const SkillBadge = ({ skill }: { skill: string }) => (
@@ -61,11 +61,11 @@ export function AboutMeSection() {
         <div className="relative flex group group-hover:pause-animation">
           <div className="flex animate-marquee whitespace-nowrap">
             {skills.map((skill, index) => <SkillBadge key={`s1-${index}`} skill={skill} />)}
-            {skills.map((skill, index) => <SkillBadge key={`s2-${index}`} skill={skill} />)} {/* Duplicate for seamless loop */}
+            {skills.map((skill, index) => <SkillBadge key={`s2-${index}`} skill={skill} />)}
           </div>
           <div className="absolute top-0 flex animate-marquee2 whitespace-nowrap">
             {skills.map((skill, index) => <SkillBadge key={`s3-${index}`} skill={skill} />)}
-            {skills.map((skill, index) => <SkillBadge key={`s4-${index}`} skill={skill} />)} {/* Duplicate for seamless loop */}
+            {skills.map((skill, index) => <SkillBadge key={`s4-${index}`} skill={skill} />)}
           </div>
         </div>
       </div>

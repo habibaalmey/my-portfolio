@@ -168,4 +168,18 @@ body {
   .group-hover\:pause-animation:hover .animate-marquee2 {
     animation-play-state: paused;
   }
+
+  /* New slow-float animation for project cards */
+  @keyframes slow-float {
+    0%, 100% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-8px); /* Adjust for desired float height */
+    }
+  }
+
+  .animate-slow-float {
+    animation: slow-float 6s ease-in-out infinite; /* Adjust duration for speed */
+  }
 }

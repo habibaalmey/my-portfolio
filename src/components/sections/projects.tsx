@@ -31,7 +31,11 @@ export function ProjectsSection() {
       <SectionTitle icon={LayoutGrid}>Project Experience</SectionTitle>
       <div className="grid md:grid-cols-2 gap-8">
         {projects.map((project, index) => (
-          <AnimatedSectionWrapper key={project.title} delay={`duration-700 delay-${index * 150}`}>
+          <AnimatedSectionWrapper 
+            key={project.title} 
+            delay={`duration-700 delay-${index * 150}`}
+            className="animate-slow-float" // Added slow-float animation
+          >
             <Card className="flex flex-col h-full overflow-hidden shadow-lg transform transition-all duration-300 ease-in-out hover:shadow-2xl hover:scale-[1.02]">
               <CardHeader className="p-0">
                 <Image
