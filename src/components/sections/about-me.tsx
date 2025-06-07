@@ -84,11 +84,11 @@ export function AboutMeSection() {
       {/* Part 2: Full-width skills ribbon - Lighter Muted Background, reduced vertical padding */}
       <div className="w-full overflow-hidden bg-muted/50 py-4 md:py-6">
         <div className="relative flex group group-hover:pause-animation">
-          <div className="flex animate-marquee whitespace-nowrap">
+          <div className="flex animate-skills-marquee whitespace-nowrap">
             {skills.map((skill, index) => <SkillBadge key={`s1-${index}`} skill={skill} />)}
             {skills.map((skill, index) => <SkillBadge key={`s2-${index}`} skill={skill} />)}
           </div>
-          <div className="absolute top-0 flex animate-marquee2 whitespace-nowrap">
+          <div className="absolute top-0 flex animate-skills-marquee2 whitespace-nowrap">
             {skills.map((skill, index) => <SkillBadge key={`s3-${index}`} skill={skill} />)}
             {skills.map((skill, index) => <SkillBadge key={`s4-${index}`} skill={skill} />)}
           </div>

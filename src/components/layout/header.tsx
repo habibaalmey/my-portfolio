@@ -12,6 +12,7 @@ const navItems = [
   { name: 'About', href: '#about' },
   { name: 'Experience', href: '#experience' },
   { name: 'Projects', href: '#projects' },
+  { name: 'Journey Highlights', href: '#highlights' },
   { name: 'Honors & Awards', href: '#honors' },
 ];
 
@@ -42,7 +43,7 @@ export function Header() {
           </div>
         </Link>
         
-        <nav className="hidden md:flex items-center space-x-1">
+        <nav className="hidden md:flex items-center space-x-2">
           {navItems.map((item) => (
             <Link
               key={item.name}
