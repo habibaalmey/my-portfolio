@@ -56,34 +56,34 @@ body {
   }
 
   .dark {
-    /* Dark Theme (Dark Purple, Black, White) - Adjusted for less intensity */
-    --background: 240 8% 8%; /* Slightly lighter dark blue-black */
+    /* Dark Theme - Adjusted for less intensity */
+    --background: 240 10% 10%; /* Slightly lighter very dark blue-black */
     --foreground: 0 0% 98%; /* White */
 
-    --card: 240 6% 12%; /* Slightly lighter dark gray for cards */
-    --card-foreground: 0 0% 98%; /* White */
+    --card: 240 7% 15%; /* Dark gray for cards, slightly lighter */
+    --card-foreground: 0 0% 95%; /* Off-white text for cards */
 
-    --popover: 240 8% 15%; /* Slightly lighter dark gray for popovers */
+    --popover: 240 8% 18%; /* Dark gray for popovers */
     --popover-foreground: 0 0% 98%; /* White */
 
-    --primary: 270 60% 55%; /* Vibrant Dark Purple (Kept for primary actions) */
+    --primary: 270 65% 60%; /* Vibrant Dark Purple */
     --primary-foreground: 0 0% 98%; /* White */
 
-    --secondary: 270 50% 70%; /* Lighter/Softer Purple (Adjusted for harmony) */
+    --secondary: 270 55% 75%; /* Softer, lighter Purple */
     --secondary-foreground: 0 0% 98%; /* White */
 
-    --muted: 240 5% 20%; /* Muted Dark Gray (Slightly lighter) */
-    --muted-foreground: 240 5% 70%; /* Light Gray for muted text (Slightly brighter) */
+    --muted: 240 6% 25%; /* Muted Dark Gray */
+    --muted-foreground: 240 5% 75%; /* Light Gray for muted text */
 
-    --accent: 280 70% 65%; /* A slightly different, vibrant purple for accents (Kept for pop) */
+    --accent: 280 70% 70%; /* Vibrant accent purple */
     --accent-foreground: 0 0% 98%; /* White */
 
-    --destructive: 0 70% 50%; 
+    --destructive: 0 65% 55%; 
     --destructive-foreground: 0 0% 98%;
 
-    --border: 240 5% 30%; /* Dark Gray border (Slightly lighter) */
-    --input: 240 5% 28%; /* Dark Gray input background (Slightly lighter) */
-    --ring: 270 60% 60%; /* Primary purple for focus rings (Slightly brighter) */
+    --border: 240 5% 35%; /* Dark Gray border, slightly lighter */
+    --input: 240 5% 30%; /* Dark Gray input background */
+    --ring: 270 65% 65%; /* Primary purple for focus rings */
     
     --sidebar-background: 240 10% 6%;
     --sidebar-foreground: 0 0% 95%;
@@ -112,5 +112,15 @@ body {
   }
   section {
     @apply scroll-mt-20; /* Offset for fixed header */
+  }
+}
+
+@layer utilities {
+  @keyframes expand-width {
+    from { width: 0%; opacity: 0; }
+    to { width: 8rem; opacity: 1; } /* Increased width from w-28 (7rem) */
+  }
+  .animate-expand-width {
+    animation: expand-width 0.8s cubic-bezier(0.25, 0.1, 0.25, 1) forwards;
   }
 }

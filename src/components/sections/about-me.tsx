@@ -2,11 +2,10 @@
 "use client";
 
 import { Button } from '@/components/ui/button';
-import { UserCircle, Mail, Phone, Download } from 'lucide-react';
+import { UserCircle, Mail, Download } from 'lucide-react';
 import { SectionContainer } from '@/components/layout/section-container';
 import { SectionTitle } from '@/components/layout/section-title';
 import { AnimatedSectionWrapper } from '@/components/ui/animated-section-wrapper';
-import Image from 'next/image';
 import Link from 'next/link';
 
 const aboutMeText = "I am a fourth-year Computer Science student with a passion for the intersection of business and information technology. I am highly organized and detail-oriented, consistently delivering quality results in both academic research and industry projects. With particular expertise in data analysis and machine learning, my experience enables me to solve problems with technical precision while understanding business needs.";
@@ -17,16 +16,6 @@ export function AboutMeSection() {
       <SectionTitle icon={UserCircle}>About Me</SectionTitle>
       <AnimatedSectionWrapper>
         <div className="max-w-3xl mx-auto space-y-8 text-foreground/90 text-base md:text-lg leading-relaxed">
-          <div className="flex justify-center mb-8">
-            <Image 
-              src="https://placehold.co/200x200.png"
-              alt="Habiba Almetnawy"
-              width={200}
-              height={200}
-              className="rounded-full shadow-lg"
-              data-ai-hint="professional portrait"
-            />
-          </div>
           <p className="text-center md:text-left">{aboutMeText}</p>
           
           <div className="space-y-4 pt-6 border-t border-border/40">
@@ -34,11 +23,7 @@ export function AboutMeSection() {
             <div className="flex flex-col items-center md:items-start space-y-2 text-foreground/80">
               <div className="flex items-center space-x-3">
                 <Mail className="h-5 w-5 text-accent" />
-                <a href="mailto:habibaalmetnawy18@gmail.com" className="hover:text-primary transition-colors">habibaalmetnawy18@gmail.com</a>
-              </div>
-              <div className="flex items-center space-x-3">
-                <Phone className="h-5 w-5 text-accent" />
-                <span>+97105-0706-0274</span>
+                <a href="mailto:700040241@uaeu.ac.ae" className="hover:text-primary transition-colors">700040241@uaeu.ac.ae</a>
               </div>
             </div>
           </div>

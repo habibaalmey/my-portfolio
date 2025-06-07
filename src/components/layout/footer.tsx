@@ -13,10 +13,10 @@ export function Footer() {
           <Link href="https://github.com" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
             <Github className="h-5 w-5 text-muted-foreground transition-colors hover:text-foreground" />
           </Link>
-          <Link href="https://linkedin.com" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+          <Link href="https://www.linkedin.com/in/habibaalmetnawy" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
             <Linkedin className="h-5 w-5 text-muted-foreground transition-colors hover:text-foreground" />
           </Link>
-          <Link href="mailto:contact@aperture.com" aria-label="Email">
+          <Link href="mailto:700040241@uaeu.ac.ae" aria-label="Email">
             <Mail className="h-5 w-5 text-muted-foreground transition-colors hover:text-foreground" />
           </Link>
         </div>
