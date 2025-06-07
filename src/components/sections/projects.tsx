@@ -15,17 +15,17 @@ const projects = [
   {
     title: 'Guardians of Sustainability | Infrastructure Monitoring Platform',
     description: 'Developed an AI-powered urban infrastructure monitoring platform using Python, which reduced issue detection time by 40% and improved reporting accuracy by 30% through image recognition and Google Maps integration. Designed to support government and community efforts by automatically identifying and reporting environmental issues such as fallen trees and damaged infrastructure.',
-    image: 'https://placehold.co/800x576.png',
+    image: 'https://placehold.co/800x320.png', // Adjusted for wider aspect
     imageHint: 'urban AI monitoring',
     dates: 'November 2024 – February 2025',
     tags: ['AI', 'Python', 'Computer Vision', 'Google Maps API'],
-    link: '#', 
+    link: '#',
     size: 'large' as const,
   },
   {
     title: 'UAEU Internship Portal | University Internship Management System',
     description: "Created a comprehensive internship portal for UAEU's College of IT to handle the application, review, and tracking process. Manipulated SQL databases to manage user data and internship records, and built a dynamic interface using HTML, CSS, and JavaScript. The system features student workflows, admin dashboards, and company-specific access.",
-    image: 'https://placehold.co/600x416.png',
+    image: 'https://placehold.co/600x240.png', // Adjusted for wider aspect
     imageHint: 'web portal interface',
     dates: 'February 2025 – May 2025',
     tags: ['Web Development', 'SQL', 'JavaScript', 'HTML/CSS'],
@@ -35,7 +35,7 @@ const projects = [
   {
     title: 'Upcoming Project Alpha',
     description: "Details about this exciting new project will be revealed soon. Stay tuned for innovative solutions and cutting-edge technology.",
-    image: 'https://placehold.co/600x416.png',
+    image: 'https://placehold.co/600x240.png', // Adjusted for wider aspect
     imageHint: 'technology concept',
     dates: 'Coming Soon',
     tags: ['Innovation', 'R&D'],
@@ -45,17 +45,17 @@ const projects = [
   {
     title: 'Future Project Beta',
     description: "Currently in the planning phase, this project aims to address key challenges in its domain. More information to follow as development progresses.",
-    image: 'https://placehold.co/600x416.png',
+    image: 'https://placehold.co/600x240.png', // Adjusted for wider aspect
     imageHint: 'planning blueprint',
     dates: 'In Progress',
     tags: ['Strategy', 'Development'],
     link: '#',
-    size: 'normal' as const, 
+    size: 'normal' as const,
   },
   {
     title: 'Innovative Tech Solution Gamma',
     description: "A groundbreaking solution leveraging advanced AI to solve complex problems in the industry. Full details to be unveiled upon launch.",
-    image: 'https://placehold.co/800x576.png',
+    image: 'https://placehold.co/800x320.png', // Adjusted for wider aspect
     imageHint: 'AI solution abstract',
     dates: 'Q4 2025',
     tags: ['AI', 'Machine Learning', 'Innovation'],
@@ -68,7 +68,7 @@ export function ProjectsSection() {
   return (
     <SectionContainer id="projects" className="bg-muted/50 px-8 md:px-10">
       <SectionTitle icon={LayoutGrid}>Project Experience</SectionTitle>
-      
+
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
         {projects.map((project, index) => {
           let cardClasses = '';
@@ -76,21 +76,18 @@ export function ProjectsSection() {
             cardClasses = 'md:col-span-2';
           }
 
-          const imageHeightClass = project.size === 'large' ? 'h-72' : 'h-52'; 
-          const imageNextHeight = project.size === 'large' ? 288 : 208;
+          const imageHeightClass = project.size === 'large' ? 'h-80' : 'h-60'; // 320px or 240px
+          const imageNextHeight = project.size === 'large' ? 320 : 240;
           const imageNextWidth = project.size === 'large' ? 800 : 600;
 
 
           return (
-            <AnimatedSectionWrapper 
-              key={project.title} 
+            <AnimatedSectionWrapper
+              key={project.title}
               delay={`duration-700 delay-${index * 100}`}
-              className={cn(cardClasses, "group")}
+              className={cn(cardClasses, "group h-full")} // Ensure AnimatedSectionWrapper takes full height
             >
-              <Card className={cn(
-                "flex flex-col h-full overflow-hidden transform transition-all duration-300 ease-in-out group-hover:scale-[1.03] group-hover:rotate-[-1deg]",
-                "project-card-minecraft"
-              )}>
+              <Card className="project-card-minecraft"> {/* Apply the new base class */}
                 <CardHeader className="p-0">
                   <Image
                     src={project.image}
@@ -99,10 +96,10 @@ export function ProjectsSection() {
                     height={imageNextHeight}
                     className={cn("object-cover w-full", imageHeightClass)}
                     data-ai-hint={project.imageHint}
-                    priority={index < 2} 
+                    priority={index < 2}
                   />
                 </CardHeader>
-                <CardContent className="flex-grow p-6 space-y-3">
+                <CardContent className="flex-grow p-4 space-y-3"> {/* Adjusted padding */}
                   <CardTitle className="font-headline text-xl text-primary">{project.title}</CardTitle>
                   <div className="flex items-center text-sm text-muted-foreground">
                     <CalendarDays className="mr-2 h-4 w-4" />
@@ -118,7 +115,7 @@ export function ProjectsSection() {
                   </div>
                 </CardContent>
                 {project.link && project.link !== '#' && (
-                  <div className="p-6 pt-0">
+                  <div className="p-4 pt-0"> {/* Adjusted padding */}
                     <Button asChild variant="default" size="sm" className="group/button mt-2">
                       <Link href={project.link} target="_blank" rel="noopener noreferrer">
                         View Project <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover/button:translate-x-1" />
@@ -134,3 +131,5 @@ export function ProjectsSection() {
     </SectionContainer>
   );
 }
+
+    

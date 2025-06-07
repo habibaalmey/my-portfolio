@@ -45,18 +45,15 @@ export function HonorsAwardsSection() {
         <SectionTitle icon={Award}>Honors &amp; Awards</SectionTitle>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-x-6 gap-y-8 pt-8">
           {honorsAndAwards.map((item, index) => (
-            <AnimatedSectionWrapper 
-              key={item.title} 
+            <AnimatedSectionWrapper
+              key={item.title}
               delay={`duration-700 delay-${index * 150}`}
-              className="h-full" 
+              className="h-full"
             >
-              <Card className={cn(
-                "flex flex-col text-center h-full card-achievement p-4"
-              )}>
+              <Card className="card-achievement"> {/* Apply the new base class */}
                 <div className="achievement-icon-container">
                   <item.icon />
                 </div>
-                
                 <CardHeader className="pb-2 pt-0 px-3">
                   <CardTitle className="font-pixel text-base text-primary uppercase leading-tight">
                     {item.title}
@@ -80,3 +77,5 @@ export function HonorsAwardsSection() {
     </section>
   );
 }
+
+    
