@@ -5,73 +5,73 @@
 
 @layer base {
   :root {
-    /* Updated Dark Theme (Slightly Brighter Dark Purple/Black/White Focus) */
-    --background: 240 10% 10%; /* Very Dark Blue-Black */
-    --foreground: 0 0% 95%;   /* Off-White */
+    /* Dark Blue & Yellow Theme */
+    --background: 220 60% 12%; /* Very Dark Blue */
+    --foreground: 50 100% 90%; /* Light Yellowish White */
 
-    --card: 240 8% 15%;     /* Darker Gray for cards */
-    --card-foreground: 0 0% 92%; /* Lighter Off-White text */
+    --card: 220 50% 18%;     /* Darker Blue for cards */
+    --card-foreground: 50 90% 88%; /* Lighter Yellowish text */
 
-    --popover: 240 7% 18%;    /* Dark Gray for popovers */
-    --popover-foreground: 0 0% 95%;
+    --popover: 220 45% 16%;    /* Dark Blue for popovers */
+    --popover-foreground: 50 100% 90%;
 
-    --primary: 270 60% 65%; /* Vibrant Dark Purple */
-    --primary-foreground: 0 0% 98%; /* White text on primary */
+    --primary: 50 100% 60%; /* Vibrant Yellow */
+    --primary-foreground: 220 60% 10%; /* Very Dark Blue text on primary */
 
-    --secondary: 270 50% 75%; /* Lighter Purple */
-    --secondary-foreground: 0 0% 98%; 
+    --secondary: 210 50% 35%; /* Medium Blue */
+    --secondary-foreground: 50 100% 90%; 
 
-    --muted: 240 5% 20%;      /* Muted Dark Gray for ribbon/dividers */
-    --muted-foreground: 240 5% 65%; /* Light Gray for muted text */
+    --muted: 220 30% 25%;      /* Muted Dark Blue for dividers/less emphasis */
+    --muted-foreground: 220 15% 65%; /* Lighter Grayish Blue for muted text */
 
-    --accent: 280 70% 70%;    /* Vibrant accent purple (can be same as primary or different) */
-    --accent-foreground: 0 0% 98%;
+    --accent: 45 100% 55%;    /* Slightly different Yellow/Orange for accents */
+    --accent-foreground: 220 60% 10%;
 
     --destructive: 0 70% 55%; 
     --destructive-foreground: 0 0% 98%;
 
-    --border: 240 5% 30%;     /* Dark Gray border */
-    --input: 240 5% 28%;      /* Dark Gray input background */
-    --ring: 270 60% 65%;      /* Primary purple for focus rings */
+    --border: 220 40% 30%;     /* Medium Dark Blue border */
+    --input: 220 40% 22%;      /* Dark Blue input background */
+    --ring: 50 100% 60%;      /* Yellow for focus rings */
 
     --radius: 0.5rem;
 
-    --sidebar-background: 240 10% 6%;
-    --sidebar-foreground: 0 0% 95%;
-    --sidebar-primary: 270 60% 55%;
-    --sidebar-primary-foreground: 0 0% 98%;
-    --sidebar-accent: 280 70% 65%;
-    --sidebar-accent-foreground: 0 0% 98%;
-    --sidebar-border: 240 5% 20%;
-    --sidebar-ring: 270 60% 55%;
+    --sidebar-background: 220 60% 8%;
+    --sidebar-foreground: 50 100% 90%;
+    --sidebar-primary: 50 100% 55%;
+    --sidebar-primary-foreground: 220 60% 10%;
+    --sidebar-accent: 45 100% 50%;
+    --sidebar-accent-foreground: 220 60% 10%;
+    --sidebar-border: 220 40% 20%;
+    --sidebar-ring: 50 100% 55%;
 
-    --chart-1: 270 60% 55%;
-    --chart-2: 300 50% 60%;
-    --chart-3: 240 40% 65%;
-    --chart-4: 270 20% 40%;
-    --chart-5: 270 50% 75%;
+    --chart-1: 50 100% 55%;
+    --chart-2: 45 90% 60%;
+    --chart-3: 210 40% 65%;
+    --chart-4: 220 30% 40%;
+    --chart-5: 50 80% 75%;
   }
 
-  .dark { /* Ensure dark theme variables are applied if class is used, though default is dark now */
-    --background: 240 10% 10%;
-    --foreground: 0 0% 95%;
-    --card: 240 8% 15%;
-    --card-foreground: 0 0% 92%;
-    --popover: 240 7% 18%;
-    --popover-foreground: 0 0% 95%;
-    --primary: 270 60% 65%;
-    --primary-foreground: 0 0% 98%;
-    --secondary: 270 50% 75%;
-    --secondary-foreground: 0 0% 98%;
-    --muted: 240 5% 20%;
-    --muted-foreground: 240 5% 65%;
-    --accent: 280 70% 70%;
-    --accent-foreground: 0 0% 98%;
+  .dark {
+    --background: 220 60% 12%;
+    --foreground: 50 100% 90%;
+    --card: 220 50% 18%;
+    --card-foreground: 50 90% 88%;
+    --popover: 220 45% 16%;
+    --popover-foreground: 50 100% 90%;
+    --primary: 50 100% 60%;
+    --primary-foreground: 220 60% 10%;
+    --secondary: 210 50% 35%;
+    --secondary-foreground: 50 100% 90%;
+    --muted: 220 30% 25%;
+    --muted-foreground: 220 15% 65%;
+    --accent: 45 100% 55%;
+    --accent-foreground: 220 60% 10%;
     --destructive: 0 70% 55%;
     --destructive-foreground: 0 0% 98%;
-    --border: 240 5% 30%;
-    --input: 240 5% 28%;
-    --ring: 270 60% 65%;
+    --border: 220 40% 30%;
+    --input: 220 40% 22%;
+    --ring: 50 100% 60%;
   }
 }
 
@@ -80,7 +80,7 @@
     @apply border-border;
   }
   html {
-    cursor: url("data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M12 2L13.5 8.5L20 10L13.5 11.5L12 18L10.5 11.5L4 10L10.5 8.5L12 2Z' stroke='hsl(var(--foreground))' stroke-width='1.5' stroke-linejoin='round'/%3E%3C/svg%3E") 12 12, auto;
+    cursor: url("data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M12 2L12 22M2 12L22 12' stroke='hsl(var(--foreground))' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E") 12 12, auto;
   }
   body {
     @apply text-foreground;
@@ -93,14 +93,14 @@
     @apply scroll-mt-20; /* Offset for fixed header */
   }
   a, button, [role='button'], input[type='submit'], input[type='button'], select, textarea, input[type='text'], input[type='email'], input[type='search'], input[type='checkbox'], input[type='radio'] {
-    cursor: url("data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M12 2L13.5 8.5L20 10L13.5 11.5L12 18L10.5 11.5L4 10L10.5 8.5L12 2Z' fill='hsl(var(--primary))' stroke='hsl(var(--primary))' stroke-width='1.5' stroke-linejoin='round'/%3E%3C/svg%3E") 12 12, pointer;
+    cursor: url("data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' fill='hsl(var(--primary))' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M12 0L14.472 9.528L24 12L14.472 14.472L12 24L9.528 14.472L0 12L9.528 9.528L12 0Z'/%3E%3C/svg%3E") 12 12, pointer;
   }
 }
 
 @layer utilities {
   @keyframes expand-width {
     from { width: 0%; opacity: 0; }
-    to { width: 100%; opacity: 1; } /* Adjusted for section title ribbons */
+    to { width: 100%; opacity: 1; } 
   }
   .animate-expand-width { 
     animation: expand-width 0.8s cubic-bezier(0.25, 0.1, 0.25, 1) forwards;
@@ -114,18 +114,7 @@
       background-position: 100% 50%;
     }
   }
-  .animate-gradient-ribbon {
-    background-size: 300% 300%; 
-    background-image: linear-gradient(
-      to right,
-      hsl(var(--primary)),
-      hsl(var(--accent)),
-      hsl(var(--secondary)),
-      hsl(var(--accent)),
-      hsl(var(--primary))
-    );
-    animation: animate-gradient-x 8s ease infinite, expand-width 0.8s cubic-bezier(0.25, 0.1, 0.25, 1) forwards;
-  }
+  /* Removed .animate-gradient-ribbon as titles have new style */
 
   /* Marquee animation for skills ribbon */
   @keyframes marquee {
@@ -148,16 +137,26 @@
   .group-hover\:pause-animation:hover .animate-marquee2 {
     animation-play-state: paused;
   }
-
-  @keyframes slow-float {
-    0%, 100% {
-      transform: translateY(0);
-    }
-    50% {
-      transform: translateY(-6px);
-    }
+  
+  /* Typewriter animation */
+  @keyframes typing {
+    from { width: 0 }
+    to { width: 100% }
   }
-  .animate-slow-float {
-    animation: slow-float 4s ease-in-out infinite;
+  @keyframes blink-caret {
+    from, to { border-color: transparent }
+    50% { border-color: hsl(var(--primary)); }
+  }
+  .typewriter-text {
+    overflow: hidden; /* Ensures the text is not visible until typed */
+    border-right: .15em solid hsl(var(--primary)); /* The typewriter cursor */
+    white-space: nowrap; /* Keeps the content on a single line */
+    margin: 0 auto; /* Gives that scrolling effect as the typing happens */
+    letter-spacing: .05em; /* Adjust as needed */
+    animation: 
+      typing 3.5s steps(40, end),
+      blink-caret .75s step-end infinite;
   }
 }
+
+    

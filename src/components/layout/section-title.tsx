@@ -1,35 +1,33 @@
+
 import type { PropsWithChildren } from 'react';
 import { cn } from '@/lib/utils';
 import type { LucideIcon } from 'lucide-react';
 
 interface SectionTitleProps extends PropsWithChildren {
   className?: string;
-  icon?: LucideIcon;
+  icon?: LucideIcon; // Icon prop remains for potential future use but won't be displayed with new style
 }
 
-export function SectionTitle({ className, children, icon: Icon }: SectionTitleProps) {
-  const isProjectExperienceTitle = children === 'Project Experience';
+export function SectionTitle({ className, children }: SectionTitleProps) {
+  const isProjectExperienceTitle = children === 'Project Experience'; // Still used for potential different alignments
+
   return (
     <div className={cn(
-      "mb-16 md:mb-20 flex flex-col items-center", // Increased bottom margin
-      isProjectExperienceTitle ? "md:items-start" : "items-center" // Align project experience title to start on md screens
+      "mb-16 md:mb-20 flex flex-col", 
+      isProjectExperienceTitle ? "items-center md:items-start" : "items-center" 
     )}>
-      <h2 className={cn(
-        'font-headline font-bold text-primary flex items-center gap-3',
-        isProjectExperienceTitle 
-          ? 'text-5xl md:text-7xl text-left' // Larger size for Project Experience
-          : 'text-3xl md:text-4xl', 
-        className
-      )}>
-        {Icon && !isProjectExperienceTitle && <Icon className="h-8 w-8 text-accent" />}
-        {children}
-      </h2>
-      {!isProjectExperienceTitle && (
-         <div className="mt-4 h-1.5 w-40 rounded-full animate-gradient-ribbon"></div>
-      )}
-      {isProjectExperienceTitle && (
-         <div className="mt-6 h-2 w-full max-w-md rounded-full animate-gradient-ribbon md:self-start"></div> // Wider ribbon for project title
-      )}
+      <div className="bg-muted/30 p-2 md:p-3 inline-block rounded-sm shadow-md">
+        <h2 className={cn(
+          'font-pixel text-xl md:text-2xl text-primary uppercase tracking-wider',
+          isProjectExperienceTitle ? 'md:text-3xl' : '', // Slightly larger for Project Experience
+          className
+        )}>
+          {children}
+        </h2>
+      </div>
+      {/* Removed the animated gradient ribbon */}
     </div>
   );
 }
+
+    

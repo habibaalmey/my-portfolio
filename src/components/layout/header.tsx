@@ -18,6 +18,8 @@ const navItems = [
 export function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [displayName, setDisplayName] = useState('');
+  const fullName = "Habiba Almetnawy";
 
   useEffect(() => {
     const handleScroll = () => {
@@ -27,16 +29,35 @@ export function Header() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  useEffect(() => {
+    // Typing animation for the name
+    setDisplayName(''); // Reset on mount/change
+    let i = 0;
+    const typingInterval = setInterval(() => {
+      if (i < fullName.length) {
+        setDisplayName(prev => prev + fullName.charAt(i));
+        i++;
+      } else {
+        clearInterval(typingInterval);
+        // Optional: Blinking caret after typing (handled by CSS)
+      }
+    }, 100); // Adjust typing speed here
+    return () => clearInterval(typingInterval);
+  }, [fullName]);
+
+
   const closeMobileMenu = () => setIsMobileMenuOpen(false);
 
   return (
     <header className={cn(
       "sticky top-0 z-50 w-full border-b transition-colors duration-300",
-      isScrolled ? "border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60" : "border-transparent bg-transparent"
+      isScrolled ? "border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60" : "border-transparent bg-background" // Ensure background is always solid for new theme
     )}>
-      <div className="container mx-auto flex h-16 max-w-screen-2xl items-center justify-between px-4 md:px-6">
+      <div className="container mx-auto flex h-20 max-w-screen-2xl items-center justify-between px-4 md:px-6">
         <Link href="/" className="flex items-center space-x-2" onClick={isMobileMenuOpen ? closeMobileMenu : undefined}>
-          <span className="font-calligraphy text-3xl text-primary">Habiba Almetnawy</span>
+          <div className="font-code text-2xl md:text-3xl text-primary overflow-hidden whitespace-nowrap">
+            <span className="typewriter-text">{fullName}</span> {/* Static full name for layout, actual typing handled by CSS on this element */}
+          </div>
         </Link>
         
         <nav className="hidden md:flex items-center space-x-1">
@@ -72,7 +93,9 @@ export function Header() {
             <SheetContent side="right" className="w-full max-w-xs bg-background p-6">
               <div className="flex flex-col space-y-2">
                 <Link href="/" className="flex items-center space-x-2 mb-6" onClick={closeMobileMenu}>
-                  <span className="font-calligraphy text-3xl text-primary">Habiba Almetnawy</span>
+                   <div className="font-code text-2xl text-primary overflow-hidden whitespace-nowrap">
+                     <span className="typewriter-text">{fullName}</span>
+                  </div>
                 </Link>
                 {navItems.map((item) => (
                   <Link
@@ -101,3 +124,5 @@ export function Header() {
     </header>
   );
 }
+
+    

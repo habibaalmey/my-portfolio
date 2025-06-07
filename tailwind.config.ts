@@ -12,9 +12,10 @@ export default {
     extend: {
       fontFamily: {
         body: ['Poppins', 'sans-serif'],
-        headline: ['Poppins', 'sans-serif'],
-        calligraphy: ['Space Grotesk', 'sans-serif'], 
-        code: ['monospace'],
+        headline: ['Space Grotesk', 'sans-serif'], // Kept for potential future use, but titles use pixel
+        calligraphy: ['Space Grotesk', 'sans-serif'], // For Name in header (before typing animation)
+        code: ['Source Code Pro', 'monospace'], // For typing animation name
+        pixel: ['"Press Start 2P"', 'cursive'], // For section titles
       },
       colors: {
         background: 'hsl(var(--background))',
@@ -90,37 +91,42 @@ export default {
             height: '0',
           },
         },
-        'animate-gradient-x': { /* Already exists for ribbon, reusable */
+        'animate-gradient-x': { 
           '0%, 100%': { backgroundPosition: '0% 50%' },
           '50%': { backgroundPosition: '100% 50%' },
         },
-        'expand-width': { /* Already exists for ribbon */
+        'expand-width': { 
           from: { width: '0%', opacity: '0' },
           to: { width: '100%', opacity: '1' },
         },
-        'marquee': { /* Already exists for skills ribbon */
+        'marquee': { 
           '0%': { transform: 'translateX(0%)' },
           '100%': { transform: 'translateX(-100%)' },
         },
-        'marquee2': { /* Already exists for skills ribbon */
+        'marquee2': { 
           '0%': { transform: 'translateX(100%)' },
           '100%': { transform: 'translateX(0%)' },
         },
-        'slow-float': { /* Already exists for project cards (though unused now) */
-          '0%, 100%': { transform: 'translateY(0)' },
-          '50%': { transform: 'translateY(-6px)' },
+        'typing': {
+          from: { width: '0' },
+          to: { width: '100%' }
         },
+        'blink-caret': {
+          'from, to': { borderColor: 'transparent' },
+          '50%': { borderColor: 'hsl(var(--primary))' }
+        }
       },
       animation: {
         'accordion-down': 'accordion-down 0.2s ease-out',
         'accordion-up': 'accordion-up 0.2s ease-out',
-        'gradient-ribbon': 'animate-gradient-x 8s ease infinite, expand-width 0.8s cubic-bezier(0.25, 0.1, 0.25, 1) forwards', /* Existing */
-        'marquee': 'marquee 60s linear infinite', /* Existing */
-        'marquee2': 'marquee2 60s linear infinite', /* Existing */
-        'slow-float': 'slow-float 4s ease-in-out infinite', /* Existing */
-        'body-gradient': 'animate-gradient-x 25s ease infinite', /* New for body background */
+        'marquee': 'marquee 60s linear infinite', 
+        'marquee2': 'marquee2 60s linear infinite', 
+        'body-gradient': 'animate-gradient-x 25s ease infinite',
+        'typewriter': 'typing 3.5s steps(40, end), blink-caret .75s step-end infinite',
       },
     },
   },
   plugins: [require('tailwindcss-animate')],
 } satisfies Config;
+
+    
