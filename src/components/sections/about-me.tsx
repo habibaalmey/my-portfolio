@@ -31,8 +31,9 @@ export function AboutMeSection() {
   return (
     <section id="about">
       {/* Part 1: Summary, Contact, CV - Darker Background */}
-      <div className="bg-background">
-        <div className="container mx-auto max-w-5xl px-4 py-16 md:px-6 md:py-24">
+      <div className="bg-background relative"> {/* Added relative for starfield positioning */}
+        <div className="absolute inset-0 -z-10 overflow-hidden bg-starfield opacity-50"></div>
+        <div className="container mx-auto max-w-5xl px-4 py-16 md:px-6 md:py-24 relative z-10"> {/* Added z-10 */}
           <SectionTitle>About Me</SectionTitle>
           <AnimatedSectionWrapper>
             <div className="flex flex-col md:flex-row items-center md:items-start gap-10 md:gap-16">
@@ -97,3 +98,4 @@ export function AboutMeSection() {
     </section>
   );
 }
+

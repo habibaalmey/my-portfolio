@@ -176,6 +176,19 @@
     animation: binary-flow 7s linear infinite;
     z-index: 0; 
   }
+
+  .bg-starfield {
+    background-image:
+      radial-gradient(1px 1px at 20px 30px, hsl(var(--foreground) / 0.3), transparent),
+      radial-gradient(1px 1px at 40px 70px, hsl(var(--foreground) / 0.2), transparent),
+      radial-gradient(1.5px 1.5px at 50px 160px, hsl(var(--foreground) / 0.4), transparent),
+      radial-gradient(1px 1px at 90px 40px, hsl(var(--foreground) / 0.3), transparent),
+      radial-gradient(1.5px 1.5px at 130px 80px, hsl(var(--foreground) / 0.2), transparent),
+      radial-gradient(1px 1px at 160px 120px, hsl(var(--foreground) / 0.4), transparent),
+      radial-gradient(1px 1px at 180px 50px, hsl(var(--foreground) / 0.3), transparent);
+    background-size: 200px 200px;
+    background-position: 0 0;
+  }
 }
 
 @layer utilities {
@@ -269,3 +282,4 @@
   }
 
 }
+
