@@ -40,10 +40,8 @@ const honorsAndAwards = [
 
 export function HonorsAwardsSection() {
   return (
-    <section id="honors" className="py-20 md:py-28 relative overflow-hidden">
-      <div className="binary-code-ribbon-horizontal top-0"></div>
-      
-      <div className="container mx-auto max-w-5xl px-4 md:px-6 relative z-10 pt-12 pb-12">
+    <section id="honors" className="py-20 md:py-28 relative">
+      <div className="container mx-auto max-w-5xl px-4 md:px-6 relative z-10">
         <SectionTitle icon={Award}>Honors &amp; Awards</SectionTitle>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-x-6 gap-y-8 pt-8">
           {honorsAndAwards.map((item, index) => (
@@ -53,8 +51,7 @@ export function HonorsAwardsSection() {
               className="h-full" 
             >
               <Card className={cn(
-                "flex flex-col text-center h-full card-achievement p-4", 
-                "transform transition-all duration-300 ease-in-out hover:scale-[1.03]"
+                "flex flex-col text-center h-full card-achievement p-4"
               )}>
                 <div className="achievement-icon-container">
                   <item.icon />
@@ -80,7 +77,6 @@ export function HonorsAwardsSection() {
           ))}
         </div>
       </div>
-      <div className="binary-code-ribbon-horizontal bottom-0"></div>
     </section>
   );
 }

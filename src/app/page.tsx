@@ -19,6 +19,9 @@ export default function HomePage() {
           <Separator className="my-16 md:my-20 bg-border/60" />
         </div>
         <HonorsAwardsSection />
+        <div className="container mx-auto max-w-5xl px-4 md:px-6">
+          <Separator className="my-16 md:my-20 separator-creative-dashed" />
+        </div>
       </main>
       <Footer />
     </div>

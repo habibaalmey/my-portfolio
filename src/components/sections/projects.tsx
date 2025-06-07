@@ -15,7 +15,7 @@ const projects = [
   {
     title: 'Guardians of Sustainability | Infrastructure Monitoring Platform',
     description: 'Developed an AI-powered urban infrastructure monitoring platform using Python, which reduced issue detection time by 40% and improved reporting accuracy by 30% through image recognition and Google Maps integration. Designed to support government and community efforts by automatically identifying and reporting environmental issues such as fallen trees and damaged infrastructure.',
-    image: 'https://placehold.co/800x600.png',
+    image: 'https://placehold.co/800x576.png', // Adjusted for h-72
     imageHint: 'urban AI monitoring',
     dates: 'November 2024 – February 2025',
     tags: ['AI', 'Python', 'Computer Vision', 'Google Maps API'],
@@ -25,7 +25,7 @@ const projects = [
   {
     title: 'UAEU Internship Portal | University Internship Management System',
     description: "Created a comprehensive internship portal for UAEU's College of IT to handle the application, review, and tracking process. Manipulated SQL databases to manage user data and internship records, and built a dynamic interface using HTML, CSS, and JavaScript. The system features student workflows, admin dashboards, and company-specific access.",
-    image: 'https://placehold.co/600x400.png',
+    image: 'https://placehold.co/600x416.png', // Adjusted for h-52
     imageHint: 'web portal interface',
     dates: 'February 2025 – May 2025',
     tags: ['Web Development', 'SQL', 'JavaScript', 'HTML/CSS'],
@@ -35,7 +35,7 @@ const projects = [
   {
     title: 'Upcoming Project Alpha',
     description: "Details about this exciting new project will be revealed soon. Stay tuned for innovative solutions and cutting-edge technology.",
-    image: 'https://placehold.co/600x400.png',
+    image: 'https://placehold.co/600x416.png', // Adjusted for h-52
     imageHint: 'technology concept',
     dates: 'Coming Soon',
     tags: ['Innovation', 'R&D'],
@@ -45,7 +45,7 @@ const projects = [
   {
     title: 'Future Project Beta',
     description: "Currently in the planning phase, this project aims to address key challenges in its domain. More information to follow as development progresses.",
-    image: 'https://placehold.co/600x400.png',
+    image: 'https://placehold.co/600x416.png', // Adjusted for h-52
     imageHint: 'planning blueprint',
     dates: 'In Progress',
     tags: ['Strategy', 'Development'],
@@ -55,7 +55,7 @@ const projects = [
   {
     title: 'Innovative Tech Solution Gamma',
     description: "A groundbreaking solution leveraging advanced AI to solve complex problems in the industry. Full details to be unveiled upon launch.",
-    image: 'https://placehold.co/800x600.png',
+    image: 'https://placehold.co/800x576.png', // Adjusted for h-72
     imageHint: 'AI solution abstract',
     dates: 'Q4 2025',
     tags: ['AI', 'Machine Learning', 'Innovation'],
@@ -66,25 +66,20 @@ const projects = [
 
 export function ProjectsSection() {
   return (
-    <SectionContainer id="projects" className="bg-muted/50">
+    <SectionContainer id="projects" className="bg-muted/50 px-8 md:px-10">
       <SectionTitle icon={LayoutGrid}>Project Experience</SectionTitle>
       
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
         {projects.map((project, index) => {
           let cardClasses = '';
-          // Full width for large projects on md screens and up
-          // Half width for normal projects on md screens and up
           if (project.size === 'large') {
             cardClasses = 'md:col-span-2';
           } else {
-            // For normal projects, they naturally fit into the 2-column md grid
-            // No specific class needed unless there's specific ordering.
-            // If md:grid-cols-2, index 1 and 2 would naturally be side-by-side if project 0 is md:col-span-2.
+             // Normal items take one column on md screens
           }
 
-
-          const imageHeightClass = project.size === 'large' ? 'h-80' : 'h-60'; // Adjusted heights
-          const imageNextHeight = project.size === 'large' ? 320 : 240;
+          const imageHeightClass = project.size === 'large' ? 'h-72' : 'h-52'; 
+          const imageNextHeight = project.size === 'large' ? 288 : 208;
           const imageNextWidth = project.size === 'large' ? 800 : 600;
 
 
