@@ -1,50 +1,35 @@
+
 "use client";
 
 import Image from 'next/image';
-import Link from 'next/link';
-import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
-import { Github, ExternalLink, LayoutGrid } from 'lucide-react';
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import { LayoutGrid, CalendarDays } from 'lucide-react';
 import { SectionContainer } from '@/components/layout/section-container';
 import { SectionTitle } from '@/components/layout/section-title';
 import { AnimatedSectionWrapper } from '@/components/ui/animated-section-wrapper';
-import { Badge } from '@/components/ui/badge';
 
 const projects = [
   {
-    title: 'E-commerce Platform',
-    description: 'A full-featured e-commerce platform with a modern UI, product management, user authentication, and payment gateway integration.',
+    title: 'Guardians of Sustainability | Infrastructure Monitoring Platform',
+    description: 'Developed an AI-powered urban infrastructure monitoring platform using Python, which reduced issue detection time by 40% and improved reporting accuracy by 30% through image recognition and Google Maps integration. Designed to support government and community efforts by automatically identifying and reporting environmental issues such as fallen trees and damaged infrastructure.',
     image: 'https://placehold.co/600x400.png',
-    imageHint: 'web application',
-    tags: ['Next.js', 'Tailwind CSS', 'Stripe', 'Firebase'],
-    liveLink: '#',
-    githubLink: '#',
+    imageHint: 'urban infrastructure monitoring',
+    dates: 'November 2024 – February 2025',
   },
   {
-    title: 'Task Management App',
-    description: 'A collaborative task management application designed to streamline team workflows with features like boards, lists, and cards.',
+    title: 'UAEU Internship Portal | University Internship Management System',
+    description: "Created a comprehensive internship portal for UAEU's College of IT to handle the application, review, and tracking process. Manipulated SQL databases to manage user data and internship records, and built a dynamic interface using HTML, CSS, and JavaScript. The system features student workflows, admin dashboards, and company-specific access.",
     image: 'https://placehold.co/600x400.png',
-    imageHint: 'mobile app',
-    tags: ['React Native', 'Node.js', 'MongoDB', 'GraphQL'],
-    liveLink: '#',
-    githubLink: '#',
-  },
-  {
-    title: 'Data Analytics Dashboard',
-    description: 'An interactive dashboard for visualizing complex datasets, providing insights through charts, graphs, and customizable reports.',
-    image: 'https://placehold.co/600x400.png',
-    imageHint: 'data visualization',
-    tags: ['Python (Flask)', 'D3.js', 'PostgreSQL', 'Docker'],
-    liveLink: '#',
-    githubLink: '#',
+    imageHint: 'web portal interface',
+    dates: 'February 2025 – May 2025',
   },
 ];
 
 export function ProjectsSection() {
   return (
     <SectionContainer id="projects" className="bg-muted/50">
-      <SectionTitle icon={LayoutGrid}>Projects</SectionTitle>
-      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <SectionTitle icon={LayoutGrid}>Project Experience</SectionTitle>
+      <div className="grid md:grid-cols-2 gap-8">
         {projects.map((project, index) => (
           <AnimatedSectionWrapper key={project.title} delay={`duration-700 delay-${index * 150}`}>
             <Card className="flex flex-col h-full overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300">
@@ -60,33 +45,15 @@ export function ProjectsSection() {
               </CardHeader>
               <CardContent className="flex-grow p-6 space-y-3">
                 <CardTitle className="font-headline text-xl text-primary">{project.title}</CardTitle>
-                <div className="flex flex-wrap gap-2">
-                  {project.tags.map(tag => (
-                    <Badge key={tag} variant="secondary" className="bg-accent/10 text-accent border-accent/20">{tag}</Badge>
-                  ))}
+                <div className="flex items-center text-sm text-muted-foreground">
+                  <CalendarDays className="mr-2 h-4 w-4" />
+                  {project.dates}
                 </div>
                 <CardDescription className="text-foreground/80 text-sm leading-relaxed">
                   {project.description}
                 </CardDescription>
               </CardContent>
-              <CardFooter className="p-6 pt-0 flex space-x-3">
-                {project.liveLink && (
-                  <Button asChild variant="outline" size="sm" className="border-accent text-accent hover:bg-accent/10 hover:text-accent">
-                    <Link href={project.liveLink} target="_blank" rel="noopener noreferrer">
-                      <ExternalLink className="mr-2 h-4 w-4" />
-                      Live Demo
-                    </Link>
-                  </Button>
-                )}
-                {project.githubLink && (
-                  <Button asChild variant="ghost" size="sm" className="text-foreground/80 hover:text-foreground hover:bg-muted">
-                    <Link href={project.githubLink} target="_blank" rel="noopener noreferrer">
-                      <Github className="mr-2 h-4 w-4" />
-                      GitHub
-                    </Link>
-                  </Button>
-                )}
-              </CardFooter>
+              {/* CardFooter can be added here if links (Live Demo, GitHub) become available */}
             </Card>
           </AnimatedSectionWrapper>
         ))}

@@ -1,3 +1,4 @@
+
 "use client";
 
 import { useState } from 'react';
@@ -7,15 +8,15 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Textarea } from '@/components/ui/textarea';
 import { tailorAboutMe, type TailorAboutMeInput } from '@/ai/flows/tailor-about-me';
-import { Loader2, Wand2, UserCircle } from 'lucide-react';
+import { Loader2, Wand2, UserCircle, Mail, Phone, Download } from 'lucide-react';
 import { SectionContainer } from '@/components/layout/section-container';
 import { SectionTitle } from '@/components/layout/section-title';
 import { AnimatedSectionWrapper } from '@/components/ui/animated-section-wrapper';
 import Image from 'next/image';
 import { useToast } from '@/hooks/use-toast';
+import Link from 'next/link';
 
-
-const defaultAboutMe = "I'm a passionate and results-oriented professional with a strong background in [Your Field/Industry]. I thrive on tackling complex challenges and delivering innovative solutions. My experience includes [mention 1-2 key skills or experiences]. I'm always eager to learn and grow, and I'm excited about opportunities where I can contribute my skills to make a meaningful impact.";
+const defaultAboutMe = "I am a fourth-year Computer Science student with a passion for the intersection of business and information technology. I am highly organized and detail-oriented, consistently delivering quality results in both academic research and industry projects. With particular expertise in data analysis and machine learning, my experience enables me to solve problems with technical precision while understanding business needs.";
 
 export function AboutMeSection() {
   const [targetJob, setTargetJob] = useState('');
@@ -67,20 +68,40 @@ export function AboutMeSection() {
   return (
     <SectionContainer id="about">
       <SectionTitle icon={UserCircle}>About Me</SectionTitle>
-      <div className="grid md:grid-cols-2 gap-12 items-center">
+      <div className="grid md:grid-cols-2 gap-12 items-start">
         <AnimatedSectionWrapper>
           <div className="space-y-6 text-foreground/90 text-base md:text-lg leading-relaxed">
-            <p>
-              Hello! I'm a dedicated and creative individual with a knack for problem-solving and a drive for continuous improvement. 
-              My journey in the world of technology has been fueled by a desire to build meaningful and impactful digital experiences.
-            </p>
-            <p>
-              Whether it's developing sleek web applications, crafting intuitive user interfaces, or diving into complex data structures, 
-              I approach each project with enthusiasm and a commitment to excellence. I believe in the power of collaboration and lifelong learning.
-            </p>
-            <p>
-              When I'm not coding, you can find me exploring new hiking trails, experimenting with photography, or lost in a good book.
-            </p>
+            <div className="flex justify-center mb-8">
+              <Image 
+                src="https://placehold.co/200x200.png" // Placeholder for Habiba's photo
+                alt="Habiba Almetnawy"
+                width={200}
+                height={200}
+                className="rounded-full shadow-lg"
+                data-ai-hint="professional portrait"
+              />
+            </div>
+            <p>{defaultAboutMe}</p>
+            
+            <div className="space-y-3 pt-4">
+              <h3 className="text-xl font-semibold text-primary font-headline">Contact Information</h3>
+              <div className="flex items-center space-x-3 text-foreground/80">
+                <Mail className="h-5 w-5 text-accent" />
+                <a href="mailto:habibaalmetnawy18@gmail.com" className="hover:text-primary transition-colors">habibaalmetnawy18@gmail.com</a>
+              </div>
+              <div className="flex items-center space-x-3 text-foreground/80">
+                <Phone className="h-5 w-5 text-accent" />
+                <span>+97105-0706-0274</span>
+              </div>
+            </div>
+            <div className="pt-6">
+              <Button asChild className="w-full md:w-auto">
+                <Link href="/Habiba_Almetnawy_CV.pdf" target="_blank" download>
+                  <Download className="mr-2 h-4 w-4" />
+                  Download My CV
+                </Link>
+              </Button>
+            </div>
           </div>
         </AnimatedSectionWrapper>
         <AnimatedSectionWrapper delay="duration-700 delay-200">
@@ -91,7 +112,7 @@ export function AboutMeSection() {
                 Tailor Your Intro
               </CardTitle>
               <CardDescription>
-                Let AI help you customize your 'About Me' for a specific role.
+                Let AI help you customize your 'About Me' for a specific role. (Uses the summary above as a base)
               </CardDescription>
             </CardHeader>
             <CardContent className="space-y-4">
@@ -106,23 +127,23 @@ export function AboutMeSection() {
                 />
               </div>
               <div>
-                <Label htmlFor="currentAboutMe" className="font-medium">Your Current 'About Me'</Label>
+                <Label htmlFor="currentAboutMe" className="font-medium">Your Current 'About Me' (Edit if needed)</Label>
                 <Textarea
                   id="currentAboutMe"
                   value={currentAboutMe}
                   onChange={(e) => setCurrentAboutMe(e.target.value)}
-                  rows={5}
+                  rows={7}
                   className="mt-1"
                 />
               </div>
               {tailoredAboutMe && (
                 <div>
-                  <Label htmlFor="tailoredAboutMe" className="font-medium">Tailored 'About Me'</Label>
+                  <Label htmlFor="tailoredAboutMe" className="font-medium">AI Tailored 'About Me'</Label>
                   <Textarea
                     id="tailoredAboutMe"
                     value={tailoredAboutMe}
                     readOnly
-                    rows={5}
+                    rows={7}
                     className="mt-1 bg-muted/50"
                   />
                 </div>
