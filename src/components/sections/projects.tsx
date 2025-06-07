@@ -15,62 +15,62 @@ const projectsData = [
   {
     title: 'Guardians of Sustainability | Infrastructure Monitoring Platform',
     description: 'Developed an AI-powered urban infrastructure monitoring platform using Python, which reduced issue detection time by 40% and improved reporting accuracy by 30% through image recognition and Google Maps integration. Designed to support government and community efforts by automatically identifying and reporting environmental issues such as fallen trees and damaged infrastructure.',
-    image: 'https://placehold.co/600x400.png',
+    image: 'https://placehold.co/640x360.png', // 16:9 aspect ratio
     imageHint: 'urban AI monitoring',
     dates: 'November 2024 – February 2025',
     tags: ['AI', 'Python', 'Computer Vision', 'Google Maps API'],
     githubLink: '#', 
     demoLink: '#',   
-    colSpan: 'lg:col-span-2',
-    minHeight: 'min-h-[480px]', 
   },
   {
     title: 'UAEU Internship Portal | University Internship Management System',
     description: "Created a comprehensive internship portal for UAEU's College of IT to handle the application, review, and tracking process. Manipulated SQL databases to manage user data and internship records, and built a dynamic interface using HTML, CSS, and JavaScript. The system features student workflows, admin dashboards, and company-specific access.",
-    image: 'https://placehold.co/400x300.png',
+    image: 'https://placehold.co/640x360.png', // 16:9 aspect ratio
     imageHint: 'web portal interface',
     dates: 'February 2025 – May 2025',
     tags: ['Web Development', 'SQL', 'JavaScript', 'HTML/CSS'],
     githubLink: '#',
     demoLink: null,
-    colSpan: 'lg:col-span-1',
-    minHeight: 'min-h-[450px]', 
   },
   {
     title: 'Upcoming Project Alpha',
     description: "Details about this exciting new project will be revealed soon. Stay tuned for innovative solutions and cutting-edge technology.",
-    image: 'https://placehold.co/400x300.png',
+    image: 'https://placehold.co/640x360.png', // 16:9 aspect ratio
     imageHint: 'technology concept future',
     dates: 'Coming Soon',
     tags: ['Innovation', 'R&D'],
     githubLink: null,
     demoLink: null,
-    colSpan: 'lg:col-span-1',
-    minHeight: 'min-h-[420px]',
   },
   {
     title: 'Future Project Beta',
     description: "Currently in the planning phase, this project aims to address key challenges in its domain. More information to follow as development progresses.",
-    image: 'https://placehold.co/600x300.png',
+    image: 'https://placehold.co/640x360.png', // 16:9 aspect ratio
     imageHint: 'planning blueprint strategy',
     dates: 'In Progress',
     tags: ['Strategy', 'Development'],
     githubLink: '#',
     demoLink: '#',
-    colSpan: 'lg:col-span-2', 
-    minHeight: 'min-h-[450px]', 
   },
   {
     title: 'Innovative Tech Solution Gamma',
     description: "A groundbreaking solution leveraging advanced AI to solve complex problems in the industry. Full details to be unveiled upon launch.",
-    image: 'https://placehold.co/400x400.png',
+    image: 'https://placehold.co/640x360.png', // 16:9 aspect ratio
     imageHint: 'AI solution network',
     dates: 'Q4 2025',
     tags: ['AI', 'Machine Learning', 'Innovation'],
     githubLink: '#',
     demoLink: '#',
-    colSpan: 'lg:col-span-2', 
-    minHeight: 'min-h-[480px]', 
+  },
+  {
+    title: 'Personal Portfolio Website',
+    description: "The very website you are currently viewing! Built with Next.js, Tailwind CSS, ShadCN UI, and Genkit for AI features. Showcases my skills and projects in a dynamic and interactive way.",
+    image: 'https://placehold.co/640x360.png', // 16:9 aspect ratio
+    imageHint: 'portfolio website design',
+    dates: 'Ongoing',
+    tags: ['Next.js', 'React', 'TailwindCSS', 'ShadCN UI', 'Genkit'],
+    githubLink: '#', // Link to the repo if public
+    demoLink: null,   // Already viewing it
   }
 ];
 
@@ -78,23 +78,23 @@ export function ProjectsSection() {
   return (
     <SectionContainer id="projects" className="bg-muted/50 px-4 md:px-6">
       <SectionTitle icon={LayoutGrid}>Project Experience</SectionTitle>
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
         {projectsData.map((project, index) => (
           <AnimatedSectionWrapper
             key={project.title}
             delay={`duration-700 delay-${index * 100}`}
-            className={cn("h-full", project.colSpan, project.minHeight)} 
+            className="h-full" 
           >
-            <Card className={cn("project-card-bubble group h-full flex flex-col")}>
-              <CardHeader className="p-0 relative overflow-hidden project-image-container aspect-[16/10]">
+            <Card className={cn("project-card-boxy group h-full")}> {/* Apply new boxy style, ensure full height */}
+              <CardHeader className="p-0 relative overflow-hidden project-image-container">
                 <Image
                   src={project.image}
                   alt={project.title}
                   fill 
                   className="object-cover transition-transform duration-300 ease-in-out group-hover:scale-105"
                   data-ai-hint={project.imageHint}
-                  priority={index < 2}
-                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                  priority={index < 3} // Prioritize loading for first few images
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                 />
               </CardHeader>
               <CardContent className="flex-grow p-5 space-y-3">
@@ -112,7 +112,7 @@ export function ProjectsSection() {
                   ))}
                 </div>
               </CardContent>
-              <CardFooter className="p-5 pt-2 flex gap-3 mt-auto"> {/* Added mt-auto to push footer down */}
+              <CardFooter className="p-5 pt-2 flex gap-3 mt-auto">
                 {project.githubLink && (
                   <Button asChild variant="outline" size="sm" className="group/button flex-1 btn-treasure-box">
                     <Link href={project.githubLink} target="_blank" rel="noopener noreferrer">

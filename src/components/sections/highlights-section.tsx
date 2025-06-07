@@ -11,41 +11,42 @@ const highlightsData = [
   {
     title: 'AI Research Breakthrough',
     description: 'Led a team to an 81% reduction in system hallucinations for an AI tutor.',
-    image: 'https://placehold.co/400x250.png',
+    image: 'https://placehold.co/320x192.png', // Updated size
     imageHint: 'AI abstract concept',
   },
   {
     title: 'Samsung AI Intern Top Project',
     description: 'Developed a CNN with 99.61% accuracy for plant disease classification.',
-    image: 'https://placehold.co/400x250.png',
+    image: 'https://placehold.co/320x192.png', // Updated size
     imageHint: 'data plant recognition',
   },
   {
     title: 'Hackathon Winner: CitroHack',
     description: 'Awarded "Best Beginner Project" for an innovative fitness application.',
-    image: 'https://placehold.co/400x250.png',
+    image: 'https://placehold.co/320x192.png', // Updated size
     imageHint: 'team collaboration coding',
   },
   {
     title: 'Data Visualization Champion',
     description: 'Secured 1st place by creating an impactful Power BI dashboard under pressure.',
-    image: 'https://placehold.co/400x250.png',
+    image: 'https://placehold.co/320x192.png', // Updated size
     imageHint: 'charts dashboard analytics',
   },
   {
     title: 'Autonomous Car Robotics',
     description: 'Achieved 2nd place in a competition programming a custom autonomous vehicle.',
-    image: 'https://placehold.co/400x250.png',
+    image: 'https://placehold.co/320x192.png', // Updated size
     imageHint: 'robot car technology',
   },
   {
     title: 'Published Research: ICEQ',
     description: 'Presented AI-driven personalized learning research, selected from 150+ participants.',
-    image: 'https://placehold.co/400x250.png',
+    image: 'https://placehold.co/320x192.png', // Updated size
     imageHint: 'academic presentation conference',
   }
 ];
 
+// Duplicate for seamless marquee
 const marqueeHighlights = [...highlightsData, ...highlightsData, ...highlightsData];
 
 
@@ -66,8 +67,8 @@ export function HighlightsSection() {
                 <Image
                   src={highlight.image}
                   alt={highlight.title}
-                  width={400} 
-                  height={250} 
+                  width={320} 
+                  height={192} 
                   className="object-cover" 
                   data-ai-hint={highlight.imageHint}
                 />
@@ -88,8 +89,8 @@ export function HighlightsSection() {
                  <Image
                   src={highlight.image}
                   alt={highlight.title}
-                  width={400}
-                  height={250}
+                  width={320}
+                  height={192}
                   className="object-cover"
                   data-ai-hint={highlight.imageHint}
                 />

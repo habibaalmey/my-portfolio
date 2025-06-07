@@ -111,27 +111,23 @@ export default {
           from: { width: '0' },
           to: { width: '100%' }
         },
-        'blink-caret': {
-          'from, to': { borderColor: 'transparent' },
-          '50%': { borderColor: 'hsl(var(--primary))' }
-        },
         'timeline-node-pulse': {
           '0%': { boxShadow: '0 0 8px hsl(var(--primary)/0.7)', opacity: '0.8' },
           '50%': { boxShadow: '0 0 12px hsl(var(--primary))', opacity: '1' },
           '100%': { boxShadow: '0 0 8px hsl(var(--primary)/0.7)', opacity: '0.8' },
         },
-        'binary-flow': { /* Renamed from animate-binary-rain for consistency */
+        'binary-flow': { 
           '0%': { backgroundPosition: '0 0' },
-          '100%': { backgroundPosition: '0px 200px' }, /* Matches SVG height */
+          '100%': { backgroundPosition: '0px 200px' }, 
         }
       },
       animation: {
         'accordion-down': 'accordion-down 0.2s ease-out',
         'accordion-up': 'accordion-up 0.2s ease-out',
-        'marquee': 'marquee 60s linear infinite', 
-        'marquee2': 'marquee2 60s linear infinite', 
+        'marquee': 'marquee 40s linear infinite', 
+        'marquee2': 'marquee2 40s linear infinite', 
         'body-gradient': 'animate-gradient-x 25s ease infinite',
-        'typewriter': 'typing 3.5s steps(30, end), blink-caret .75s step-end infinite',
+        'typewriter': 'typing 3.5s steps(30, end)',
         'timeline-node-pulse': 'timeline-node-pulse 2s infinite ease-in-out',
         'binary-flow': 'binary-flow 7s linear infinite',
       },
