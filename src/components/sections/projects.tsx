@@ -23,6 +23,20 @@ const projects = [
     imageHint: 'web portal interface',
     dates: 'February 2025 – May 2025',
   },
+  {
+    title: 'Upcoming Project Alpha',
+    description: "Details about this exciting new project will be revealed soon. Stay tuned for innovative solutions and cutting-edge technology.",
+    image: 'https://placehold.co/600x400.png',
+    imageHint: 'technology concept',
+    dates: 'Coming Soon',
+  },
+  {
+    title: 'Future Project Beta',
+    description: "Currently in the planning phase, this project aims to address key challenges in its domain. More information to follow as development progresses.",
+    image: 'https://placehold.co/600x400.png',
+    imageHint: 'planning blueprint',
+    dates: 'In Progress',
+  },
 ];
 
 export function ProjectsSection() {

@@ -41,7 +41,7 @@ export function HonorsAwardsSection() {
       <div className="grid md:grid-cols-2 gap-8">
         {honorsAndAwards.map((item, index) => (
           <AnimatedSectionWrapper key={item.title} delay={`duration-700 delay-${index * 150}`}>
-            <Card className="flex flex-col h-full shadow-lg transform transition-all duration-300 ease-in-out hover:shadow-2xl hover:scale-[1.02]">
+            <Card className="flex flex-col shadow-lg transform transition-all duration-300 ease-in-out hover:shadow-2xl hover:scale-[1.02]"> {/* Removed h-full */}
               <CardHeader>
                 <div className="flex items-center justify-between">
                   <CardTitle className="font-headline text-xl text-primary flex items-center">
