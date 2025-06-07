@@ -66,7 +66,9 @@ export function ExperienceSection() {
             <AnimatedSectionWrapper delay={`duration-700 delay-${index * 150}`}>
               <Card className={cn(
                 "ml-6 md:ml-8 shadow-xl overflow-hidden transform transition-all duration-300 ease-in-out hover:shadow-2xl hover:scale-[1.02]",
-                index % 2 === 0 ? "bg-card text-card-foreground" : "bg-background text-foreground"
+                index % 2 === 0 
+                  ? "bg-card text-card-foreground" 
+                  : "bg-background text-foreground border-2 border-primary"
               )}>
                 <CardHeader>
                   <div className="flex-grow">
