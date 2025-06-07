@@ -92,8 +92,7 @@
     @apply border-border;
   }
   html {
-    color: hsl(var(--foreground)); /* Explicitly set color for cursor inheritance */
-    cursor: url("data:image/svg+xml,%3Csvg width='16' height='16' viewBox='0 0 16 16' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Crect x='0.75' y='0.75' width='14.5' height='14.5' rx='1.25' stroke='currentColor' stroke-width='1.5'/%3E%3C/svg%3E") 8 8, auto;
+    color: hsl(var(--foreground)); /* Explicitly set color */
   }
   body {
     /* text-foreground is inherited from html's color */
@@ -104,9 +103,6 @@
   }
   section {
     @apply scroll-mt-20; /* Offset for fixed header */
-  }
-  a, button, [role='button'], input[type='submit'], input[type='button'], select, textarea, input[type='text'], input[type='email'], input[type='search'], input[type='checkbox'], input[type='radio'] {
-    cursor: url("data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' fill='hsl(var(--primary))' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M12 0L14.472 9.528L24 12L14.472 14.472L12 24L9.528 14.472L0 12L9.528 9.528L12 0Z'/%3E%3C/svg%3E") 12 12, pointer;
   }
 }
 
@@ -160,24 +156,34 @@
     to { opacity: 1; transform: scale(1.02); }
   }
   
-  .card-lightbulb {
-    @apply bg-card overflow-visible; /* Allow glow to extend */
+  .card-achievement {
+    @apply bg-card border-2 border-primary/30 shadow-xl overflow-hidden transform transition-all duration-300 ease-in-out hover:scale-[1.03] hover:shadow-2xl;
+    box-shadow: 
+      inset 0 0 0 2px hsl(var(--border)/0.5), /* Inner border */
+      0 0 15px -5px hsl(var(--primary)/0.3), /* Outer subtle glow */
+      2px 2px 0px 0px hsl(var(--primary)/0.2), /* Bottom-right pixel "3D" edge */
+      -2px -2px 0px 0px hsl(var(--primary)/0.1); /* Top-left pixel "3D" edge */
   }
-  .lightbulb-icon-container {
-    @apply relative -mt-8 mb-4 mx-auto w-16 h-16 rounded-full bg-primary/20 border-2 border-primary flex items-center justify-center shadow-lg;
-    /* Simulates the glass part of the bulb */
-    background-image: radial-gradient(circle at 50% 30%, hsl(var(--primary)/0.5) 0%, hsl(var(--primary)/0.1) 40%, transparent 70%);
+  .achievement-icon-container {
+    @apply relative mt-0 mb-3 mx-auto w-16 h-16 p-3 rounded-md bg-primary/10 border-2 border-primary/40 flex items-center justify-center shadow-md;
+     background-image: 
+        linear-gradient(45deg, hsl(var(--card)) 25%, transparent 25%), 
+        linear-gradient(-45deg, hsl(var(--card)) 25%, transparent 25%),
+        linear-gradient(45deg, transparent 75%, hsl(var(--card)) 75%),
+        linear-gradient(-45deg, transparent 75%, hsl(var(--card)) 75%);
+    background-size: 10px 10px; /* Size of the pixel checks */
+    background-position: 0 0, 0 5px, 5px -5px, -5px 0px; /* Offset for checkering */
   }
-  .lightbulb-icon-container svg {
-    @apply w-8 h-8 text-primary; /* Ensure icon takes primary color */
+  .achievement-icon-container svg {
+    @apply w-10 h-10 text-primary;
   }
-  .lightbulb-glow {
-     /* Soft glow around the card, more pronounced at the top */
-    box-shadow: 0 -5px 25px -5px hsl(var(--primary)/0.5), 0 8px 15px hsl(var(--primary)/0.2);
+  .card-achievement:hover .achievement-icon-container {
+    @apply border-primary/60;
   }
-  .card-lightbulb:hover .lightbulb-glow {
-    box-shadow: 0 -8px 35px -5px hsl(var(--primary)/0.7), 0 10px 20px hsl(var(--primary)/0.3);
+  .card-achievement:hover .achievement-icon-container svg {
+     filter: drop-shadow(0 0 5px hsl(var(--primary)/0.7));
   }
+
 
   .binary-code-ribbon-horizontal {
     @apply absolute left-0 right-0 w-full h-12 bg-no-repeat opacity-75 overflow-hidden; /* h-12 = 48px */
@@ -271,18 +277,13 @@
     from { width: 0 }
     to { width: 100% }
   }
-  @keyframes blink-caret {
-    from, to { border-color: transparent }
-    50% { border-color: hsl(var(--primary)); }
-  }
+  /* Removed blink-caret animation as requested */
   .typewriter-text {
     overflow: hidden; 
-    border-right: .15em solid hsl(var(--primary)); 
     white-space: nowrap; 
     margin: 0 auto; 
-    animation: 
-      typing 3.5s steps(30, end),
-      blink-caret .75s step-end infinite;
+    animation: typing 3.5s steps(30, end);
+    /* Removed border-right for caret */
   }
 
   /* Creative Timeline */

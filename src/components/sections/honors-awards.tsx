@@ -43,7 +43,7 @@ export function HonorsAwardsSection() {
     <section id="honors" className="py-20 md:py-28 relative overflow-hidden">
       <div className="binary-code-ribbon-horizontal top-0"></div>
       
-      <div className="container mx-auto max-w-5xl px-4 md:px-6 relative z-10 pt-12 pb-12"> {/* Added padding top/bottom for ribbons */}
+      <div className="container mx-auto max-w-5xl px-4 md:px-6 relative z-10 pt-12 pb-12">
         <SectionTitle icon={Award}>Honors &amp; Awards</SectionTitle>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-x-6 gap-y-12 pt-8">
           {honorsAndAwards.map((item, index) => (
@@ -53,16 +53,15 @@ export function HonorsAwardsSection() {
               className="h-full" 
             >
               <Card className={cn(
-                "flex flex-col text-center h-full card-lightbulb relative pt-8",
+                "flex flex-col text-center h-full card-achievement p-4", // Added p-4 for internal spacing
                 "transform transition-all duration-300 ease-in-out hover:scale-[1.03]"
               )}>
-                <div className="lightbulb-icon-container">
+                <div className="achievement-icon-container">
                   <item.icon />
                 </div>
-                <div className="lightbulb-glow absolute inset-0 rounded-lg pointer-events-none -z-10"></div>
                 
                 <CardHeader className="pb-2 pt-0">
-                  <CardTitle className="font-headline text-lg md:text-xl text-primary">
+                  <CardTitle className="font-pixel text-md md:text-lg text-primary uppercase">
                     {item.title}
                   </CardTitle>
                   <p className="text-sm font-medium text-accent">{item.subtitle}</p>
@@ -71,8 +70,8 @@ export function HonorsAwardsSection() {
                     {item.year}
                   </div>
                 </CardHeader>
-                <CardContent className="flex-grow px-4 pb-4">
-                  <CardDescription className="text-foreground/80 text-sm leading-relaxed">
+                <CardContent className="flex-grow px-2 pb-2"> {/* Reduced padding for content */}
+                  <CardDescription className="text-foreground/80 text-xs leading-relaxed"> {/* Adjusted text size */}
                     {item.description}
                   </CardDescription>
                 </CardContent>
@@ -85,3 +84,4 @@ export function HonorsAwardsSection() {
     </section>
   );
 }
+
