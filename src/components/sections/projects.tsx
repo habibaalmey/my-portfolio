@@ -15,7 +15,7 @@ const projectsData = [
   {
     title: 'Guardians of Sustainability | Infrastructure Monitoring Platform',
     description: 'Developed an AI-powered urban infrastructure monitoring platform using Python, which reduced issue detection time by 40% and improved reporting accuracy by 30% through image recognition and Google Maps integration. Designed to support government and community efforts by automatically identifying and reporting environmental issues such as fallen trees and damaged infrastructure.',
-    image: 'https://placehold.co/640x360.png', // 16:9 aspect ratio
+    image: 'https://placehold.co/640x360.png', 
     imageHint: 'urban AI monitoring',
     dates: 'November 2024 – February 2025',
     tags: ['AI', 'Python', 'Computer Vision', 'Google Maps API'],
@@ -25,7 +25,7 @@ const projectsData = [
   {
     title: 'UAEU Internship Portal | University Internship Management System',
     description: "Created a comprehensive internship portal for UAEU's College of IT to handle the application, review, and tracking process. Manipulated SQL databases to manage user data and internship records, and built a dynamic interface using HTML, CSS, and JavaScript. The system features student workflows, admin dashboards, and company-specific access.",
-    image: 'https://placehold.co/640x360.png', // 16:9 aspect ratio
+    image: 'https://placehold.co/640x360.png', 
     imageHint: 'web portal interface',
     dates: 'February 2025 – May 2025',
     tags: ['Web Development', 'SQL', 'JavaScript', 'HTML/CSS'],
@@ -35,7 +35,7 @@ const projectsData = [
   {
     title: 'Upcoming Project Alpha',
     description: "Details about this exciting new project will be revealed soon. Stay tuned for innovative solutions and cutting-edge technology.",
-    image: 'https://placehold.co/640x360.png', // 16:9 aspect ratio
+    image: 'https://placehold.co/640x360.png', 
     imageHint: 'technology concept future',
     dates: 'Coming Soon',
     tags: ['Innovation', 'R&D'],
@@ -45,7 +45,7 @@ const projectsData = [
   {
     title: 'Future Project Beta',
     description: "Currently in the planning phase, this project aims to address key challenges in its domain. More information to follow as development progresses.",
-    image: 'https://placehold.co/640x360.png', // 16:9 aspect ratio
+    image: 'https://placehold.co/640x360.png', 
     imageHint: 'planning blueprint strategy',
     dates: 'In Progress',
     tags: ['Strategy', 'Development'],
@@ -55,7 +55,7 @@ const projectsData = [
   {
     title: 'Innovative Tech Solution Gamma',
     description: "A groundbreaking solution leveraging advanced AI to solve complex problems in the industry. Full details to be unveiled upon launch.",
-    image: 'https://placehold.co/640x360.png', // 16:9 aspect ratio
+    image: 'https://placehold.co/640x360.png', 
     imageHint: 'AI solution network',
     dates: 'Q4 2025',
     tags: ['AI', 'Machine Learning', 'Innovation'],
@@ -65,12 +65,12 @@ const projectsData = [
   {
     title: 'Personal Portfolio Website',
     description: "The very website you are currently viewing! Built with Next.js, Tailwind CSS, ShadCN UI, and Genkit for AI features. Showcases my skills and projects in a dynamic and interactive way.",
-    image: 'https://placehold.co/640x360.png', // 16:9 aspect ratio
+    image: 'https://placehold.co/640x360.png',
     imageHint: 'portfolio website design',
     dates: 'Ongoing',
     tags: ['Next.js', 'React', 'TailwindCSS', 'ShadCN UI', 'Genkit'],
-    githubLink: '#', // Link to the repo if public
-    demoLink: null,   // Already viewing it
+    githubLink: '#', 
+    demoLink: null,  
   }
 ];
 
@@ -85,7 +85,7 @@ export function ProjectsSection() {
             delay={`duration-700 delay-${index * 100}`}
             className="h-full" 
           >
-            <Card className={cn("project-card-boxy group h-full")}> {/* Apply new boxy style, ensure full height */}
+            <Card className={cn("project-card-boxy group h-full p-0 overflow-hidden")}>
               <CardHeader className="p-0 relative overflow-hidden project-image-container">
                 <Image
                   src={project.image}
@@ -93,7 +93,7 @@ export function ProjectsSection() {
                   fill 
                   className="object-cover transition-transform duration-300 ease-in-out group-hover:scale-105"
                   data-ai-hint={project.imageHint}
-                  priority={index < 3} // Prioritize loading for first few images
+                  priority={index < 3} 
                   sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                 />
               </CardHeader>
@@ -113,20 +113,16 @@ export function ProjectsSection() {
                 </div>
               </CardContent>
               <CardFooter className="p-5 pt-2 flex gap-3 mt-auto">
-                {project.githubLink && (
-                  <Button asChild variant="outline" size="sm" className="group/button flex-1 btn-treasure-box">
-                    <Link href={project.githubLink} target="_blank" rel="noopener noreferrer">
-                      <Github className="mr-2 h-4 w-4" /> View Code
-                    </Link>
-                  </Button>
-                )}
-                {project.demoLink && (
-                  <Button asChild variant="default" size="sm" className="group/button flex-1">
-                    <Link href={project.demoLink} target="_blank" rel="noopener noreferrer">
-                      Live Demo <ExternalLink className="ml-2 h-4 w-4 transition-transform group-hover/button:translate-x-1" />
-                    </Link>
-                  </Button>
-                )}
+                <Button asChild variant="outline" size="sm" className="group/button flex-1 btn-treasure-box" disabled={!project.githubLink}>
+                  <Link href={project.githubLink || '#'} target="_blank" rel="noopener noreferrer" aria-disabled={!project.githubLink}>
+                    <Github className="mr-2 h-4 w-4" /> View Code
+                  </Link>
+                </Button>
+                <Button asChild variant="default" size="sm" className="group/button flex-1" disabled={!project.demoLink}>
+                  <Link href={project.demoLink || '#'} target="_blank" rel="noopener noreferrer" aria-disabled={!project.demoLink}>
+                    Live Demo <ExternalLink className="ml-2 h-4 w-4 transition-transform group-hover/button:translate-x-1" />
+                  </Link>
+                </Button>
               </CardFooter>
             </Card>
           </AnimatedSectionWrapper>

@@ -6,6 +6,7 @@ import { Briefcase, CalendarDays } from 'lucide-react';
 import { SectionContainer } from '@/components/layout/section-container';
 import { SectionTitle } from '@/components/layout/section-title';
 import { AnimatedSectionWrapper } from '@/components/ui/animated-section-wrapper';
+import { cn } from '@/lib/utils';
 
 const experiences = [
   {
@@ -55,21 +56,22 @@ export function ExperienceSection() {
     <SectionContainer id="experience" className="bg-brick-pattern">
       <SectionTitle icon={Briefcase}>Work Experience</SectionTitle>
       
-      <div className="relative pl-8 md:pl-10"> {/* Increased left padding for larger nodes */}
-        {/* Digital Path Line */}
+      <div className="relative pl-8 md:pl-10"> 
         <div className="timeline-digital-path"></div>
 
         {experiences.map((exp, index) => (
           <div key={index} className="relative mb-10 md:mb-12 last:mb-0">
-            {/* Digital Node */}
             <div className="timeline-node"></div>
 
             <AnimatedSectionWrapper delay={`duration-700 delay-${index * 150}`}>
-              <Card className="ml-6 md:ml-8 shadow-xl overflow-hidden transform transition-all duration-300 ease-in-out hover:shadow-2xl hover:scale-[1.02]">
+              <Card className={cn(
+                "ml-6 md:ml-8 shadow-xl overflow-hidden transform transition-all duration-300 ease-in-out hover:shadow-2xl hover:scale-[1.02]",
+                index % 2 === 0 ? "bg-card text-card-foreground" : "bg-background text-foreground"
+              )}>
                 <CardHeader>
                   <div className="flex-grow">
                     <CardTitle className="font-headline text-xl text-primary">{exp.role}</CardTitle>
-                    <CardDescription className="text-base text-secondary font-medium">{exp.company} - {exp.location}</CardDescription>
+                    <CardDescription className={cn("text-base font-medium", index % 2 === 0 ? "text-secondary" : "text-muted-foreground" )}>{exp.company} - {exp.location}</CardDescription>
                     <div className="flex items-center text-sm text-muted-foreground mt-1">
                       <CalendarDays className="mr-2 h-4 w-4" />
                       {exp.duration}
@@ -77,7 +79,10 @@ export function ExperienceSection() {
                   </div>
                 </CardHeader>
                 <CardContent>
-                  <ul className="list-disc list-outside ml-5 space-y-2 text-foreground/80 text-sm">
+                  <ul className={cn(
+                    "list-disc list-outside ml-5 space-y-2 text-sm",
+                     index % 2 === 0 ? "text-foreground/80" : "text-foreground/90" 
+                  )}>
                     {exp.description.map((item, i) => (
                       <li key={i}>{item}</li>
                     ))}
