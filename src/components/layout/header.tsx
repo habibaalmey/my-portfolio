@@ -18,8 +18,7 @@ const navItems = [
 export function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [displayName, setDisplayName] = useState('');
-  const fullName = "Habiba Almetnawy";
+  const fullName = "Habiba Almetnawy"; // Keep full name for the typing animation logic
 
   useEffect(() => {
     const handleScroll = () => {
@@ -29,52 +28,37 @@ export function Header() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  useEffect(() => {
-    // Typing animation for the name
-    setDisplayName(''); // Reset on mount/change
-    let i = 0;
-    const typingInterval = setInterval(() => {
-      if (i < fullName.length) {
-        setDisplayName(prev => prev + fullName.charAt(i));
-        i++;
-      } else {
-        clearInterval(typingInterval);
-        // Optional: Blinking caret after typing (handled by CSS)
-      }
-    }, 100); // Adjust typing speed here
-    return () => clearInterval(typingInterval);
-  }, [fullName]);
-
+  // Typing animation effect for the name is handled by CSS .typewriter-text
 
   const closeMobileMenu = () => setIsMobileMenuOpen(false);
 
   return (
     <header className={cn(
       "sticky top-0 z-50 w-full border-b transition-colors duration-300",
-      isScrolled ? "border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60" : "border-transparent bg-background" // Ensure background is always solid for new theme
+      isScrolled ? "border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60" : "border-transparent bg-background"
     )}>
       <div className="container mx-auto flex h-20 max-w-screen-2xl items-center justify-between px-4 md:px-6">
         <Link href="/" className="flex items-center space-x-2" onClick={isMobileMenuOpen ? closeMobileMenu : undefined}>
           <div className="font-code text-2xl md:text-3xl text-primary overflow-hidden whitespace-nowrap">
-            <span className="typewriter-text">{fullName}</span> {/* Static full name for layout, actual typing handled by CSS on this element */}
+             <span className="typewriter-text">{fullName}</span>
           </div>
         </Link>
         
         <nav className="hidden md:flex items-center space-x-1">
           {navItems.map((item) => (
-            <Link
+             <Link
               key={item.name}
               href={item.href}
-              className="block rounded-md" 
+              className="block rounded-md"
               onClick={isMobileMenuOpen ? closeMobileMenu : undefined}
             >
-              <span className="relative group px-3 py-2 text-sm font-medium text-foreground/80 transition-colors block rounded-md"> 
+              <span className="relative group px-3 py-2 text-sm font-medium text-foreground/80 transition-colors block rounded-md">
                 <span className="relative z-10 transition-colors group-hover:text-primary-foreground duration-300 ease-in-out">{item.name}</span>
                 <span className="absolute inset-0 bg-primary scale-x-0 group-hover:scale-x-100 transition-transform duration-300 ease-in-out origin-left z-0 rounded-md"></span>
               </span>
             </Link>
           ))}
-          <Button asChild size="sm" className="ml-4">
+          <Button asChild size="sm" className="ml-4 shadow-md hover:shadow-lg transform transition-all duration-300 ease-in-out hover:scale-[1.03]">
             <Link href="/Habiba_Almetnawy_CV.pdf" target="_blank" download>
               <Download className="mr-2 h-4 w-4" />
               Download CV
@@ -110,7 +94,7 @@ export function Header() {
                     </span>
                   </Link>
                 ))}
-                <Button asChild size="sm" className="w-full mt-4">
+                <Button asChild size="sm" className="w-full mt-4 shadow-md hover:shadow-lg transform transition-all duration-300 ease-in-out hover:scale-[1.03]">
                   <Link href="/Habiba_Almetnawy_CV.pdf" target="_blank" download onClick={closeMobileMenu}>
                     <Download className="mr-2 h-4 w-4" />
                     Download CV
@@ -124,5 +108,3 @@ export function Header() {
     </header>
   );
 }
-
-    

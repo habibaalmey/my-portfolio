@@ -2,7 +2,7 @@
 "use client";
 
 import { Button } from '@/components/ui/button';
-import { Mail, Download } from 'lucide-react';
+import { Mail, Download, Github, Linkedin } from 'lucide-react';
 import { SectionTitle } from '@/components/layout/section-title';
 import { AnimatedSectionWrapper } from '@/components/ui/animated-section-wrapper';
 import Link from 'next/link';
@@ -39,11 +39,16 @@ export function AboutMeSection() {
                 {aboutMeText}
               </p>
               <div className="mb-10 flex flex-col items-center space-y-6">
-                <div className="flex items-center space-x-3 text-foreground/80">
-                  <Mail className="h-5 w-5 text-accent" />
-                  <a href="mailto:700040241@uaeu.ac.ae" className="hover:text-primary transition-colors text-base">
-                    700040241@uaeu.ac.ae
-                  </a>
+                <div className="flex items-center justify-center space-x-6 text-foreground/80">
+                  <Link href="mailto:700040241@uaeu.ac.ae" aria-label="Email" className="hover:text-primary transition-colors">
+                    <Mail className="h-6 w-6 text-accent" />
+                  </Link>
+                  <Link href="https://github.com/habibaalmey" target="_blank" rel="noopener noreferrer" aria-label="GitHub" className="hover:text-primary transition-colors">
+                    <Github className="h-6 w-6 text-accent" />
+                  </Link>
+                  <Link href="https://www.linkedin.com/in/habibaalmetnawy" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="hover:text-primary transition-colors">
+                    <Linkedin className="h-6 w-6 text-accent" />
+                  </Link>
                 </div>
                 <Button asChild size="lg" className="shadow-md hover:shadow-lg transform transition-all duration-300 ease-in-out hover:scale-[1.03]">
                   <Link href="/Habiba_Almetnawy_CV.pdf" target="_blank" download>
