@@ -57,9 +57,9 @@ export function ExperienceSection() {
       <SectionTitle icon={Briefcase}>Work Experience</SectionTitle>
       
       <div className="relative pl-6 md:pl-8">
-        {/* Timeline line - Reverted to simpler style */}
+        {/* Timeline line - Reverted to simpler style, with decoration applied */}
         <div 
-          className="absolute left-0 top-0 bottom-0 w-1 bg-primary/20 rounded-full" 
+          className="absolute left-0 top-0 bottom-0 w-1 bg-primary/20 rounded-full timeline-line-decorated" 
           style={{ transform: 'translateX(calc(0.75rem - 2px))' }} 
         >
         </div>

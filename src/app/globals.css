@@ -215,7 +215,7 @@
       blink-caret .75s step-end infinite;
   }
 
-  /* For subtle 1s and 0s effect on timeline line (if re-enabled or used elsewhere) */
+  /* For subtle 1s and 0s effect on timeline line */
   .timeline-line-decorated {
     position: relative;
     overflow: hidden; 
