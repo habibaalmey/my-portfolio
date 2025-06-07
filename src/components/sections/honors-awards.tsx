@@ -45,7 +45,7 @@ export function HonorsAwardsSection() {
       
       <div className="container mx-auto max-w-5xl px-4 md:px-6 relative z-10 pt-12 pb-12">
         <SectionTitle icon={Award}>Honors &amp; Awards</SectionTitle>
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-x-6 gap-y-12 pt-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-x-6 gap-y-8 pt-8"> {/* Adjusted gap-y */}
           {honorsAndAwards.map((item, index) => (
             <AnimatedSectionWrapper 
               key={item.title} 
@@ -53,15 +53,15 @@ export function HonorsAwardsSection() {
               className="h-full" 
             >
               <Card className={cn(
-                "flex flex-col text-center h-full card-achievement p-4", // Added p-4 for internal spacing
+                "flex flex-col text-center h-full card-achievement p-4", 
                 "transform transition-all duration-300 ease-in-out hover:scale-[1.03]"
               )}>
                 <div className="achievement-icon-container">
                   <item.icon />
                 </div>
                 
-                <CardHeader className="pb-2 pt-0">
-                  <CardTitle className="font-pixel text-md md:text-lg text-primary uppercase">
+                <CardHeader className="pb-2 pt-0 px-4"> {/* Added px-4 */}
+                  <CardTitle className="font-pixel text-lg text-primary uppercase"> {/* Changed to text-lg */}
                     {item.title}
                   </CardTitle>
                   <p className="text-sm font-medium text-accent">{item.subtitle}</p>
@@ -70,8 +70,8 @@ export function HonorsAwardsSection() {
                     {item.year}
                   </div>
                 </CardHeader>
-                <CardContent className="flex-grow px-2 pb-2"> {/* Reduced padding for content */}
-                  <CardDescription className="text-foreground/80 text-xs leading-relaxed"> {/* Adjusted text size */}
+                <CardContent className="flex-grow px-4 pb-4 pt-2"> {/* Changed px-2 to px-4, added pt-2 */}
+                  <CardDescription className="text-foreground/80 text-sm leading-relaxed"> {/* Changed to text-sm */}
                     {item.description}
                   </CardDescription>
                 </CardContent>
@@ -84,4 +84,3 @@ export function HonorsAwardsSection() {
     </section>
   );
 }
-

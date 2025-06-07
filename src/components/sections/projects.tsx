@@ -50,7 +50,7 @@ const projects = [
     dates: 'In Progress',
     tags: ['Strategy', 'Development'],
     link: '#',
-    size: 'normal' as const, // Changed from 'large' to 'normal' to fit the 2nd row with project 3
+    size: 'normal' as const, 
   },
   {
     title: 'Innovative Tech Solution Gamma',
@@ -72,12 +72,6 @@ export function ProjectsSection() {
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         {projects.map((project, index) => {
           let cardClasses = '';
-          // Mosaic layout:
-          // P1 (index 0): 2/3 width on lg, full on md
-          // P2 (index 1): 1/3 width on lg, 1/2 on md
-          // P3 (index 2): 1/3 width on lg, 1/2 on md
-          // P4 (index 3): 2/3 width on lg, full on md
-          // P5 (index 4): full width on lg, full on md
           if (index === 0) { 
             cardClasses = 'md:col-span-2 lg:col-span-2';
           } else if (index === 1) { 
@@ -90,7 +84,7 @@ export function ProjectsSection() {
             cardClasses = 'md:col-span-2 lg:col-span-3';
           }
 
-          const imageHeightClass = project.size === 'large' ? 'h-72' : 'h-56';
+          const imageHeightClass = project.size === 'large' ? 'h-96' : 'h-72'; // Adjusted heights
 
           return (
             <AnimatedSectionWrapper 
@@ -98,13 +92,16 @@ export function ProjectsSection() {
               delay={`duration-700 delay-${index * 100}`}
               className={cn(cardClasses, "group")}
             >
-              <Card className="flex flex-col h-full overflow-hidden shadow-lg transform transition-all duration-300 ease-in-out hover:shadow-2xl group-hover:scale-[1.03] group-hover:rotate-[-1deg]">
+              <Card className={cn(
+                "flex flex-col h-full overflow-hidden transform transition-all duration-300 ease-in-out group-hover:scale-[1.03] group-hover:rotate-[-1deg]",
+                "project-card-minecraft" // Added Minecraft style class
+              )}>
                 <CardHeader className="p-0">
                   <Image
                     src={project.image}
                     alt={project.title}
                     width={project.size === 'large' ? 800 : 600}
-                    height={project.size === 'large' ? 450 : 300} 
+                    height={project.size === 'large' ? 384 : 288} // Adjusted heights to match Tailwind classes
                     className={cn("object-cover w-full", imageHeightClass)}
                     data-ai-hint={project.imageHint}
                     priority={index < 2} 
