@@ -3,7 +3,6 @@
 
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Award, Trophy, CalendarDays } from 'lucide-react';
-// SectionContainer is not used directly to allow edge-to-edge ribbons
 import { SectionTitle } from '@/components/layout/section-title';
 import { AnimatedSectionWrapper } from '@/components/ui/animated-section-wrapper';
 import { cn } from '@/lib/utils';
@@ -41,13 +40,12 @@ const honorsAndAwards = [
 
 export function HonorsAwardsSection() {
   return (
-    <section id="honors" className="py-20 md:py-28 relative overflow-hidden"> {/* Replicates SectionContainer padding & adds relative/overflow */}
-      <div className="binary-code-ribbon left-0 hidden md:block"></div>
-      <div className="binary-code-ribbon right-0 hidden md:block"></div>
+    <section id="honors" className="py-20 md:py-28 relative overflow-hidden">
+      <div className="binary-code-ribbon-horizontal top-0"></div>
       
-      <div className="container mx-auto max-w-5xl px-4 md:px-6 relative z-10"> {/* Content wrapper to sit above ribbons */}
+      <div className="container mx-auto max-w-5xl px-4 md:px-6 relative z-10 pt-12 pb-12"> {/* Added padding top/bottom for ribbons */}
         <SectionTitle icon={Award}>Honors &amp; Awards</SectionTitle>
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-x-6 gap-y-12 pt-8"> {/* Adjusted for 4 items in a row on md+ */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-x-6 gap-y-12 pt-8">
           {honorsAndAwards.map((item, index) => (
             <AnimatedSectionWrapper 
               key={item.title} 
@@ -83,7 +81,7 @@ export function HonorsAwardsSection() {
           ))}
         </div>
       </div>
+      <div className="binary-code-ribbon-horizontal bottom-0"></div>
     </section>
   );
 }
-

@@ -52,7 +52,7 @@ const experiences = [
 
 export function ExperienceSection() {
   return (
-    <SectionContainer id="experience">
+    <SectionContainer id="experience" className="bg-brick-pattern">
       <SectionTitle icon={Briefcase}>Work Experience</SectionTitle>
       
       <div className="relative pl-8 md:pl-10"> {/* Increased left padding for larger nodes */}

@@ -38,9 +38,8 @@ export function AboutMeSection() {
           <AnimatedSectionWrapper>
             <div className="flex flex-col md:flex-row items-center md:items-start gap-10 md:gap-16">
               <div className="md:w-1/3 flex-shrink-0 flex flex-col items-center">
-                <div className="laptop-frame-profile-image mb-6 md:mb-0">
-                  <div className="webcam-dot"></div>
-                  <div className="image-screen">
+                <div className="digital-glow-frame mb-6 md:mb-0">
+                  <div className="image-screen-glow">
                     <Image
                       src="https://placehold.co/300x300.png"
                       alt="Habiba Almetnawy"
@@ -69,7 +68,7 @@ export function AboutMeSection() {
                       <Linkedin className="h-6 w-6 text-accent" />
                     </Link>
                   </div>
-                  <Button asChild size="lg" className="btn-treasure-box shadow-md hover:shadow-lg transform transition-all duration-300 ease-in-out hover:scale-[1.03]">
+                  <Button asChild size="lg" className="btn-treasure-box shadow-md hover:shadow-lg transform transition-all duration-300 ease-in-out hover:scale-[1.03] active:scale-95">
                     <Link href="/Habiba_Almetnawy_CV.pdf" target="_blank" download>
                       <Download className="mr-2 h-4 w-4" />
                       Download My CV
@@ -98,4 +97,3 @@ export function AboutMeSection() {
     </section>
   );
 }
-

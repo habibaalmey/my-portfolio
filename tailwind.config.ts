@@ -13,9 +13,9 @@ export default {
       fontFamily: {
         body: ['Poppins', 'sans-serif'],
         headline: ['Space Grotesk', 'sans-serif'],
-        // For Name in header (typewriter effect), we want the pixel font for Minecraft style
-        code: ['"Press Start 2P"', 'Source Code Pro', 'monospace'], 
-        pixel: ['"Press Start 2P"', 'cursive'], // For section titles
+        code: ['Source Code Pro', 'monospace'], 
+        pixel: ['"Press Start 2P"', 'cursive'],
+        neon: ['Bungee', 'cursive'], // Added Bungee for neon effect
       },
       colors: {
         background: 'hsl(var(--background))',
@@ -119,6 +119,10 @@ export default {
           '0%': { boxShadow: '0 0 8px hsl(var(--primary)/0.7)', opacity: '0.8' },
           '50%': { boxShadow: '0 0 12px hsl(var(--primary))', opacity: '1' },
           '100%': { boxShadow: '0 0 8px hsl(var(--primary)/0.7)', opacity: '0.8' },
+        },
+        'binary-flow': { /* Renamed from animate-binary-rain for consistency */
+          '0%': { backgroundPosition: '0 0' },
+          '100%': { backgroundPosition: '0px 200px' }, /* Matches SVG height */
         }
       },
       animation: {
@@ -129,6 +133,7 @@ export default {
         'body-gradient': 'animate-gradient-x 25s ease infinite',
         'typewriter': 'typing 3.5s steps(30, end), blink-caret .75s step-end infinite',
         'timeline-node-pulse': 'timeline-node-pulse 2s infinite ease-in-out',
+        'binary-flow': 'binary-flow 7s linear infinite',
       },
     },
   },

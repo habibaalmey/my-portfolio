@@ -131,23 +131,33 @@
     transform: translateY(1px);
   }
 
-  .laptop-frame-profile-image {
-    @apply relative p-2 bg-muted rounded-lg shadow-lg; /* This is the laptop body/bezel */
-    border-bottom: 8px solid hsl(var(--card)); /* Darker base for keyboard area */
-    border-left: 2px solid hsl(var(--card));
-    border-right: 2px solid hsl(var(--card));
-    border-top: 2px solid hsl(var(--card));
-    width: fit-content; /* Ensure the frame doesn't stretch unnecessarily */
-    margin-left: auto; /* Center it if in a flex container */
+  .digital-glow-frame {
+    @apply relative p-1 bg-transparent rounded-lg shadow-md;
+    width: fit-content;
+    margin-left: auto;
     margin-right: auto;
   }
-
-  .laptop-frame-profile-image .image-screen { /* This will wrap the actual Next/Image */
-    @apply bg-background p-1 rounded-sm; /* The actual screen area, slightly inset */
+  .digital-glow-frame::before,
+  .digital-glow-frame::after {
+    content: '';
+    @apply absolute inset-0 rounded-lg pointer-events-none;
+    z-index: -1; /* Behind the image */
+  }
+  .digital-glow-frame::before { /* Outer glow */
+    box-shadow: 0 0 15px 3px hsl(var(--primary)/0.5), 0 0 25px 8px hsl(var(--primary)/0.3);
+    animation: pulse-glow 3s infinite alternate;
+  }
+  .digital-glow-frame::after { /* Inner subtle frame */
+    @apply border-2 border-primary/30;
+    margin: -2px; /* Slightly offset for layering */
+  }
+  .digital-glow-frame .image-screen-glow {
+    @apply bg-background p-1 rounded-sm border border-primary/20;
   }
 
-  .laptop-frame-profile-image .webcam-dot {
-    @apply absolute top-1 left-1/2 -translate-x-1/2 w-1.5 h-1.5 bg-border rounded-full z-10;
+  @keyframes pulse-glow {
+    from { opacity: 0.7; transform: scale(0.98); }
+    to { opacity: 1; transform: scale(1.02); }
   }
   
   .card-lightbulb {
@@ -169,11 +179,11 @@
     box-shadow: 0 -8px 35px -5px hsl(var(--primary)/0.7), 0 10px 20px hsl(var(--primary)/0.3);
   }
 
-  .binary-code-ribbon {
-    @apply absolute top-0 bottom-0 w-12 bg-no-repeat opacity-75; /* w-12 = 48px */
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='30' height='200' viewBox='0 0 30 200'%3E%3Cstyle%3Etext %7B font-family: monospace; font-size: 14px; fill: hsla(50, 100%25, 60%25, 0.15); text-anchor: middle; dominant-baseline: middle; %7D%3C/style%3E%3Ctext x='50%25' y='10%25'%3E0%3C/text%3E%3Ctext x='50%25' y='20%25'%3E1%3C/text%3E%3Ctext x='50%25' y='30%25'%3E1%3C/text%3E%3Ctext x='50%25' y='40%25'%3E0%3C/text%3E%3Ctext x='50%25' y='50%25'%3E1%3C/text%3E%3Ctext x='50%25' y='60%25'%3E0%3C/text%3E%3Ctext x='50%25' y='70%25'%3E0%3C/text%3E%3Ctext x='50%25' y='80%25'%3E1%3C/text%3E%3Ctext x='50%25' y='90%25'%3E0%3C/text%3E%3C/svg%3E");
-    background-size: 100% auto; /* Cover width, auto height for pattern */
-    animation: binary-flow 7s linear infinite;
+  .binary-code-ribbon-horizontal {
+    @apply absolute left-0 right-0 w-full h-12 bg-no-repeat opacity-75 overflow-hidden; /* h-12 = 48px */
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='30' height='200' viewBox='0 0 30 200'%3E%3Cstyle%3Etext %7B font-family: monospace; font-size: 14px; fill: hsla(var(--primary), 0.15); text-anchor: middle; dominant-baseline: middle; %7D%3C/style%3E%3Ctext x='50%25' y='10%25'%3E0%3C/text%3E%3Ctext x='50%25' y='20%25'%3E1%3C/text%3E%3Ctext x='50%25' y='30%25'%3E1%3C/text%3E%3Ctext x='50%25' y='40%25'%3E0%3C/text%3E%3Ctext x='50%25' y='50%25'%3E1%3C/text%3E%3Ctext x='50%25' y='60%25'%3E0%3C/text%3E%3Ctext x='50%25' y='70%25'%3E0%3C/text%3E%3Ctext x='50%25' y='80%25'%3E1%3C/text%3E%3Ctext x='50%25' y='90%25'%3E0%3C/text%3E%3C/svg%3E");
+    background-size: auto 100%; /* Fill height, auto width for pattern */
+    animation: binary-flow 7s linear infinite; /* Uses existing vertical flow animation */
     z-index: 0; 
   }
 
@@ -188,6 +198,26 @@
       radial-gradient(1px 1px at 180px 50px, hsl(var(--foreground) / 0.3), transparent);
     background-size: 200px 200px;
     background-position: 0 0;
+  }
+
+  .bg-brick-pattern {
+    background-color: hsl(var(--card)); /* Brick color */
+    background-image:
+      linear-gradient(hsl(var(--border) / 0.2) 1px, transparent 1px), /* Horizontal mortar lines */
+      linear-gradient(90deg, hsl(var(--border) / 0.2) 1px, transparent 1px); /* Vertical mortar lines */
+    background-size: 80px 40px; /* Brick size: width 80px, height 40px */
+    border-top: 1px solid hsl(var(--border)/0.3); /* Optional top border */
+    border-bottom: 1px solid hsl(var(--border)/0.3); /* Optional bottom border */
+  }
+
+  .text-neon-primary {
+    @apply text-primary;
+    text-shadow: 
+      0 0 5px hsl(var(--primary)),
+      0 0 10px hsl(var(--primary)),
+      0 0 15px hsl(var(--primary)/0.8),
+      0 0 20px hsl(var(--primary)/0.6),
+      0 0 25px hsl(var(--primary)/0.4);
   }
 }
 
@@ -250,7 +280,6 @@
     border-right: .15em solid hsl(var(--primary)); 
     white-space: nowrap; 
     margin: 0 auto; 
-    /* letter-spacing is better handled by the font-headline class's natural spacing or can be adjusted there if needed */
     animation: 
       typing 3.5s steps(30, end),
       blink-caret .75s step-end infinite;
