@@ -20,7 +20,7 @@ const projects = [
     dates: 'November 2024 – February 2025',
     tags: ['AI', 'Python', 'Computer Vision', 'Google Maps API'],
     link: '#', 
-    size: 'large' as const, // P1
+    size: 'large' as const,
   },
   {
     title: 'UAEU Internship Portal | University Internship Management System',
@@ -30,7 +30,7 @@ const projects = [
     dates: 'February 2025 – May 2025',
     tags: ['Web Development', 'SQL', 'JavaScript', 'HTML/CSS'],
     link: '#',
-    size: 'normal' as const, // P2
+    size: 'normal' as const,
   },
   {
     title: 'Upcoming Project Alpha',
@@ -40,7 +40,7 @@ const projects = [
     dates: 'Coming Soon',
     tags: ['Innovation', 'R&D'],
     link: '#',
-    size: 'normal' as const, // P3
+    size: 'normal' as const,
   },
   {
     title: 'Future Project Beta',
@@ -50,7 +50,7 @@ const projects = [
     dates: 'In Progress',
     tags: ['Strategy', 'Development'],
     link: '#',
-    size: 'large' as const, // P4
+    size: 'normal' as const, // Changed from 'large' to 'normal' to fit the 2nd row with project 3
   },
   {
     title: 'Innovative Tech Solution Gamma',
@@ -60,7 +60,7 @@ const projects = [
     dates: 'Q4 2025',
     tags: ['AI', 'Machine Learning', 'Innovation'],
     link: '#',
-    size: 'large' as const, // P5
+    size: 'large' as const,
   }
 ];
 
@@ -72,15 +72,21 @@ export function ProjectsSection() {
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         {projects.map((project, index) => {
           let cardClasses = '';
-          if (index === 0) { // Project 1
+          // Mosaic layout:
+          // P1 (index 0): 2/3 width on lg, full on md
+          // P2 (index 1): 1/3 width on lg, 1/2 on md
+          // P3 (index 2): 1/3 width on lg, 1/2 on md
+          // P4 (index 3): 2/3 width on lg, full on md
+          // P5 (index 4): full width on lg, full on md
+          if (index === 0) { 
             cardClasses = 'md:col-span-2 lg:col-span-2';
-          } else if (index === 1) { // Project 2
+          } else if (index === 1) { 
             cardClasses = 'md:col-span-1 lg:col-span-1';
-          } else if (index === 2) { // Project 3
+          } else if (index === 2) { 
             cardClasses = 'md:col-span-1 lg:col-span-1';
-          } else if (index === 3) { // Project 4
+          } else if (index === 3) { 
             cardClasses = 'md:col-span-2 lg:col-span-2';
-          } else if (index === 4) { // Project 5
+          } else if (index === 4) { 
             cardClasses = 'md:col-span-2 lg:col-span-3';
           }
 
@@ -90,9 +96,9 @@ export function ProjectsSection() {
             <AnimatedSectionWrapper 
               key={project.title} 
               delay={`duration-700 delay-${index * 100}`}
-              className={cardClasses}
+              className={cn(cardClasses, "group")}
             >
-              <Card className="flex flex-col h-full overflow-hidden shadow-lg transform transition-all duration-300 ease-in-out hover:shadow-2xl hover:scale-[1.02]">
+              <Card className="flex flex-col h-full overflow-hidden shadow-lg transform transition-all duration-300 ease-in-out hover:shadow-2xl group-hover:scale-[1.03] group-hover:rotate-[-1deg]">
                 <CardHeader className="p-0">
                   <Image
                     src={project.image}
@@ -101,7 +107,7 @@ export function ProjectsSection() {
                     height={project.size === 'large' ? 450 : 300} 
                     className={cn("object-cover w-full", imageHeightClass)}
                     data-ai-hint={project.imageHint}
-                    priority={index < 2} // Prioritize first few images
+                    priority={index < 2} 
                   />
                 </CardHeader>
                 <CardContent className="flex-grow p-6 space-y-3">
@@ -121,9 +127,9 @@ export function ProjectsSection() {
                 </CardContent>
                 {project.link && project.link !== '#' && (
                   <div className="p-6 pt-0">
-                    <Button asChild variant="default" size="sm" className="group mt-2">
+                    <Button asChild variant="default" size="sm" className="group/button mt-2">
                       <Link href={project.link} target="_blank" rel="noopener noreferrer">
-                        View Project <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+                        View Project <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover/button:translate-x-1" />
                       </Link>
                     </Button>
                   </div>

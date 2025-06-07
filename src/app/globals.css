@@ -131,6 +131,28 @@
                 0px 1px 1px 0px hsla(0,0%,0%,0.2);
     transform: translateY(1px);
   }
+
+  .binary-border-profile-image {
+    @apply relative p-3 rounded-lg overflow-hidden;
+    /* The image itself should have a higher z-index */
+  }
+  .binary-border-profile-image::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cstyle%3Etext { font-family: 'Source Code Pro', monospace; font-size: 12px; }%3C/style%3E%3Ctext fill='currentColor' x='5' y='15'%3E0%3C/text%3E %3Ctext fill='currentColor' x='35' y='15'%3E1%3C/text%3E%3Ctext fill='currentColor' x='20' y='35'%3E1%3C/text%3E %3Ctext fill='currentColor' x='50' y='35'%3E0%3C/text%3E%3Ctext fill='currentColor' x='5' y='55'%3E1%3C/text%3E %3Ctext fill='currentColor' x='35' y='55'%3E0%3C/text%3E%3C/svg%3E");
+    background-repeat: repeat;
+    background-size: 50px 50px;
+    color: hsl(var(--primary) / 0.15); /* Controls the color of the 1s and 0s via currentColor in SVG */
+    z-index: 0;
+    animation: binary-flow 10s linear infinite; /* Slow scroll for the binary pattern */
+  }
+
+  @keyframes binary-flow {
+    0% { background-position: 0 0; }
+    100% { background-position: 0px 120px; } /* Adjust for speed and pattern size */
+  }
+
 }
 
 @layer utilities {
@@ -193,6 +215,7 @@
       blink-caret .75s step-end infinite;
   }
 
+  /* For subtle 1s and 0s effect on timeline line (if re-enabled or used elsewhere) */
   .timeline-line-decorated {
     position: relative;
     overflow: hidden; 

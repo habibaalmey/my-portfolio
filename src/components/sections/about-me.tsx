@@ -8,6 +8,7 @@ import { SectionTitle } from '@/components/layout/section-title';
 import { AnimatedSectionWrapper } from '@/components/ui/animated-section-wrapper';
 import Link from 'next/link';
 import { Badge } from '@/components/ui/badge';
+import { cn } from '@/lib/utils';
 
 const aboutMeText = "I am a fourth-year Computer Science student with a passion for the intersection of business and information technology. I am highly organized and detail-oriented, consistently delivering quality results in both academic research and industry projects. With particular expertise in data analysis and machine learning, my experience enables me to solve problems with technical precision while understanding business needs.";
 
@@ -35,17 +36,19 @@ export function AboutMeSection() {
         <div className="container mx-auto max-w-5xl px-4 py-16 md:px-6 md:py-24">
           <SectionTitle>About Me</SectionTitle>
           <AnimatedSectionWrapper>
-            <div className="flex flex-col md:flex-row items-center md:items-start gap-10 md:gap-12">
-              <div className="md:w-1/3 flex-shrink-0">
-                <Image
-                  src="https://placehold.co/300x300.png"
-                  alt="Habiba Almetnawy"
-                  width={300}
-                  height={300}
-                  className="rounded-lg shadow-xl mx-auto md:mx-0 transform transition-all duration-300 ease-in-out hover:scale-[1.03]"
-                  data-ai-hint="profile portrait"
-                  priority
-                />
+            <div className="flex flex-col md:flex-row items-center md:items-start gap-10 md:gap-16">
+              <div className="md:w-1/3 flex-shrink-0 flex flex-col items-center">
+                <div className="binary-border-profile-image rounded-lg shadow-xl mb-6 md:mb-0">
+                  <Image
+                    src="https://placehold.co/300x300.png"
+                    alt="Habiba Almetnawy"
+                    width={300}
+                    height={300}
+                    className="rounded-lg relative z-10 transform transition-all duration-300 ease-in-out hover:scale-[1.03]"
+                    data-ai-hint="profile portrait"
+                    priority
+                  />
+                </div>
               </div>
               <div className="md:w-2/3 text-center md:text-left">
                 <p className="text-foreground/90 text-base md:text-lg leading-relaxed mb-8">
