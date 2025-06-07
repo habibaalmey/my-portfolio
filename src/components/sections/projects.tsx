@@ -15,7 +15,7 @@ const projects = [
   {
     title: 'Guardians of Sustainability | Infrastructure Monitoring Platform',
     description: 'Developed an AI-powered urban infrastructure monitoring platform using Python, which reduced issue detection time by 40% and improved reporting accuracy by 30% through image recognition and Google Maps integration. Designed to support government and community efforts by automatically identifying and reporting environmental issues such as fallen trees and damaged infrastructure.',
-    image: 'https://placehold.co/800x576.png', // Adjusted for h-72
+    image: 'https://placehold.co/800x576.png',
     imageHint: 'urban AI monitoring',
     dates: 'November 2024 – February 2025',
     tags: ['AI', 'Python', 'Computer Vision', 'Google Maps API'],
@@ -25,7 +25,7 @@ const projects = [
   {
     title: 'UAEU Internship Portal | University Internship Management System',
     description: "Created a comprehensive internship portal for UAEU's College of IT to handle the application, review, and tracking process. Manipulated SQL databases to manage user data and internship records, and built a dynamic interface using HTML, CSS, and JavaScript. The system features student workflows, admin dashboards, and company-specific access.",
-    image: 'https://placehold.co/600x416.png', // Adjusted for h-52
+    image: 'https://placehold.co/600x416.png',
     imageHint: 'web portal interface',
     dates: 'February 2025 – May 2025',
     tags: ['Web Development', 'SQL', 'JavaScript', 'HTML/CSS'],
@@ -35,7 +35,7 @@ const projects = [
   {
     title: 'Upcoming Project Alpha',
     description: "Details about this exciting new project will be revealed soon. Stay tuned for innovative solutions and cutting-edge technology.",
-    image: 'https://placehold.co/600x416.png', // Adjusted for h-52
+    image: 'https://placehold.co/600x416.png',
     imageHint: 'technology concept',
     dates: 'Coming Soon',
     tags: ['Innovation', 'R&D'],
@@ -45,7 +45,7 @@ const projects = [
   {
     title: 'Future Project Beta',
     description: "Currently in the planning phase, this project aims to address key challenges in its domain. More information to follow as development progresses.",
-    image: 'https://placehold.co/600x416.png', // Adjusted for h-52
+    image: 'https://placehold.co/600x416.png',
     imageHint: 'planning blueprint',
     dates: 'In Progress',
     tags: ['Strategy', 'Development'],
@@ -55,7 +55,7 @@ const projects = [
   {
     title: 'Innovative Tech Solution Gamma',
     description: "A groundbreaking solution leveraging advanced AI to solve complex problems in the industry. Full details to be unveiled upon launch.",
-    image: 'https://placehold.co/800x576.png', // Adjusted for h-72
+    image: 'https://placehold.co/800x576.png',
     imageHint: 'AI solution abstract',
     dates: 'Q4 2025',
     tags: ['AI', 'Machine Learning', 'Innovation'],
@@ -74,8 +74,6 @@ export function ProjectsSection() {
           let cardClasses = '';
           if (project.size === 'large') {
             cardClasses = 'md:col-span-2';
-          } else {
-             // Normal items take one column on md screens
           }
 
           const imageHeightClass = project.size === 'large' ? 'h-72' : 'h-52'; 
