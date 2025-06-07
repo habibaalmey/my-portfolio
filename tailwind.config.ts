@@ -1,3 +1,4 @@
+
 import type {Config} from 'tailwindcss';
 
 export default {
@@ -12,7 +13,7 @@ export default {
       fontFamily: {
         body: ['Poppins', 'sans-serif'],
         headline: ['Poppins', 'sans-serif'],
-        calligraphy: ['Alex Brush', 'cursive'],
+        calligraphy: ['Space Grotesk', 'sans-serif'], // Changed from Alex Brush
         code: ['monospace'],
       },
       colors: {

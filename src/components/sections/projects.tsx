@@ -19,8 +19,8 @@ const projects = [
     imageHint: 'urban AI monitoring',
     dates: 'November 2024 – February 2025',
     tags: ['AI', 'Python', 'Computer Vision', 'Google Maps API'],
-    link: '#', // Placeholder link
-    size: 'large' as const,
+    link: '#', 
+    size: 'large' as const, // P1
   },
   {
     title: 'UAEU Internship Portal | University Internship Management System',
@@ -30,7 +30,7 @@ const projects = [
     dates: 'February 2025 – May 2025',
     tags: ['Web Development', 'SQL', 'JavaScript', 'HTML/CSS'],
     link: '#',
-    size: 'normal' as const,
+    size: 'normal' as const, // P2
   },
   {
     title: 'Upcoming Project Alpha',
@@ -40,7 +40,7 @@ const projects = [
     dates: 'Coming Soon',
     tags: ['Innovation', 'R&D'],
     link: '#',
-    size: 'normal' as const,
+    size: 'normal' as const, // P3
   },
   {
     title: 'Future Project Beta',
@@ -50,7 +50,7 @@ const projects = [
     dates: 'In Progress',
     tags: ['Strategy', 'Development'],
     link: '#',
-    size: 'normal' as const,
+    size: 'large' as const, // P4
   },
   {
     title: 'Innovative Tech Solution Gamma',
@@ -60,7 +60,7 @@ const projects = [
     dates: 'Q4 2025',
     tags: ['AI', 'Machine Learning', 'Innovation'],
     link: '#',
-    size: 'large' as const,
+    size: 'large' as const, // P5
   }
 ];
 
@@ -71,18 +71,25 @@ export function ProjectsSection() {
       
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         {projects.map((project, index) => {
-          const cardClasses = cn({
-            'lg:col-span-2 md:col-span-2': project.size === 'large',
-            'lg:col-span-1 md:col-span-1': project.size === 'normal',
-             // Project 5 (index 4) will take full width on large screens
-            'lg:col-span-3': project.size === 'large' && index === projects.length -1,
-          });
+          let cardClasses = '';
+          if (index === 0) { // Project 1
+            cardClasses = 'md:col-span-2 lg:col-span-2';
+          } else if (index === 1) { // Project 2
+            cardClasses = 'md:col-span-1 lg:col-span-1';
+          } else if (index === 2) { // Project 3
+            cardClasses = 'md:col-span-1 lg:col-span-1';
+          } else if (index === 3) { // Project 4
+            cardClasses = 'md:col-span-2 lg:col-span-2';
+          } else if (index === 4) { // Project 5
+            cardClasses = 'md:col-span-2 lg:col-span-3';
+          }
+
           const imageHeightClass = project.size === 'large' ? 'h-72' : 'h-56';
 
           return (
             <AnimatedSectionWrapper 
               key={project.title} 
-              delay={`duration-700 delay-${index * 100}`} // Adjusted delay slightly
+              delay={`duration-700 delay-${index * 100}`}
               className={cardClasses}
             >
               <Card className="flex flex-col h-full overflow-hidden shadow-lg transform transition-all duration-300 ease-in-out hover:shadow-2xl hover:scale-[1.02]">
@@ -91,10 +98,10 @@ export function ProjectsSection() {
                     src={project.image}
                     alt={project.title}
                     width={project.size === 'large' ? 800 : 600}
-                    height={project.size === 'large' ? 450 : 300} // Adjusted height for aspect ratio
+                    height={project.size === 'large' ? 450 : 300} 
                     className={cn("object-cover w-full", imageHeightClass)}
                     data-ai-hint={project.imageHint}
-                    priority={index === 0} // Prioritize first image
+                    priority={index < 2} // Prioritize first few images
                   />
                 </CardHeader>
                 <CardContent className="flex-grow p-6 space-y-3">
