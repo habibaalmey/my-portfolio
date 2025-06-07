@@ -3,7 +3,7 @@
 
 import Image from 'next/image';
 import { Card, CardContent, CardDescription, CardHeader, CardFooter, CardTitle } from '@/components/ui/card';
-import { LayoutGrid, CalendarDays, ArrowRight, Github, ExternalLink } from 'lucide-react';
+import { LayoutGrid, CalendarDays, Github, ExternalLink } from 'lucide-react';
 import { SectionContainer } from '@/components/layout/section-container';
 import { SectionTitle } from '@/components/layout/section-title';
 import { AnimatedSectionWrapper } from '@/components/ui/animated-section-wrapper';
@@ -19,10 +19,10 @@ const projectsData = [
     imageHint: 'urban AI monitoring',
     dates: 'November 2024 – February 2025',
     tags: ['AI', 'Python', 'Computer Vision', 'Google Maps API'],
-    githubLink: '#', // Placeholder
-    demoLink: '#',   // Placeholder
-    colSpan: 'lg:col-span-2', // Wider card
-    minHeight: 'min-h-[480px]', // Taller card
+    githubLink: '#', 
+    demoLink: '#',   
+    colSpan: 'lg:col-span-2',
+    minHeight: 'min-h-[480px]', 
   },
   {
     title: 'UAEU Internship Portal | University Internship Management System',
@@ -34,13 +34,13 @@ const projectsData = [
     githubLink: '#',
     demoLink: null,
     colSpan: 'lg:col-span-1',
-    minHeight: 'min-h-[420px]',
+    minHeight: 'min-h-[450px]', 
   },
   {
     title: 'Upcoming Project Alpha',
     description: "Details about this exciting new project will be revealed soon. Stay tuned for innovative solutions and cutting-edge technology.",
     image: 'https://placehold.co/400x300.png',
-    imageHint: 'technology concept',
+    imageHint: 'technology concept future',
     dates: 'Coming Soon',
     tags: ['Innovation', 'R&D'],
     githubLink: null,
@@ -52,45 +52,45 @@ const projectsData = [
     title: 'Future Project Beta',
     description: "Currently in the planning phase, this project aims to address key challenges in its domain. More information to follow as development progresses.",
     image: 'https://placehold.co/600x300.png',
-    imageHint: 'planning blueprint',
+    imageHint: 'planning blueprint strategy',
     dates: 'In Progress',
     tags: ['Strategy', 'Development'],
     githubLink: '#',
     demoLink: '#',
-    colSpan: 'lg:col-span-2', // Wider card
-    minHeight: 'min-h-[450px]',
+    colSpan: 'lg:col-span-2', 
+    minHeight: 'min-h-[450px]', 
   },
   {
     title: 'Innovative Tech Solution Gamma',
     description: "A groundbreaking solution leveraging advanced AI to solve complex problems in the industry. Full details to be unveiled upon launch.",
     image: 'https://placehold.co/400x400.png',
-    imageHint: 'AI solution abstract',
+    imageHint: 'AI solution network',
     dates: 'Q4 2025',
     tags: ['AI', 'Machine Learning', 'Innovation'],
     githubLink: '#',
     demoLink: '#',
-    colSpan: 'lg:col-span-2', // Wider card
-    minHeight: 'min-h-[480px]',
+    colSpan: 'lg:col-span-2', 
+    minHeight: 'min-h-[480px]', 
   }
 ];
 
 export function ProjectsSection() {
   return (
-    <SectionContainer id="projects" className="bg-muted/50 px-4 md:px-6"> {/* Standard padding here, mosaic handles internal complexity */}
+    <SectionContainer id="projects" className="bg-muted/50 px-4 md:px-6">
       <SectionTitle icon={LayoutGrid}>Project Experience</SectionTitle>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
         {projectsData.map((project, index) => (
           <AnimatedSectionWrapper
             key={project.title}
             delay={`duration-700 delay-${index * 100}`}
-            className={cn("h-full", project.colSpan)} // Apply colSpan for mosaic
+            className={cn("h-full", project.colSpan, project.minHeight)} 
           >
-            <Card className={cn("project-card-bubble group", project.minHeight)}> {/* Add group for image hover effect */}
+            <Card className={cn("project-card-bubble group h-full flex flex-col")}>
               <CardHeader className="p-0 relative overflow-hidden project-image-container aspect-[16/10]">
                 <Image
                   src={project.image}
                   alt={project.title}
-                  fill // Use fill to respect aspect ratio container
+                  fill 
                   className="object-cover transition-transform duration-300 ease-in-out group-hover:scale-105"
                   data-ai-hint={project.imageHint}
                   priority={index < 2}
@@ -112,7 +112,7 @@ export function ProjectsSection() {
                   ))}
                 </div>
               </CardContent>
-              <CardFooter className="p-5 pt-2 flex gap-3">
+              <CardFooter className="p-5 pt-2 flex gap-3 mt-auto"> {/* Added mt-auto to push footer down */}
                 {project.githubLink && (
                   <Button asChild variant="outline" size="sm" className="group/button flex-1 btn-treasure-box">
                     <Link href={project.githubLink} target="_blank" rel="noopener noreferrer">

@@ -16,17 +16,11 @@ export default function HomePage() {
         <AboutMeSection />
         <ExperienceSection />
         <ProjectsSection />
-        <div className="container mx-auto max-w-5xl px-4 md:px-6">
-          {/* Creative separator between Projects and Highlights */}
-          <Separator className="my-16 md:my-20 separator-creative-dashed" />
-        </div>
+        {/* Separator between Projects and Highlights removed */}
         <HighlightsSection />
-        <div className="container mx-auto max-w-5xl px-4 md:px-6">
-           {/* Separator between Highlights and Honors & Awards */}
-          <Separator className="my-16 md:my-20 bg-border/60" />
-        </div>
+        {/* Separator between Highlights and Honors & Awards removed */}
         <HonorsAwardsSection />
-        {/* Separator below HonorsAwardsSection has been removed */}
+        {/* Separator below HonorsAwardsSection was already removed and will remain so */}
       </main>
       <Footer />
     </div>

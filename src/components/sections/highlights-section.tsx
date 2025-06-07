@@ -3,9 +3,9 @@
 
 import Image from 'next/image';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { SectionContainer } from '@/components/layout/section-container';
+// SectionContainer removed as marquee will be full-width
 import { SectionTitle } from '@/components/layout/section-title';
-import { Sparkles } from 'lucide-react'; // Example icon
+import { Sparkles } from 'lucide-react'; 
 
 const highlightsData = [
   {
@@ -46,15 +46,19 @@ const highlightsData = [
   }
 ];
 
-// Duplicate for seamless marquee
 const marqueeHighlights = [...highlightsData, ...highlightsData, ...highlightsData];
 
 
 export function HighlightsSection() {
   return (
-    <SectionContainer id="highlights" className="py-16 md:py-20 bg-background">
-      <SectionTitle icon={Sparkles}>Journey Highlights</SectionTitle>
-      <div className="w-full overflow-hidden relative group group-hover:pause-animation py-4">
+    <section id="highlights" className="py-16 md:py-20 bg-background">
+      {/* Container for the title, keeping it constrained */}
+      <div className="container mx-auto max-w-5xl px-4 md:px-6">
+        <SectionTitle icon={Sparkles}>Journey Highlights</SectionTitle>
+      </div>
+
+      {/* Marquee container is now full-width */}
+      <div className="w-full overflow-hidden relative group group-hover:pause-animation py-4 mt-8 md:mt-12">
         <div className="flex animate-marquee whitespace-nowrap">
           {marqueeHighlights.map((highlight, index) => (
             <div key={`hl1-${index}`} className="mx-3">
@@ -100,6 +104,6 @@ export function HighlightsSection() {
           ))}
         </div>
       </div>
-    </SectionContainer>
+    </section>
   );
 }

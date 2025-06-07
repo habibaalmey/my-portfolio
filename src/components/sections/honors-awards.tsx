@@ -39,18 +39,18 @@ const honorsAndAwards = [
 
 export function HonorsAwardsSection() {
   return (
-    <section id="honors" className="py-20 md:py-28 relative overflow-hidden">
-      <div className="binary-waterfall-bg"></div> {/* Moved to be direct child of section */}
-      <div className="container mx-auto max-w-5xl px-4 md:px-6 relative z-10">
+    <section id="honors" className="pb-20 md:pb-28 pt-0 relative overflow-hidden"> {/* Removed top padding */}
+      <div className="binary-waterfall-bg"></div>
+      <div className="container mx-auto max-w-5xl px-4 md:px-6 relative z-10 pt-20 md:pt-28"> {/* Added padding here to compensate for section's pt-0 */}
         <SectionTitle icon={Award}>Honors &amp; Awards</SectionTitle>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-x-6 gap-y-8 pt-8">
           {honorsAndAwards.map((item, index) => (
             <AnimatedSectionWrapper
               key={item.title}
               delay={`duration-700 delay-${index * 150}`}
-              className="h-full" // Ensure wrapper takes full height of grid cell
+              className="h-full" 
             >
-              <Card className="card-achievement h-full flex flex-col"> {/* Ensure card takes full height and is flex col */}
+              <Card className="card-achievement h-full flex flex-col">
                 <div className="achievement-icon-container">
                   <item.icon />
                 </div>
@@ -64,7 +64,7 @@ export function HonorsAwardsSection() {
                     {item.year}
                   </div>
                 </CardHeader>
-                <CardContent className="flex-grow px-4 pb-4 pt-2"> {/* flex-grow for description */}
+                <CardContent className="flex-grow px-4 pb-4 pt-2">
                   <CardDescription className="text-foreground/80 text-sm leading-relaxed">
                     {item.description}
                   </CardDescription>
