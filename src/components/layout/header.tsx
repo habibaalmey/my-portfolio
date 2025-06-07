@@ -3,7 +3,7 @@
 
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
-import { Download, Camera, Menu } from 'lucide-react';
+import { Download, Menu } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
 import { useState, useEffect } from 'react';
@@ -36,7 +36,6 @@ export function Header() {
     )}>
       <div className="container mx-auto flex h-16 max-w-screen-2xl items-center justify-between px-4 md:px-6">
         <Link href="/" className="flex items-center space-x-2" onClick={isMobileMenuOpen ? closeMobileMenu : undefined}>
-          <Camera className="h-6 w-6 text-primary" />
           <span className="font-bold font-headline text-lg text-primary">Habiba Almetnawy</span>
         </Link>
         
@@ -69,7 +68,6 @@ export function Header() {
             <SheetContent side="right" className="w-full max-w-xs bg-background p-6">
               <div className="flex flex-col space-y-5">
                 <Link href="/" className="flex items-center space-x-2 mb-6" onClick={closeMobileMenu}>
-                  <Camera className="h-6 w-6 text-primary" />
                   <span className="font-bold font-headline text-lg text-primary">Habiba Almetnawy</span>
                 </Link>
                 {navItems.map((item) => (
