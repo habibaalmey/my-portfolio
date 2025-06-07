@@ -229,14 +229,12 @@
     background-position: 0 0;
   }
 
-  .bg-brick-pattern {
-    background-color: hsl(var(--card)); 
-    background-image:
-      linear-gradient(hsl(var(--border) / 0.2) 1px, transparent 1px), 
-      linear-gradient(90deg, hsl(var(--border) / 0.2) 1px, transparent 1px); 
-    background-size: 80px 40px; 
+  .bg-blue-gradient-flow {
+    background: linear-gradient(-45deg, hsl(var(--background)), hsl(var(--secondary)), hsl(var(--card)), hsl(210 70% 45%));
+    background-size: 300% 300%;
+    animation: animate-gradient-x 20s ease infinite;
     border-top: 1px solid hsl(var(--border)/0.3); 
-    border-bottom: 1px solid hsl(var(--border)/0.3); 
+    border-bottom: 1px solid hsl(var(--border)/0.3);
   }
 
   .text-neon-primary {
@@ -400,3 +398,6 @@
   }
 
 }
+
+
+    

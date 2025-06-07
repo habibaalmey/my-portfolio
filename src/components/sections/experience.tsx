@@ -53,7 +53,7 @@ const experiences = [
 
 export function ExperienceSection() {
   return (
-    <SectionContainer id="experience" className="bg-brick-pattern">
+    <SectionContainer id="experience" className="bg-blue-gradient-flow">
       <SectionTitle icon={Briefcase}>Work Experience</SectionTitle>
       
       <div className="relative pl-8 md:pl-10"> 
@@ -66,14 +66,12 @@ export function ExperienceSection() {
             <AnimatedSectionWrapper delay={`duration-700 delay-${index * 150}`}>
               <Card className={cn(
                 "ml-6 md:ml-8 shadow-xl overflow-hidden transform transition-all duration-300 ease-in-out hover:shadow-2xl hover:scale-[1.02]",
-                index % 2 === 0 
-                  ? "bg-card text-card-foreground" 
-                  : "bg-background text-foreground border-2 border-primary"
+                "bg-background text-foreground border-2 border-primary" 
               )}>
                 <CardHeader>
                   <div className="flex-grow">
                     <CardTitle className="font-headline text-xl text-primary">{exp.role}</CardTitle>
-                    <CardDescription className={cn("text-base font-medium", index % 2 === 0 ? "text-secondary" : "text-muted-foreground" )}>{exp.company} - {exp.location}</CardDescription>
+                    <CardDescription className={cn("text-base font-medium", "text-muted-foreground" )}>{exp.company} - {exp.location}</CardDescription>
                     <div className="flex items-center text-sm text-muted-foreground mt-1">
                       <CalendarDays className="mr-2 h-4 w-4" />
                       {exp.duration}
@@ -83,7 +81,7 @@ export function ExperienceSection() {
                 <CardContent>
                   <ul className={cn(
                     "list-disc list-outside ml-5 space-y-2 text-sm",
-                     index % 2 === 0 ? "text-foreground/80" : "text-foreground/90" 
+                     "text-foreground/90" 
                   )}>
                     {exp.description.map((item, i) => (
                       <li key={i}>{item}</li>
@@ -98,3 +96,6 @@ export function ExperienceSection() {
     </SectionContainer>
   );
 }
+
+
+    
