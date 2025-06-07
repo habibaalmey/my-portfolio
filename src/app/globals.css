@@ -56,14 +56,14 @@ body {
   }
 
   .dark {
-    /* Dark Theme - Adjusted for less intensity */
-    --background: 240 10% 10%; /* Slightly lighter very dark blue-black */
+    /* Dark Theme - Adjusted for less intensity, slightly brighter */
+    --background: 240 10% 12%; /* Dark blue-black, slightly lighter */
     --foreground: 0 0% 98%; /* White */
 
-    --card: 240 7% 15%; /* Dark gray for cards, slightly lighter */
+    --card: 240 7% 18%; /* Dark gray for cards, slightly lighter */
     --card-foreground: 0 0% 95%; /* Off-white text for cards */
 
-    --popover: 240 8% 18%; /* Dark gray for popovers */
+    --popover: 240 8% 20%; /* Dark gray for popovers, slightly lighter */
     --popover-foreground: 0 0% 98%; /* White */
 
     --primary: 270 65% 60%; /* Vibrant Dark Purple */
@@ -72,7 +72,7 @@ body {
     --secondary: 270 55% 75%; /* Softer, lighter Purple */
     --secondary-foreground: 0 0% 98%; /* White */
 
-    --muted: 240 6% 25%; /* Muted Dark Gray */
+    --muted: 240 6% 28%; /* Muted Dark Gray, slightly lighter */
     --muted-foreground: 240 5% 75%; /* Light Gray for muted text */
 
     --accent: 280 70% 70%; /* Vibrant accent purple */
@@ -81,8 +81,8 @@ body {
     --destructive: 0 65% 55%; 
     --destructive-foreground: 0 0% 98%;
 
-    --border: 240 5% 35%; /* Dark Gray border, slightly lighter */
-    --input: 240 5% 30%; /* Dark Gray input background */
+    --border: 240 5% 40%; /* Dark Gray border, slightly lighter */
+    --input: 240 5% 33%; /* Dark Gray input background, slightly lighter */
     --ring: 270 65% 65%; /* Primary purple for focus rings */
     
     --sidebar-background: 240 10% 6%;
@@ -118,9 +118,30 @@ body {
 @layer utilities {
   @keyframes expand-width {
     from { width: 0%; opacity: 0; }
-    to { width: 8rem; opacity: 1; } /* Increased width from w-28 (7rem) */
+    to { width: 10rem; opacity: 1; } /* Increased width for title underline */
   }
-  .animate-expand-width {
+  .animate-expand-width { /* Kept for other potential uses, but ribbon uses animate-gradient-x */
     animation: expand-width 0.8s cubic-bezier(0.25, 0.1, 0.25, 1) forwards;
+  }
+
+  @keyframes animate-gradient-x {
+    0%, 100% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+  }
+  .animate-gradient-ribbon {
+    background-size: 300% 300%; /* Make background large enough to move */
+    background-image: linear-gradient(
+      to right,
+      hsl(var(--primary)),
+      hsl(var(--accent)),
+      hsl(var(--secondary)),
+      hsl(var(--accent)),
+      hsl(var(--primary))
+    );
+    animation: animate-gradient-x 8s ease infinite, expand-width 0.8s cubic-bezier(0.25, 0.1, 0.25, 1) forwards;
   }
 }
