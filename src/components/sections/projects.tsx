@@ -69,22 +69,24 @@ export function ProjectsSection() {
     <SectionContainer id="projects" className="bg-muted/50">
       <SectionTitle icon={LayoutGrid}>Project Experience</SectionTitle>
       
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
         {projects.map((project, index) => {
           let cardClasses = '';
-          if (index === 0) { 
-            cardClasses = 'md:col-span-2 lg:col-span-2';
-          } else if (index === 1) { 
-            cardClasses = 'md:col-span-1 lg:col-span-1';
-          } else if (index === 2) { 
-            cardClasses = 'md:col-span-1 lg:col-span-1';
-          } else if (index === 3) { 
-            cardClasses = 'md:col-span-2 lg:col-span-2';
-          } else if (index === 4) { 
-            cardClasses = 'md:col-span-2 lg:col-span-3';
+          // Full width for large projects on md screens and up
+          // Half width for normal projects on md screens and up
+          if (project.size === 'large') {
+            cardClasses = 'md:col-span-2';
+          } else {
+            // For normal projects, they naturally fit into the 2-column md grid
+            // No specific class needed unless there's specific ordering.
+            // If md:grid-cols-2, index 1 and 2 would naturally be side-by-side if project 0 is md:col-span-2.
           }
 
-          const imageHeightClass = project.size === 'large' ? 'h-96' : 'h-72'; // Adjusted heights
+
+          const imageHeightClass = project.size === 'large' ? 'h-80' : 'h-60'; // Adjusted heights
+          const imageNextHeight = project.size === 'large' ? 320 : 240;
+          const imageNextWidth = project.size === 'large' ? 800 : 600;
+
 
           return (
             <AnimatedSectionWrapper 
@@ -94,14 +96,14 @@ export function ProjectsSection() {
             >
               <Card className={cn(
                 "flex flex-col h-full overflow-hidden transform transition-all duration-300 ease-in-out group-hover:scale-[1.03] group-hover:rotate-[-1deg]",
-                "project-card-minecraft" // Added Minecraft style class
+                "project-card-minecraft"
               )}>
                 <CardHeader className="p-0">
                   <Image
                     src={project.image}
                     alt={project.title}
-                    width={project.size === 'large' ? 800 : 600}
-                    height={project.size === 'large' ? 384 : 288} // Adjusted heights to match Tailwind classes
+                    width={imageNextWidth}
+                    height={imageNextHeight}
                     className={cn("object-cover w-full", imageHeightClass)}
                     data-ai-hint={project.imageHint}
                     priority={index < 2} 
