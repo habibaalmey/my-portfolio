@@ -1,3 +1,4 @@
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -57,13 +58,13 @@ body {
 
   .dark {
     /* Dark Theme - Adjusted for less intensity, slightly brighter */
-    --background: 240 10% 12%; /* Dark blue-black, slightly lighter */
+    --background: 240 10% 15%; /* Darker blue-black, slightly brighter than before */
     --foreground: 0 0% 98%; /* White */
 
-    --card: 240 7% 18%; /* Dark gray for cards, slightly lighter */
+    --card: 240 7% 20%; /* Dark gray for cards, slightly brighter */
     --card-foreground: 0 0% 95%; /* Off-white text for cards */
 
-    --popover: 240 8% 20%; /* Dark gray for popovers, slightly lighter */
+    --popover: 240 8% 22%; /* Dark gray for popovers, slightly brighter */
     --popover-foreground: 0 0% 98%; /* White */
 
     --primary: 270 65% 60%; /* Vibrant Dark Purple */
@@ -72,7 +73,7 @@ body {
     --secondary: 270 55% 75%; /* Softer, lighter Purple */
     --secondary-foreground: 0 0% 98%; /* White */
 
-    --muted: 240 6% 28%; /* Muted Dark Gray, slightly lighter */
+    --muted: 240 6% 25%; /* Muted Dark Gray for section backgrounds */
     --muted-foreground: 240 5% 75%; /* Light Gray for muted text */
 
     --accent: 280 70% 70%; /* Vibrant accent purple */
@@ -143,5 +144,28 @@ body {
       hsl(var(--primary))
     );
     animation: animate-gradient-x 8s ease infinite, expand-width 0.8s cubic-bezier(0.25, 0.1, 0.25, 1) forwards;
+  }
+
+  /* New marquee animation for skills ribbon */
+  @keyframes marquee {
+    0% { transform: translateX(0%); }
+    100% { transform: translateX(-100%); }
+  }
+  @keyframes marquee2 {
+    0% { transform: translateX(100%); } /* Starts off-screen to the right */
+    100% { transform: translateX(0%); }   /* Moves to fill the space left by the first div */
+  }
+
+  .animate-marquee {
+    animation: marquee 60s linear infinite; /* Duration controls speed, longer is slower */
+  }
+  .animate-marquee2 {
+    animation: marquee2 60s linear infinite;
+  }
+  
+  /* Pause animation on hover over the group container */
+  .group-hover\:pause-animation:hover .animate-marquee,
+  .group-hover\:pause-animation:hover .animate-marquee2 {
+    animation-play-state: paused;
   }
 }
