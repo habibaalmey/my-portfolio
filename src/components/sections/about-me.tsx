@@ -10,13 +10,14 @@ import { Badge } from '@/components/ui/badge';
 
 const aboutMeText = "I am a fourth-year Computer Science student with a passion for the intersection of business and information technology. I am highly organized and detail-oriented, consistently delivering quality results in both academic research and industry projects. With particular expertise in data analysis and machine learning, my experience enables me to solve problems with technical precision while understanding business needs.";
 
-// Reduced list of skills for a shorter ribbon
 const skills = [
-  'Python', 'JavaScript', 'React', 'Next.js', 'Tailwind CSS',
-  'Machine Learning', 'AI Development', 'Git', 'SQL', 'Java',
+  'Python', 'Java', 'SQL', 'HTML/CSS', 'Pandas', 
+  'Scikit-learn', 'TensorFlow', 'Power BI', 'LangChain', 'Git', 
+  'Figma', 'Feature Engineering', 'Business Analytics', 'Neural Networks', 'Project Management',
   // Duplicates for seamless loop
-  'Python', 'JavaScript', 'React', 'Next.js', 'Tailwind CSS',
-  'Machine Learning', 'AI Development', 'Git', 'SQL', 'Java',
+  'Python', 'Java', 'SQL', 'HTML/CSS', 'Pandas', 
+  'Scikit-learn', 'TensorFlow', 'Power BI', 'LangChain', 'Git', 
+  'Figma', 'Feature Engineering', 'Business Analytics', 'Neural Networks', 'Project Management',
 ];
 
 const SkillBadge = ({ skill }: { skill: string }) => (
@@ -56,8 +57,8 @@ export function AboutMeSection() {
         </div>
       </div>
 
-      {/* Part 2: Full-width skills ribbon - Lighter Muted Background */}
-      <div className="w-full overflow-hidden bg-muted/50 py-16 md:py-24">
+      {/* Part 2: Full-width skills ribbon - Lighter Muted Background, reduced vertical padding */}
+      <div className="w-full overflow-hidden bg-muted/50 py-4 md:py-6">
         <div className="relative flex group group-hover:pause-animation">
           <div className="flex animate-marquee whitespace-nowrap">
             {skills.map((skill, index) => <SkillBadge key={`s1-${index}`} skill={skill} />)}
