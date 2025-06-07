@@ -48,7 +48,6 @@ export function ProjectsSection() {
           <AnimatedSectionWrapper 
             key={project.title} 
             delay={`duration-700 delay-${index * 150}`}
-            className="animate-slow-float" // Added slow-float animation
           >
             <Card className="flex flex-col h-full overflow-hidden shadow-lg transform transition-all duration-300 ease-in-out hover:shadow-2xl hover:scale-[1.02]">
               <CardHeader className="p-0">

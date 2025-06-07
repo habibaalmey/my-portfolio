@@ -36,7 +36,7 @@ export function Header() {
     )}>
       <div className="container mx-auto flex h-16 max-w-screen-2xl items-center justify-between px-4 md:px-6">
         <Link href="/" className="flex items-center space-x-2" onClick={isMobileMenuOpen ? closeMobileMenu : undefined}>
-          <span className="font-bold font-headline text-lg text-primary">Habiba Almetnawy</span>
+          <span className="font-calligraphy text-3xl text-primary">Habiba Almetnawy</span>
         </Link>
         
         <nav className="hidden md:flex items-center space-x-1">
@@ -44,10 +44,10 @@ export function Header() {
             <Link
               key={item.name}
               href={item.href}
-              className="block rounded-md" // Added block and rounded-md here for the outer Link
+              className="block rounded-md" 
               onClick={isMobileMenuOpen ? closeMobileMenu : undefined}
             >
-              <span className="relative group px-3 py-2 text-sm font-medium text-foreground/80 transition-colors block rounded-md"> {/* Moved common styling to this inner span */}
+              <span className="relative group px-3 py-2 text-sm font-medium text-foreground/80 transition-colors block rounded-md"> 
                 <span className="relative z-10 transition-colors group-hover:text-primary-foreground duration-300 ease-in-out">{item.name}</span>
                 <span className="absolute inset-0 bg-primary scale-x-0 group-hover:scale-x-100 transition-transform duration-300 ease-in-out origin-left z-0 rounded-md"></span>
               </span>
@@ -72,16 +72,16 @@ export function Header() {
             <SheetContent side="right" className="w-full max-w-xs bg-background p-6">
               <div className="flex flex-col space-y-2">
                 <Link href="/" className="flex items-center space-x-2 mb-6" onClick={closeMobileMenu}>
-                  <span className="font-bold font-headline text-lg text-primary">Habiba Almetnawy</span>
+                  <span className="font-calligraphy text-3xl text-primary">Habiba Almetnawy</span>
                 </Link>
                 {navItems.map((item) => (
                   <Link
                     key={item.name}
                     href={item.href}
-                    className="block rounded-md" // Added block and rounded-md here for the outer Link
+                    className="block rounded-md" 
                     onClick={closeMobileMenu}
                   >
-                     <span className="relative group block px-3 py-3 text-base font-medium text-foreground/80 transition-colors rounded-md"> {/* Moved common styling to this inner span */}
+                     <span className="relative group block px-3 py-3 text-base font-medium text-foreground/80 transition-colors rounded-md"> 
                       <span className="relative z-10 transition-colors group-hover:text-primary-foreground duration-300 ease-in-out">{item.name}</span>
                       <span className="absolute inset-0 bg-primary scale-x-0 group-hover:scale-x-100 transition-transform duration-300 ease-in-out origin-left z-0 rounded-md"></span>
                     </span>
