@@ -156,23 +156,26 @@
   }
 
   .card-achievement {
-    background-color: hsl(var(--muted) / 0.5); 
+    background-color: hsl(var(--card) / 0.7); /* Darker, Minecraft stone-like */
     color: hsl(var(--foreground));
-    border: 3px solid hsl(var(--border) / 0.6);
+    border: 3px solid hsl(var(--border) / 0.6); /* Chiseled edge */
+    border-top-color: hsl(var(--border) / 0.8); /* Highlight top edge */
+    border-left-color: hsl(var(--border) / 0.8); /* Highlight left edge */
     box-shadow:
-      inset 2px 2px 0px hsl(var(--card) / 0.5), 
-      inset -2px -2px 0px hsl(var(--background) / 0.5), 
-      4px 4px 0px hsl(var(--background)/0.8); 
+      inset 2px 2px 0px hsl(var(--card) / 0.5), /* Inner shadow for depth */
+      inset -2px -2px 0px hsl(var(--background) / 0.5), /* Inner highlight for contrast */
+      4px 4px 0px hsl(var(--background)/0.8); /* Offset "block" shadow */
     padding: 1rem;
     overflow: hidden;
     transition: transform 0.3s ease-out, box-shadow 0.3s ease-out;
     display: flex;
     flex-direction: column;
     text-align: center;
-    height: 100%; 
+    height: 100%; /* Ensure cards in a row have same height */
+    transform: perspective(800px) rotateY(-2deg) rotateX(1deg); /* Slight 3D tilt */
   }
   .card-achievement:hover {
-    transform: perspective(800px) rotateY(0deg) scale(1.03); /* Removed rotateY for stability */
+    transform: perspective(800px) rotateY(0deg) rotateX(0deg) scale(1.03); /* Straighten on hover */
     box-shadow:
       inset 2px 2px 0px hsl(var(--card) / 0.7),
       inset -2px -2px 0px hsl(var(--background) / 0.3),
@@ -195,13 +198,14 @@
     align-items: center;
     justify-content: center;
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    /* Pixelated item frame effect */
     background-image:
         linear-gradient(45deg, hsl(var(--card)) 25%, transparent 25%),
         linear-gradient(-45deg, hsl(var(--card)) 25%, transparent 25%),
         linear-gradient(45deg, transparent 75%, hsl(var(--card)) 75%),
         linear-gradient(-45deg, transparent 75%, hsl(var(--card)) 75%);
-    background-size: 10px 10px; 
-    background-position: 0 0, 0 5px, 5px -5px, -5px 0px; 
+    background-size: 10px 10px; /* Smaller squares for pixel look */
+    background-position: 0 0, 0 5px, 5px -5px, -5px 0px; /* Offset for pattern */
   }
   .achievement-icon-container svg {
     width: 2.5rem; /* 40px */
@@ -240,25 +244,25 @@
       radial-gradient(1px 1px at 280px 120px, hsl(var(--primary) / 0.35), transparent),
       radial-gradient(0.5px 0.5px at 320px 250px, hsl(var(--primary) / 0.2), transparent),
       radial-gradient(1px 1px at 50px 280px, hsl(var(--primary) / 0.3), transparent);
-    background-size: 350px 350px; 
+    background-size: 350px 350px;
     background-position: 0 0;
   }
 
 
   .bg-blue-gradient-flow {
-    background: linear-gradient(-45deg, hsl(var(--background)), hsl(var(--secondary)), hsl(var(--card)), hsl(210 70% 45%), hsl(220 50% 25%));
+    background: linear-gradient(-45deg, hsl(var(--background)), hsl(var(--secondary)), hsl(var(--card)), hsl(210 70% 38%), hsl(220 50% 22%));
     background-size: 300% 300%;
     animation: animate-gradient-x 20s ease infinite;
-    border-top: 1px solid hsl(var(--border)/0.3); 
+    border-top: 1px solid hsl(var(--border)/0.3);
     border-bottom: 1px solid hsl(var(--border)/0.3);
   }
 
   .text-neon-primary {
-    color: hsl(var(--primary)); 
+    color: hsl(var(--primary));
     text-shadow:
-      0 0 2px hsl(var(--primary)/0.9), 
-      0 0 6px hsl(var(--primary)/0.7),   
-      0 0 10px hsl(var(--primary)/0.4); 
+      0 0 2px hsl(var(--primary)/0.9),
+      0 0 6px hsl(var(--primary)/0.7),
+      0 0 10px hsl(var(--primary)/0.4);
   }
 
   /* Updated Project Card Style for Boxy Appearance */
@@ -266,7 +270,7 @@
     @apply bg-card text-card-foreground rounded-md shadow-lg transition-all duration-300 ease-in-out flex flex-col overflow-hidden p-0;
     border: 2px solid hsl(var(--border) / 0.4);
     box-shadow:
-      2px 2px 0px hsl(var(--border) / 0.6), 
+      2px 2px 0px hsl(var(--border) / 0.6),
       4px 4px 0px hsl(var(--border) / 0.8);
   }
   .project-card-boxy:hover {
@@ -295,8 +299,8 @@
     right: 0;
     bottom: 0;
     z-index: 0; /* Behind other content */
-    opacity: 0.15; 
-    overflow: hidden; 
+    opacity: 0.15;
+    overflow: hidden;
     background-image: url("data:image/svg+xml,%3Csvg width='200' height='200' viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cdefs%3E%3Cstyle%3Etext %7B fill: hsl(var(--primary))%3B font-family: monospace%3B font-size: 14px%3B%7D%3C/style%3E%3C/defs%3E%3Ctext x='10' y='20'%3E01010010%3C/text%3E%3Ctext x='30' y='40'%3E10010110%3C/text%3E%3Ctext x='5' y='60'%3E00101101%3C/text%3E%3Ctext x='40' y='80'%3E11010010%3C/text%3E%3Ctext x='15' y='100'%3E01101001%3C/text%3E%3Ctext x='25' y='120'%3E10100110%3C/text%3E%3Ctext x='10' y='140'%3E00110101%3C/text%3E%3Ctext x='35' y='160'%3E11001010%3C/text%3E%3Ctext x='20' y='180'%3E01001101%3C/text%3E%3Ctext x='45' y='200'%3E10110010%3C/text%3E%3C/svg%3E");
     animation: binary-flow 10s linear infinite;
   }
@@ -332,7 +336,7 @@
 
   @keyframes binary-flow {
     0% { background-position: 0 0; }
-    100% { background-position: 0px 200px; } 
+    100% { background-position: 0px 200px; }
   }
 
   @keyframes marquee {
@@ -372,7 +376,7 @@
   /* Creative Timeline */
   .timeline-digital-path {
     @apply absolute left-0 top-0 bottom-0 w-1 bg-primary/30 rounded-full;
-    transform: translateX(calc(1rem - 2px)); 
+    transform: translateX(calc(1rem - 2px));
   }
   .timeline-digital-path::before {
     content: '';
@@ -389,7 +393,7 @@
       hsl(var(--primary) / 0.05) 90%,
       transparent 100%
     );
-    background-size: 100% 100px; 
+    background-size: 100% 100px;
     animation: binary-flow 5s linear infinite;
   }
 
@@ -398,7 +402,7 @@
     @apply absolute top-[0.3rem] h-5 w-5 rounded-full border-2 bg-background ring-4 ring-background transition-all duration-300;
     border-color: hsl(var(--primary));
     box-shadow: 0 0 8px hsl(var(--primary)/0.7);
-    left: calc(-1rem + 2px); 
+    left: calc(-1rem + 2px);
     animation: timeline-node-pulse 2s infinite ease-in-out;
   }
 
@@ -414,6 +418,3 @@
   }
 
 }
-
-
-    
