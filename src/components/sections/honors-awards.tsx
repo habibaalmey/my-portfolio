@@ -38,38 +38,33 @@ export function HonorsAwardsSection() {
   return (
     <SectionContainer id="honors">
       <SectionTitle icon={Award}>Honors &amp; Awards</SectionTitle>
-      <div className="relative">
-        <div className="flex overflow-x-auto space-x-6 md:space-x-8 pb-6 pt-2 -mx-4 px-4 md:-mx-6 md:px-6 custom-scrollbar">
-          {honorsAndAwards.map((item, index) => (
-            <AnimatedSectionWrapper 
-              key={item.title} 
-              delay={`duration-700 delay-${index * 150}`}
-              className="flex-shrink-0 w-[calc(100%-2rem)] sm:w-[calc(50%-1.5rem)] md:w-[calc(33.333%-1.5rem)] lg:w-[calc(25%-1.5rem)] snap-start"
-            >
-              <Card className="flex flex-col shadow-lg transform transition-all duration-300 ease-in-out hover:shadow-2xl hover:scale-[1.02] h-full">
-                <CardHeader>
-                  <div className="flex items-center justify-between">
-                    <CardTitle className="font-headline text-lg md:text-xl text-primary flex items-center">
-                      <item.icon className="mr-3 h-5 w-5 md:h-6 md:w-6 text-accent" />
-                      {item.title}
-                    </CardTitle>
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 md:gap-8">
+        {honorsAndAwards.map((item, index) => (
+          <AnimatedSectionWrapper 
+            key={item.title} 
+            delay={`duration-700 delay-${index * 150}`}
+          >
+            <Card className="flex flex-col shadow-lg transform transition-all duration-300 ease-in-out hover:shadow-2xl hover:scale-[1.02] h-full">
+              <CardHeader>
+                <div className="flex items-center justify-between">
+                  <CardTitle className="font-headline text-lg md:text-xl text-primary flex items-center">
+                    <item.icon className="mr-3 h-5 w-5 md:h-6 md:w-6 text-accent" />
+                    {item.title}
+                  </CardTitle>
+                </div>
+                <div className="flex items-center text-sm text-muted-foreground mt-1">
+                    <CalendarDays className="mr-2 h-4 w-4" />
+                    {item.year}
                   </div>
-                  <div className="flex items-center text-sm text-muted-foreground mt-1">
-                      <CalendarDays className="mr-2 h-4 w-4" />
-                      {item.year}
-                    </div>
-                </CardHeader>
-                <CardContent className="flex-grow">
-                  <CardDescription className="text-foreground/80 text-sm leading-relaxed">
-                    {item.description}
-                  </CardDescription>
-                </CardContent>
-              </Card>
-            </AnimatedSectionWrapper>
-          ))}
-           {/* Add a small spacer at the end for better scroll experience */}
-          <div className="flex-shrink-0 w-1 h-1"></div>
-        </div>
+              </CardHeader>
+              <CardContent className="flex-grow">
+                <CardDescription className="text-foreground/80 text-sm leading-relaxed">
+                  {item.description}
+                </CardDescription>
+              </CardContent>
+            </Card>
+          </AnimatedSectionWrapper>
+        ))}
       </div>
     </SectionContainer>
   );
