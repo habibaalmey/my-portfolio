@@ -15,9 +15,9 @@ export default function HomePage() {
       <main className="flex-grow">
         <AboutMeSection />
         
-        <ProjectsSection />
-        <div className="my-16 h-2 w-full bg-[hsl(var(--background))] shadow-lg"></div>
         <ExperienceSection />
+        <div className="my-16 h-2 w-full bg-[hsl(var(--background))] shadow-lg"></div>
+        <ProjectsSection />
         
         {/* Separator between Projects and Highlights removed */}
         <HighlightsSection />
