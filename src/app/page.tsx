@@ -16,7 +16,7 @@ export default function HomePage() {
         <AboutMeSection />
         
         <ExperienceSection />
-        <div className="my-16 h-2 w-full bg-[hsl(var(--background))] shadow-lg"></div>
+        <div className="my-16 h-2 w-full bg-[hsl(var(--background))]"></div>
         <ProjectsSection />
         
         {/* Separator between Projects and Highlights removed */}
@@ -25,7 +25,6 @@ export default function HomePage() {
         {/* Separator between Highlights and Honors & Awards removed */}
         <HonorsAwardsSection />
         
-        <Separator className="my-12 md:my-16 separator-creative-dashed" />
       </main>
       <Footer />
     </div>

@@ -69,14 +69,14 @@ const projectsData = [
     imageHint: 'portfolio website design',
     dates: 'Ongoing',
     tags: ['Next.js', 'React', 'TailwindCSS', 'ShadCN UI', 'Genkit'],
-    githubLink: '#', // Assuming there's a GitHub link for the portfolio itself
-    demoLink: null, // Explicitly no live demo link for this one in terms of button
+    githubLink: '#', 
+    demoLink: null,
   }
 ];
 
 export function ProjectsSection() {
   return (
-    <SectionContainer id="projects" className="bg-muted/50 px-4 md:px-6">
+    <SectionContainer id="projects" className="bg-background px-4 md:px-6">
       <SectionTitle icon={LayoutGrid}>Project Experience</SectionTitle>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
         {projectsData.map((project, index) => (
@@ -113,17 +113,25 @@ export function ProjectsSection() {
                 </div>
               </CardContent>
               <CardFooter className="p-5 pt-2 flex gap-3 mt-auto">
-                <Button asChild variant="outline" size="sm" className="group/button flex-1 btn-treasure-box" disabled={!project.githubLink}>
-                  <Link href={project.githubLink || '#'} target="_blank" rel="noopener noreferrer" aria-disabled={!project.githubLink}>
-                    <Github className="mr-2 h-4 w-4" /> View Code
-                  </Link>
-                </Button>
-                {project.title !== 'Personal Portfolio Website' && (
-                  <Button asChild variant="default" size="sm" className="group/button flex-1" disabled={!project.demoLink}>
-                    <Link href={project.demoLink || '#'} target="_blank" rel="noopener noreferrer" aria-disabled={!project.demoLink}>
-                      Live Demo <ExternalLink className="ml-2 h-4 w-4 transition-transform group-hover/button:translate-x-1" />
+                {project.title === 'Personal Portfolio Website' ? (
+                  <Button asChild variant="outline" size="sm" className="group/button flex-1 btn-treasure-box" disabled={!project.githubLink}>
+                    <Link href={project.githubLink || '#'} target="_blank" rel="noopener noreferrer" aria-disabled={!project.githubLink}>
+                      <Github className="mr-2 h-4 w-4" /> View Code
                     </Link>
                   </Button>
+                ) : (
+                  <>
+                    <Button asChild variant="outline" size="sm" className="group/button flex-1 btn-treasure-box" disabled={!project.githubLink}>
+                      <Link href={project.githubLink || '#'} target="_blank" rel="noopener noreferrer" aria-disabled={!project.githubLink}>
+                        <Github className="mr-2 h-4 w-4" /> View Code
+                      </Link>
+                    </Button>
+                    <Button asChild variant="default" size="sm" className="group/button flex-1" disabled={!project.demoLink}>
+                      <Link href={project.demoLink || '#'} target="_blank" rel="noopener noreferrer" aria-disabled={!project.demoLink}>
+                        Live Demo <ExternalLink className="ml-2 h-4 w-4 transition-transform group-hover/button:translate-x-1" />
+                      </Link>
+                    </Button>
+                  </>
                 )}
               </CardFooter>
             </Card>
