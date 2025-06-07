@@ -1,6 +1,7 @@
 
 "use client";
 
+import Image from 'next/image';
 import { Button } from '@/components/ui/button';
 import { Mail, Download, Github, Linkedin } from 'lucide-react';
 import { SectionTitle } from '@/components/layout/section-title';
@@ -11,12 +12,12 @@ import { Badge } from '@/components/ui/badge';
 const aboutMeText = "I am a fourth-year Computer Science student with a passion for the intersection of business and information technology. I am highly organized and detail-oriented, consistently delivering quality results in both academic research and industry projects. With particular expertise in data analysis and machine learning, my experience enables me to solve problems with technical precision while understanding business needs.";
 
 const skills = [
-  'Python', 'Java', 'SQL', 'HTML/CSS', 'Pandas', 
-  'Scikit-learn', 'TensorFlow', 'Power BI', 'LangChain', 'Git', 
+  'Python', 'Java', 'SQL', 'HTML/CSS', 'Pandas',
+  'Scikit-learn', 'TensorFlow', 'Power BI', 'LangChain', 'Git',
   'Figma', 'Feature Engineering', 'Business Analytics', 'Neural Networks', 'Project Management',
   // Duplicates for seamless loop
-  'Python', 'Java', 'SQL', 'HTML/CSS', 'Pandas', 
-  'Scikit-learn', 'TensorFlow', 'Power BI', 'LangChain', 'Git', 
+  'Python', 'Java', 'SQL', 'HTML/CSS', 'Pandas',
+  'Scikit-learn', 'TensorFlow', 'Power BI', 'LangChain', 'Git',
   'Figma', 'Feature Engineering', 'Business Analytics', 'Neural Networks', 'Project Management',
 ];
 
@@ -34,28 +35,41 @@ export function AboutMeSection() {
         <div className="container mx-auto max-w-5xl px-4 py-16 md:px-6 md:py-24">
           <SectionTitle>About Me</SectionTitle>
           <AnimatedSectionWrapper>
-            <div className="max-w-4xl mx-auto text-center">
-              <p className="text-foreground/90 text-base md:text-lg leading-relaxed mb-8">
-                {aboutMeText}
-              </p>
-              <div className="mb-10 flex flex-col items-center space-y-6">
-                <div className="flex items-center justify-center space-x-6 text-foreground/80">
-                  <Link href="mailto:700040241@uaeu.ac.ae" aria-label="Email" className="hover:text-primary transition-colors">
-                    <Mail className="h-6 w-6 text-accent" />
-                  </Link>
-                  <Link href="https://github.com/habibaalmey" target="_blank" rel="noopener noreferrer" aria-label="GitHub" className="hover:text-primary transition-colors">
-                    <Github className="h-6 w-6 text-accent" />
-                  </Link>
-                  <Link href="https://www.linkedin.com/in/habibaalmetnawy" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="hover:text-primary transition-colors">
-                    <Linkedin className="h-6 w-6 text-accent" />
-                  </Link>
+            <div className="flex flex-col md:flex-row items-center md:items-start gap-10 md:gap-12">
+              <div className="md:w-1/3 flex-shrink-0">
+                <Image
+                  src="https://placehold.co/300x300.png"
+                  alt="Habiba Almetnawy"
+                  width={300}
+                  height={300}
+                  className="rounded-lg shadow-xl mx-auto md:mx-0 transform transition-all duration-300 ease-in-out hover:scale-[1.03]"
+                  data-ai-hint="profile portrait"
+                  priority
+                />
+              </div>
+              <div className="md:w-2/3 text-center md:text-left">
+                <p className="text-foreground/90 text-base md:text-lg leading-relaxed mb-8">
+                  {aboutMeText}
+                </p>
+                <div className="mb-10 flex flex-col items-center md:items-start space-y-6">
+                  <div className="flex items-center justify-center md:justify-start space-x-6 text-foreground/80">
+                    <Link href="mailto:700040241@uaeu.ac.ae" aria-label="Email" className="hover:text-primary transition-colors">
+                      <Mail className="h-6 w-6 text-accent" />
+                    </Link>
+                    <Link href="https://github.com/habibaalmey" target="_blank" rel="noopener noreferrer" aria-label="GitHub" className="hover:text-primary transition-colors">
+                      <Github className="h-6 w-6 text-accent" />
+                    </Link>
+                    <Link href="https://www.linkedin.com/in/habibaalmetnawy" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="hover:text-primary transition-colors">
+                      <Linkedin className="h-6 w-6 text-accent" />
+                    </Link>
+                  </div>
+                  <Button asChild size="lg" className="btn-treasure-box shadow-md hover:shadow-lg transform transition-all duration-300 ease-in-out hover:scale-[1.03]">
+                    <Link href="/Habiba_Almetnawy_CV.pdf" target="_blank" download>
+                      <Download className="mr-2 h-4 w-4" />
+                      Download My CV
+                    </Link>
+                  </Button>
                 </div>
-                <Button asChild size="lg" className="shadow-md hover:shadow-lg transform transition-all duration-300 ease-in-out hover:scale-[1.03]">
-                  <Link href="/Habiba_Almetnawy_CV.pdf" target="_blank" download>
-                    <Download className="mr-2 h-4 w-4" />
-                    Download My CV
-                  </Link>
-                </Button>
               </div>
             </div>
           </AnimatedSectionWrapper>

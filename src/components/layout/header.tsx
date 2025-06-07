@@ -18,7 +18,7 @@ const navItems = [
 export function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const fullName = "Habiba Almetnawy"; // Keep full name for the typing animation logic
+  const fullName = "Habiba Almetnawy"; 
 
   useEffect(() => {
     const handleScroll = () => {
@@ -27,8 +27,6 @@ export function Header() {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
-
-  // Typing animation effect for the name is handled by CSS .typewriter-text
 
   const closeMobileMenu = () => setIsMobileMenuOpen(false);
 
@@ -58,7 +56,7 @@ export function Header() {
               </span>
             </Link>
           ))}
-          <Button asChild size="sm" className="ml-4 shadow-md hover:shadow-lg transform transition-all duration-300 ease-in-out hover:scale-[1.03]">
+          <Button asChild size="sm" className="ml-4 btn-treasure-box shadow-md hover:shadow-lg transform transition-all duration-300 ease-in-out hover:scale-[1.03]">
             <Link href="/Habiba_Almetnawy_CV.pdf" target="_blank" download>
               <Download className="mr-2 h-4 w-4" />
               Download CV
@@ -94,7 +92,7 @@ export function Header() {
                     </span>
                   </Link>
                 ))}
-                <Button asChild size="sm" className="w-full mt-4 shadow-md hover:shadow-lg transform transition-all duration-300 ease-in-out hover:scale-[1.03]">
+                <Button asChild size="sm" className="w-full mt-4 btn-treasure-box shadow-md hover:shadow-lg transform transition-all duration-300 ease-in-out hover:scale-[1.03]">
                   <Link href="/Habiba_Almetnawy_CV.pdf" target="_blank" download onClick={closeMobileMenu}>
                     <Download className="mr-2 h-4 w-4" />
                     Download CV
