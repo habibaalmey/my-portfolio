@@ -19,7 +19,7 @@
     --primary-foreground: 220 60% 10%; /* Very Dark Blue text on primary */
 
     --secondary: 210 50% 35%; /* Medium Blue */
-    --secondary-foreground: 50 100% 90%; 
+    --secondary-foreground: 50 100% 90%;
 
     --muted: 220 30% 25%;      /* Muted Dark Blue for dividers/less emphasis */
     --muted-foreground: 220 15% 65%; /* Lighter Grayish Blue for muted text */
@@ -27,7 +27,7 @@
     --accent: 45 100% 55%;    /* Slightly different Yellow/Orange for accents */
     --accent-foreground: 220 60% 10%;
 
-    --destructive: 0 70% 55%; 
+    --destructive: 0 70% 55%;
     --destructive-foreground: 0 0% 98%;
 
     --border: 220 40% 30%;     /* Medium Dark Blue border */
@@ -109,19 +109,19 @@
 @layer components {
   .btn-treasure-box {
     @apply bg-[hsl(var(--treasure-bg))] text-[hsl(var(--treasure-foreground))] border border-[hsl(var(--treasure-border))];
-    box-shadow: inset 0 -2px 0px 0px hsl(var(--treasure-border)), 
+    box-shadow: inset 0 -2px 0px 0px hsl(var(--treasure-border)),
                 inset 0 1px 1px 0px hsl(var(--treasure-highlight)/0.5),
                 0px 2px 2px 0px hsla(0,0%,0%,0.3);
   }
   .btn-treasure-box:hover {
     @apply bg-[hsl(var(--treasure-bg)/0.9)] brightness-110 scale-[1.03];
-    box-shadow: inset 0 -2px 0px 0px hsl(var(--treasure-border)/0.8), 
+    box-shadow: inset 0 -2px 0px 0px hsl(var(--treasure-border)/0.8),
                 inset 0 1px 2px 0px hsl(var(--treasure-highlight)/0.7),
                 0px 3px 4px 0px hsla(0,0%,0%,0.3);
   }
   .btn-treasure-box:active {
     @apply brightness-95;
-    box-shadow: inset 0 -1px 0px 0px hsl(var(--treasure-border)/0.7), 
+    box-shadow: inset 0 -1px 0px 0px hsl(var(--treasure-border)/0.7),
                 inset 0 1px 1px 0px hsl(var(--treasure-highlight)/0.6),
                 0px 1px 1px 0px hsla(0,0%,0%,0.2);
     transform: translateY(1px);
@@ -155,10 +155,10 @@
     from { opacity: 0.7; transform: scale(0.98); }
     to { opacity: 1; transform: scale(1.02); }
   }
-  
+
   .card-achievement {
     @apply bg-card border-2 border-primary/30 shadow-xl overflow-hidden transform transition-all duration-300 ease-in-out hover:scale-[1.03] hover:shadow-2xl;
-    box-shadow: 
+    box-shadow:
       inset 0 0 0 2px hsl(var(--border)/0.5), /* Inner border */
       0 0 15px -5px hsl(var(--primary)/0.3), /* Outer subtle glow */
       2px 2px 0px 0px hsl(var(--primary)/0.2), /* Bottom-right pixel "3D" edge */
@@ -166,8 +166,8 @@
   }
   .achievement-icon-container {
     @apply relative mt-0 mb-3 mx-auto w-16 h-16 p-3 rounded-md bg-primary/10 border-2 border-primary/40 flex items-center justify-center shadow-md;
-     background-image: 
-        linear-gradient(45deg, hsl(var(--card)) 25%, transparent 25%), 
+     background-image:
+        linear-gradient(45deg, hsl(var(--card)) 25%, transparent 25%),
         linear-gradient(-45deg, hsl(var(--card)) 25%, transparent 25%),
         linear-gradient(45deg, transparent 75%, hsl(var(--card)) 75%),
         linear-gradient(-45deg, transparent 75%, hsl(var(--card)) 75%);
@@ -190,7 +190,7 @@
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='30' height='200' viewBox='0 0 30 200'%3E%3Cstyle%3Etext %7B font-family: monospace; font-size: 14px; fill: hsla(var(--primary), 0.15); text-anchor: middle; dominant-baseline: middle; %7D%3C/style%3E%3Ctext x='50%25' y='10%25'%3E0%3C/text%3E%3Ctext x='50%25' y='20%25'%3E1%3C/text%3E%3Ctext x='50%25' y='30%25'%3E1%3C/text%3E%3Ctext x='50%25' y='40%25'%3E0%3C/text%3E%3Ctext x='50%25' y='50%25'%3E1%3C/text%3E%3Ctext x='50%25' y='60%25'%3E0%3C/text%3E%3Ctext x='50%25' y='70%25'%3E0%3C/text%3E%3Ctext x='50%25' y='80%25'%3E1%3C/text%3E%3Ctext x='50%25' y='90%25'%3E0%3C/text%3E%3C/svg%3E");
     background-size: auto 100%; /* Fill height, auto width for pattern */
     animation: binary-flow 7s linear infinite; /* Uses existing vertical flow animation */
-    z-index: 0; 
+    z-index: 0;
   }
 
   .bg-starfield {
@@ -217,22 +217,21 @@
   }
 
   .text-neon-primary {
-    @apply text-primary;
-    text-shadow: 
-      0 0 5px hsl(var(--primary)),
-      0 0 10px hsl(var(--primary)),
-      0 0 15px hsl(var(--primary)/0.8),
-      0 0 20px hsl(var(--primary)/0.6),
-      0 0 25px hsl(var(--primary)/0.4);
+    @apply text-primary; /* Ensures base color is from theme */
+    /* Adjusted for Bungee font to be less blocky */
+    text-shadow:
+      0 0 2px hsl(var(--primary)/0.9), /* Inner sharp edge */
+      0 0 6px hsl(var(--primary)/0.7),   /* Main bright glow */
+      0 0 10px hsl(var(--primary)/0.4); /* Softer outer halo */
   }
 }
 
 @layer utilities {
   @keyframes expand-width {
     from { width: 0%; opacity: 0; }
-    to { width: 100%; opacity: 1; } 
+    to { width: 100%; opacity: 1; }
   }
-  .animate-expand-width { 
+  .animate-expand-width {
     animation: expand-width 0.8s cubic-bezier(0.25, 0.1, 0.25, 1) forwards;
   }
 
@@ -256,34 +255,32 @@
     100% { transform: translateX(-100%); }
   }
   @keyframes marquee2 {
-    0% { transform: translateX(100%); } 
-    100% { transform: translateX(0%); }  
+    0% { transform: translateX(100%); }
+    100% { transform: translateX(0%); }
   }
 
   .animate-marquee {
-    animation: marquee 60s linear infinite; 
+    animation: marquee 60s linear infinite;
   }
   .animate-marquee2 {
     animation: marquee2 60s linear infinite;
   }
-  
+
   .group-hover\:pause-animation:hover .animate-marquee,
   .group-hover\:pause-animation:hover .animate-marquee2 {
     animation-play-state: paused;
   }
-  
+
   /* Typewriter animation */
   @keyframes typing {
     from { width: 0 }
     to { width: 100% }
   }
-  /* Removed blink-caret animation as requested */
   .typewriter-text {
-    overflow: hidden; 
-    white-space: nowrap; 
-    margin: 0 auto; 
+    overflow: hidden;
+    white-space: nowrap;
+    margin: 0 auto;
     animation: typing 3.5s steps(30, end);
-    /* Removed border-right for caret */
   }
 
   /* Creative Timeline */
@@ -304,7 +301,7 @@
     transform: scale(1.2);
     box-shadow: 0 0 15px hsl(var(--primary));
   }
-  
+
   @keyframes timeline-node-pulse {
     0% { box-shadow: 0 0 8px hsl(var(--primary)/0.7); opacity: 0.8; }
     50% { box-shadow: 0 0 12px hsl(var(--primary)); opacity: 1; }
@@ -312,4 +309,3 @@
   }
 
 }
-
