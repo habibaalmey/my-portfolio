@@ -37,14 +37,15 @@ export function Header() {
     )}>
       <div className="container mx-auto flex h-20 max-w-screen-2xl items-center justify-between px-4 md:px-6">
         <Link href="/" className="flex items-center space-x-2" onClick={isMobileMenuOpen ? closeMobileMenu : undefined}>
-          <div className="font-code text-2xl md:text-3xl text-primary overflow-hidden whitespace-nowrap">
-             <span className="typewriter-text">{fullName}</span>
+          {/* Updated name styling to use font-pixel via typewriter-text which uses font-code */}
+          <div className="text-2xl md:text-3xl text-primary overflow-hidden whitespace-nowrap">
+             <span className="font-pixel typewriter-text">{fullName}</span>
           </div>
         </Link>
         
         <nav className="hidden md:flex items-center space-x-1">
           {navItems.map((item) => (
-             <Link
+            <Link
               key={item.name}
               href={item.href}
               className="block rounded-md"
@@ -56,7 +57,7 @@ export function Header() {
               </span>
             </Link>
           ))}
-          <Button asChild size="sm" className="ml-4 btn-treasure-box shadow-md hover:shadow-lg transform transition-all duration-300 ease-in-out hover:scale-[1.03]">
+          <Button asChild size="sm" className="ml-4 btn-treasure-box">
             <Link href="/Habiba_Almetnawy_CV.pdf" target="_blank" download>
               <Download className="mr-2 h-4 w-4" />
               Download CV
@@ -75,8 +76,8 @@ export function Header() {
             <SheetContent side="right" className="w-full max-w-xs bg-background p-6">
               <div className="flex flex-col space-y-2">
                 <Link href="/" className="flex items-center space-x-2 mb-6" onClick={closeMobileMenu}>
-                   <div className="font-code text-2xl text-primary overflow-hidden whitespace-nowrap">
-                     <span className="typewriter-text">{fullName}</span>
+                   <div className="text-2xl text-primary overflow-hidden whitespace-nowrap">
+                     <span className="font-pixel typewriter-text">{fullName}</span>
                   </div>
                 </Link>
                 {navItems.map((item) => (
@@ -92,7 +93,7 @@ export function Header() {
                     </span>
                   </Link>
                 ))}
-                <Button asChild size="sm" className="w-full mt-4 btn-treasure-box shadow-md hover:shadow-lg transform transition-all duration-300 ease-in-out hover:scale-[1.03]">
+                <Button asChild size="sm" className="w-full mt-4 btn-treasure-box">
                   <Link href="/Habiba_Almetnawy_CV.pdf" target="_blank" download onClick={closeMobileMenu}>
                     <Download className="mr-2 h-4 w-4" />
                     Download CV

@@ -12,9 +12,9 @@ export default {
     extend: {
       fontFamily: {
         body: ['Poppins', 'sans-serif'],
-        headline: ['Space Grotesk', 'sans-serif'], // Kept for potential future use, but titles use pixel
-        calligraphy: ['Space Grotesk', 'sans-serif'], // For Name in header (before typing animation)
-        code: ['Source Code Pro', 'monospace'], // For typing animation name
+        headline: ['Space Grotesk', 'sans-serif'],
+        // For Name in header (typewriter effect), we want the pixel font for Minecraft style
+        code: ['"Press Start 2P"', 'Source Code Pro', 'monospace'], 
         pixel: ['"Press Start 2P"', 'cursive'], // For section titles
       },
       colors: {
@@ -114,6 +114,11 @@ export default {
         'blink-caret': {
           'from, to': { borderColor: 'transparent' },
           '50%': { borderColor: 'hsl(var(--primary))' }
+        },
+        'timeline-node-pulse': {
+          '0%': { boxShadow: '0 0 8px hsl(var(--primary)/0.7)', opacity: '0.8' },
+          '50%': { boxShadow: '0 0 12px hsl(var(--primary))', opacity: '1' },
+          '100%': { boxShadow: '0 0 8px hsl(var(--primary)/0.7)', opacity: '0.8' },
         }
       },
       animation: {
@@ -122,11 +127,10 @@ export default {
         'marquee': 'marquee 60s linear infinite', 
         'marquee2': 'marquee2 60s linear infinite', 
         'body-gradient': 'animate-gradient-x 25s ease infinite',
-        'typewriter': 'typing 3.5s steps(40, end), blink-caret .75s step-end infinite',
+        'typewriter': 'typing 3.5s steps(30, end), blink-caret .75s step-end infinite',
+        'timeline-node-pulse': 'timeline-node-pulse 2s infinite ease-in-out',
       },
     },
   },
   plugins: [require('tailwindcss-animate')],
 } satisfies Config;
-
-    

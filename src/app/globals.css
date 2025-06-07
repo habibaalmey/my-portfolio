@@ -92,7 +92,6 @@
     @apply border-border;
   }
   html {
-    /* Default cursor: Small outlined square */
     cursor: url("data:image/svg+xml,%3Csvg width='16' height='16' viewBox='0 0 16 16' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Crect x='0.75' y='0.75' width='14.5' height='14.5' rx='1.25' stroke='currentColor' stroke-width='1.5'/%3E%3C/svg%3E") 8 8, auto;
   }
   body {
@@ -105,7 +104,6 @@
   section {
     @apply scroll-mt-20; /* Offset for fixed header */
   }
-  /* Interactive cursor: Filled sparkle/star */
   a, button, [role='button'], input[type='submit'], input[type='button'], select, textarea, input[type='text'], input[type='email'], input[type='search'], input[type='checkbox'], input[type='radio'] {
     cursor: url("data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' fill='hsl(var(--primary))' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M12 0L14.472 9.528L24 12L14.472 14.472L12 24L9.528 14.472L0 12L9.528 9.528L12 0Z'/%3E%3C/svg%3E") 12 12, pointer;
   }
@@ -119,7 +117,7 @@
                 0px 2px 2px 0px hsla(0,0%,0%,0.3);
   }
   .btn-treasure-box:hover {
-    @apply bg-[hsl(var(--treasure-bg)/0.9)] brightness-110;
+    @apply bg-[hsl(var(--treasure-bg)/0.9)] brightness-110 scale-[1.03];
     box-shadow: inset 0 -2px 0px 0px hsl(var(--treasure-border)/0.8), 
                 inset 0 1px 2px 0px hsl(var(--treasure-highlight)/0.7),
                 0px 3px 4px 0px hsla(0,0%,0%,0.3);
@@ -134,7 +132,6 @@
 
   .binary-border-profile-image {
     @apply relative p-3 rounded-lg overflow-hidden;
-    /* The image itself should have a higher z-index */
   }
   .binary-border-profile-image::before {
     content: '';
@@ -143,15 +140,30 @@
     background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cstyle%3Etext { font-family: 'Source Code Pro', monospace; font-size: 12px; }%3C/style%3E%3Ctext fill='currentColor' x='5' y='15'%3E0%3C/text%3E %3Ctext fill='currentColor' x='35' y='15'%3E1%3C/text%3E%3Ctext fill='currentColor' x='20' y='35'%3E1%3C/text%3E %3Ctext fill='currentColor' x='50' y='35'%3E0%3C/text%3E%3Ctext fill='currentColor' x='5' y='55'%3E1%3C/text%3E %3Ctext fill='currentColor' x='35' y='55'%3E0%3C/text%3E%3C/svg%3E");
     background-repeat: repeat;
     background-size: 50px 50px;
-    color: hsl(var(--primary) / 0.15); /* Controls the color of the 1s and 0s via currentColor in SVG */
+    color: hsl(var(--primary) / 0.15); 
     z-index: 0;
-    animation: binary-flow 10s linear infinite; /* Slow scroll for the binary pattern */
+    animation: binary-flow 10s linear infinite; 
   }
 
-  @keyframes binary-flow {
-    0% { background-position: 0 0; }
-    100% { background-position: 0px 120px; } /* Adjust for speed and pattern size */
+  .card-lightbulb {
+    @apply bg-card overflow-visible; /* Allow glow to extend */
   }
+  .lightbulb-icon-container {
+    @apply relative -mt-8 mb-4 mx-auto w-16 h-16 rounded-full bg-primary/20 border-2 border-primary flex items-center justify-center shadow-lg;
+    /* Simulates the glass part of the bulb */
+    background-image: radial-gradient(circle at 50% 30%, hsl(var(--primary)/0.5) 0%, hsl(var(--primary)/0.1) 40%, transparent 70%);
+  }
+  .lightbulb-icon-container svg {
+    @apply w-8 h-8 text-primary; /* Ensure icon takes primary color */
+  }
+  .lightbulb-glow {
+     /* Soft glow around the card, more pronounced at the top */
+    box-shadow: 0 -5px 25px -5px hsl(var(--primary)/0.5), 0 8px 15px hsl(var(--primary)/0.2);
+  }
+  .card-lightbulb:hover .lightbulb-glow {
+    box-shadow: 0 -8px 35px -5px hsl(var(--primary)/0.7), 0 10px 20px hsl(var(--primary)/0.3);
+  }
+
 
 }
 
@@ -171,6 +183,11 @@
     50% {
       background-position: 100% 50%;
     }
+  }
+
+  @keyframes binary-flow {
+    0% { background-position: 0 0; }
+    100% { background-position: 0px 120px; } 
   }
 
   /* Marquee animation for skills ribbon */
@@ -205,48 +222,39 @@
     50% { border-color: hsl(var(--primary)); }
   }
   .typewriter-text {
-    overflow: hidden; /* Ensures the text is not visible until typed */
-    border-right: .15em solid hsl(var(--primary)); /* The typewriter cursor */
-    white-space: nowrap; /* Keeps the content on a single line */
-    margin: 0 auto; /* Gives that scrolling effect as the typing happens */
-    letter-spacing: .05em; /* Adjust as needed */
+    overflow: hidden; 
+    border-right: .15em solid hsl(var(--primary)); 
+    white-space: nowrap; 
+    margin: 0 auto; 
+    letter-spacing: 0.08em; /* Adjusted for pixel font */
     animation: 
-      typing 3.5s steps(40, end),
+      typing 3.5s steps(30, end), /* Adjusted steps for potentially shorter name in pixel font */
       blink-caret .75s step-end infinite;
   }
 
-  /* For subtle 1s and 0s effect on timeline line */
-  .timeline-line-decorated {
-    position: relative;
-    overflow: hidden; 
-  }
-  .timeline-line-decorated::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-image: linear-gradient(
-        transparent 0%,
-        hsl(var(--primary) / 0.05) 5%, hsl(var(--primary) / 0.08) 10%,
-        transparent 15%, transparent 25%,
-        hsl(var(--primary) / 0.05) 30%, hsl(var(--primary) / 0.08) 35%,
-        transparent 40%, transparent 50%,
-        hsl(var(--primary) / 0.05) 55%, hsl(var(--primary) / 0.08) 60%,
-        transparent 65%, transparent 75%,
-        hsl(var(--primary) / 0.05) 80%, hsl(var(--primary) / 0.08) 85%,
-        transparent 90%, transparent 100%
-    );
-    background-size: 100% 200px; /* Height of one cycle of bands */
-    animation: animate-binary-rain 4s linear infinite;
-    opacity: 0.5; /* Adjust for subtlety */
-    pointer-events: none;
-    z-index: -1; /* Ensure it's behind content but visible on the line */
+  /* Creative Timeline */
+  .timeline-digital-path {
+    @apply absolute left-0 top-0 bottom-0 w-1 bg-primary/30 rounded-full;
+    transform: translateX(calc(1rem - 2px)); /* Centering based on 1rem node offset */
   }
 
-  @keyframes animate-binary-rain {
-      0% { background-position: 0 0; }
-      100% { background-position: 0 200px; } /* Match background-size height */
+  .timeline-node {
+    @apply absolute top-[0.3rem] h-5 w-5 rounded-full border-2 bg-background ring-4 ring-background transition-all duration-300;
+    border-color: hsl(var(--primary));
+    box-shadow: 0 0 8px hsl(var(--primary)/0.7);
+    left: calc(-1rem + 2px); /* Adjusted for 1rem node offset and path width */
+    animation: timeline-node-pulse 2s infinite ease-in-out;
   }
+
+  .timeline-node:hover {
+    transform: scale(1.2);
+    box-shadow: 0 0 15px hsl(var(--primary));
+  }
+  
+  @keyframes timeline-node-pulse {
+    0% { box-shadow: 0 0 8px hsl(var(--primary)/0.7); opacity: 0.8; }
+    50% { box-shadow: 0 0 12px hsl(var(--primary)); opacity: 1; }
+    100% { box-shadow: 0 0 8px hsl(var(--primary)/0.7); opacity: 0.8; }
+  }
+
 }
