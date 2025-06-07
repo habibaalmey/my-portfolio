@@ -39,17 +39,21 @@ export function Header() {
           <span className="font-bold font-headline text-lg text-primary">Habiba Almetnawy</span>
         </Link>
         
-        <nav className="hidden md:flex items-center space-x-6">
+        <nav className="hidden md:flex items-center space-x-1">
           {navItems.map((item) => (
             <Link
               key={item.name}
               href={item.href}
-              className="text-sm font-medium text-foreground/80 transition-colors hover:text-primary"
+              className="block rounded-md" // Added block and rounded-md here for the outer Link
+              onClick={isMobileMenuOpen ? closeMobileMenu : undefined}
             >
-              {item.name}
+              <span className="relative group px-3 py-2 text-sm font-medium text-foreground/80 transition-colors block rounded-md"> {/* Moved common styling to this inner span */}
+                <span className="relative z-10 transition-colors group-hover:text-primary-foreground duration-300 ease-in-out">{item.name}</span>
+                <span className="absolute inset-0 bg-primary scale-x-0 group-hover:scale-x-100 transition-transform duration-300 ease-in-out origin-left z-0 rounded-md"></span>
+              </span>
             </Link>
           ))}
-          <Button asChild size="sm">
+          <Button asChild size="sm" className="ml-4">
             <Link href="/Habiba_Almetnawy_CV.pdf" target="_blank" download>
               <Download className="mr-2 h-4 w-4" />
               Download CV
@@ -66,7 +70,7 @@ export function Header() {
               </Button>
             </SheetTrigger>
             <SheetContent side="right" className="w-full max-w-xs bg-background p-6">
-              <div className="flex flex-col space-y-5">
+              <div className="flex flex-col space-y-2">
                 <Link href="/" className="flex items-center space-x-2 mb-6" onClick={closeMobileMenu}>
                   <span className="font-bold font-headline text-lg text-primary">Habiba Almetnawy</span>
                 </Link>
@@ -74,10 +78,13 @@ export function Header() {
                   <Link
                     key={item.name}
                     href={item.href}
-                    className="text-base font-medium text-foreground/80 transition-colors hover:text-primary py-2"
+                    className="block rounded-md" // Added block and rounded-md here for the outer Link
                     onClick={closeMobileMenu}
                   >
-                    {item.name}
+                     <span className="relative group block px-3 py-3 text-base font-medium text-foreground/80 transition-colors rounded-md"> {/* Moved common styling to this inner span */}
+                      <span className="relative z-10 transition-colors group-hover:text-primary-foreground duration-300 ease-in-out">{item.name}</span>
+                      <span className="absolute inset-0 bg-primary scale-x-0 group-hover:scale-x-100 transition-transform duration-300 ease-in-out origin-left z-0 rounded-md"></span>
+                    </span>
                   </Link>
                 ))}
                 <Button asChild size="sm" className="w-full mt-4">
