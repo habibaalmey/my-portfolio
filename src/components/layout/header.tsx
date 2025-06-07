@@ -12,8 +12,7 @@ const navItems = [
   { name: 'About', href: '#about' },
   { name: 'Experience', href: '#experience' },
   { name: 'Projects', href: '#projects' },
-  { name: 'Honors', href: '#honors' },
-  { name: 'Languages', href: '#languages' },
+  { name: 'Honors & Awards', href: '#honors' },
 ];
 
 export function Header() {

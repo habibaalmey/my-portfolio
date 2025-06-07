@@ -105,7 +105,7 @@ export function AboutMeSection() {
           </div>
         </AnimatedSectionWrapper>
         <AnimatedSectionWrapper delay="duration-700 delay-200">
-          <Card className="shadow-xl">
+          <Card className="shadow-xl transform transition-all duration-300 ease-in-out hover:shadow-2xl hover:scale-[1.02]">
             <CardHeader>
               <CardTitle className="flex items-center gap-2 font-headline">
                 <Wand2 className="h-6 w-6 text-accent" />

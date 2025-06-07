@@ -32,7 +32,7 @@ export function ProjectsSection() {
       <div className="grid md:grid-cols-2 gap-8">
         {projects.map((project, index) => (
           <AnimatedSectionWrapper key={project.title} delay={`duration-700 delay-${index * 150}`}>
-            <Card className="flex flex-col h-full overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300">
+            <Card className="flex flex-col h-full overflow-hidden shadow-lg transform transition-all duration-300 ease-in-out hover:shadow-2xl hover:scale-[1.02]">
               <CardHeader className="p-0">
                 <Image
                   src={project.image}

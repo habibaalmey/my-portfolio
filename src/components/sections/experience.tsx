@@ -68,7 +68,7 @@ export function ExperienceSection() {
       <div className="space-y-8">
         {experiences.map((exp, index) => (
           <AnimatedSectionWrapper key={index} delay={`duration-700 delay-${index * 150}`}>
-            <Card className="shadow-lg hover:shadow-xl transition-shadow duration-300 overflow-hidden">
+            <Card className="shadow-lg overflow-hidden transform transition-all duration-300 ease-in-out hover:shadow-2xl hover:scale-[1.02]">
               <CardHeader className="flex flex-row items-start gap-4">
                 <Image 
                   src={exp.logoUrl} 
