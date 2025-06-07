@@ -5,7 +5,6 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { Award, Trophy, CalendarDays } from 'lucide-react';
 import { SectionTitle } from '@/components/layout/section-title';
 import { AnimatedSectionWrapper } from '@/components/ui/animated-section-wrapper';
-import { cn } from '@/lib/utils';
 
 const honorsAndAwards = [
   {
@@ -40,7 +39,8 @@ const honorsAndAwards = [
 
 export function HonorsAwardsSection() {
   return (
-    <section id="honors" className="py-20 md:py-28 relative">
+    <section id="honors" className="py-20 md:py-28 relative overflow-hidden">
+      <div className="binary-waterfall-bg"></div>
       <div className="container mx-auto max-w-5xl px-4 md:px-6 relative z-10">
         <SectionTitle icon={Award}>Honors &amp; Awards</SectionTitle>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-x-6 gap-y-8 pt-8">
@@ -50,12 +50,13 @@ export function HonorsAwardsSection() {
               delay={`duration-700 delay-${index * 150}`}
               className="h-full"
             >
-              <Card className="card-achievement"> {/* Apply the new base class */}
+              <Card className="card-achievement">
                 <div className="achievement-icon-container">
                   <item.icon />
                 </div>
                 <CardHeader className="pb-2 pt-0 px-3">
-                  <CardTitle className="font-pixel text-base text-primary uppercase leading-tight">
+                  {/* Adjusted title size for pixel font */}
+                  <CardTitle className="font-pixel text-xs sm:text-sm text-primary uppercase leading-tight">
                     {item.title}
                   </CardTitle>
                   <p className="text-sm font-medium text-accent">{item.subtitle}</p>
@@ -77,5 +78,3 @@ export function HonorsAwardsSection() {
     </section>
   );
 }
-
-    

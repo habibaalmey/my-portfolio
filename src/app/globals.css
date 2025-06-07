@@ -92,7 +92,7 @@
     @apply border-border;
   }
   html {
-    color: hsl(var(--foreground)); /* Explicitly set color for cursor */
+    color: hsl(var(--foreground));
   }
   body {
     background: linear-gradient(-45deg, hsl(var(--primary)), hsl(var(--accent)), hsl(var(--secondary)), hsl(var(--background)), hsl(var(--background)));
@@ -182,7 +182,6 @@
     margin: 2px; /* Simulate screen padding inside bezel */
   }
 
-
   .card-achievement {
     background-color: hsl(var(--muted) / 0.5); /* Stone-like color */
     color: hsl(var(--foreground));
@@ -198,7 +197,7 @@
     display: flex;
     flex-direction: column;
     text-align: center;
-    height: 100%;
+    height: 100%; /* Ensure cards in a row have same height */
   }
   .card-achievement:hover {
     transform: perspective(800px) rotateY(0deg) scale(1.03);
@@ -245,7 +244,6 @@
      filter: drop-shadow(0 0 8px hsl(var(--primary)/0.7));
   }
 
-
   .bg-starfield {
     background-image:
       radial-gradient(1px 1px at 20px 30px, hsl(var(--foreground) / 0.3), transparent),
@@ -271,7 +269,6 @@
 
   .text-neon-primary {
     color: hsl(var(--primary)); /* Ensures base color is from theme */
-    /* Adjusted for Bungee font to be less blocky */
     text-shadow:
       0 0 2px hsl(var(--primary)/0.9), /* Inner sharp edge */
       0 0 6px hsl(var(--primary)/0.7),   /* Main bright glow */
@@ -288,23 +285,32 @@
     box-shadow: 2px 2px 5px rgba(0,0,0,0.2);
     padding: 1rem; /* Ensure padding is consistent */
     background-image: none !important; /* Remove any gradients */
-    transform: perspective(1000px) rotateX(5deg) rotateY(-5deg); /* Add a slight 3D tilt */
+    /* Removed transform for perspective tilt */
     transition: transform 0.3s ease-out, box-shadow 0.3s ease-out;
     display: flex; /* Added for flex properties */
     flex-direction: column; /* Added for flex properties */
     height: 100%; /* Added for flex properties */
   }
   .project-card-minecraft:hover {
-    transform: perspective(1000px) rotateX(0deg) rotateY(0deg) scale(1.02); /* Straighten and slightly enlarge on hover */
+    transform: scale(1.02); /* Straighten and slightly enlarge on hover */
     box-shadow: 4px 4px 10px rgba(0,0,0,0.3);
   }
-
 
   .separator-creative-dashed {
     height: 2px;
     border: none;
     background: transparent;
     border-top: 2px dashed hsl(var(--primary) / 0.7);
+  }
+
+  .binary-waterfall-bg {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    opacity: 0.15; /* Adjust opacity to make it subtle */
+    overflow: hidden; /* Ensure SVG doesn't cause scrollbars */
+    background-image: url("data:image/svg+xml,%3Csvg width='200' height='200' viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cdefs%3E%3Cstyle%3Etext %7B fill: hsl(var(--primary))%3B font-family: monospace%3B font-size: 14px%3B%7D%3C/style%3E%3C/defs%3E%3Ctext x='10' y='20'%3E01010010%3C/text%3E%3Ctext x='30' y='40'%3E10010110%3C/text%3E%3Ctext x='5' y='60'%3E00101101%3C/text%3E%3Ctext x='40' y='80'%3E11010010%3C/text%3E%3Ctext x='15' y='100'%3E01101001%3C/text%3E%3Ctext x='25' y='120'%3E10100110%3C/text%3E%3Ctext x='10' y='140'%3E00110101%3C/text%3E%3Ctext x='35' y='160'%3E11001010%3C/text%3E%3Ctext x='20' y='180'%3E01001101%3C/text%3E%3Ctext x='45' y='200'%3E10110010%3C/text%3E%3C/svg%3E");
+    animation: binary-flow 10s linear infinite;
   }
 }
 
@@ -331,7 +337,7 @@
     100% { background-position: 0px 200px; } /* Matches SVG height */
   }
 
-  /* Marquee animation for skills ribbon */
+  /* Marquee animation for skills ribbon and projects */
   @keyframes marquee {
     0% { transform: translateX(0%); }
     100% { transform: translateX(-100%); }
@@ -362,7 +368,7 @@
     overflow: hidden;
     white-space: nowrap;
     margin: 0 auto;
-    animation: typing 3.5s steps(30, end); /* Removed blink-caret */
+    animation: typing 3.5s steps(30, end);
   }
 
   /* Creative Timeline */
@@ -386,7 +392,7 @@
       transparent 100%
     );
     background-size: 100% 100px; /* Adjust size of waves */
-    animation: binary-flow 5s linear infinite; /* Re-use existing binary-flow or create a new one */
+    animation: binary-flow 5s linear infinite;
   }
 
 
@@ -410,5 +416,3 @@
   }
 
 }
-
-    
