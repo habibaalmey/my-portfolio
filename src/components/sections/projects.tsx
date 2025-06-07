@@ -2,8 +2,8 @@
 "use client";
 
 import Image from 'next/image';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { LayoutGrid, CalendarDays, ArrowRight } from 'lucide-react';
+import { Card, CardContent, CardDescription, CardHeader, CardFooter, CardTitle } from '@/components/ui/card';
+import { LayoutGrid, CalendarDays, ArrowRight, Github, ExternalLink } from 'lucide-react';
 import { SectionContainer } from '@/components/layout/section-container';
 import { SectionTitle } from '@/components/layout/section-title';
 import { AnimatedSectionWrapper } from '@/components/ui/animated-section-wrapper';
@@ -11,151 +11,127 @@ import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
 
-const projectsData = [ // Renamed to avoid conflict in map key if used directly
+const projectsData = [
   {
     title: 'Guardians of Sustainability | Infrastructure Monitoring Platform',
     description: 'Developed an AI-powered urban infrastructure monitoring platform using Python, which reduced issue detection time by 40% and improved reporting accuracy by 30% through image recognition and Google Maps integration. Designed to support government and community efforts by automatically identifying and reporting environmental issues such as fallen trees and damaged infrastructure.',
-    image: 'https://placehold.co/600x240.png', 
+    image: 'https://placehold.co/600x400.png',
     imageHint: 'urban AI monitoring',
     dates: 'November 2024 – February 2025',
     tags: ['AI', 'Python', 'Computer Vision', 'Google Maps API'],
-    link: '#',
+    githubLink: '#', // Placeholder
+    demoLink: '#',   // Placeholder
+    colSpan: 'lg:col-span-2', // Wider card
+    minHeight: 'min-h-[480px]', // Taller card
   },
   {
     title: 'UAEU Internship Portal | University Internship Management System',
     description: "Created a comprehensive internship portal for UAEU's College of IT to handle the application, review, and tracking process. Manipulated SQL databases to manage user data and internship records, and built a dynamic interface using HTML, CSS, and JavaScript. The system features student workflows, admin dashboards, and company-specific access.",
-    image: 'https://placehold.co/600x240.png',
+    image: 'https://placehold.co/400x300.png',
     imageHint: 'web portal interface',
     dates: 'February 2025 – May 2025',
     tags: ['Web Development', 'SQL', 'JavaScript', 'HTML/CSS'],
-    link: '#',
+    githubLink: '#',
+    demoLink: null,
+    colSpan: 'lg:col-span-1',
+    minHeight: 'min-h-[420px]',
   },
   {
     title: 'Upcoming Project Alpha',
     description: "Details about this exciting new project will be revealed soon. Stay tuned for innovative solutions and cutting-edge technology.",
-    image: 'https://placehold.co/600x240.png',
+    image: 'https://placehold.co/400x300.png',
     imageHint: 'technology concept',
     dates: 'Coming Soon',
     tags: ['Innovation', 'R&D'],
-    link: '#',
+    githubLink: null,
+    demoLink: null,
+    colSpan: 'lg:col-span-1',
+    minHeight: 'min-h-[420px]',
   },
   {
     title: 'Future Project Beta',
     description: "Currently in the planning phase, this project aims to address key challenges in its domain. More information to follow as development progresses.",
-    image: 'https://placehold.co/600x240.png',
+    image: 'https://placehold.co/600x300.png',
     imageHint: 'planning blueprint',
     dates: 'In Progress',
     tags: ['Strategy', 'Development'],
-    link: '#',
+    githubLink: '#',
+    demoLink: '#',
+    colSpan: 'lg:col-span-2', // Wider card
+    minHeight: 'min-h-[450px]',
   },
   {
     title: 'Innovative Tech Solution Gamma',
     description: "A groundbreaking solution leveraging advanced AI to solve complex problems in the industry. Full details to be unveiled upon launch.",
-    image: 'https://placehold.co/600x240.png',
+    image: 'https://placehold.co/400x400.png',
     imageHint: 'AI solution abstract',
     dates: 'Q4 2025',
     tags: ['AI', 'Machine Learning', 'Innovation'],
-    link: '#',
+    githubLink: '#',
+    demoLink: '#',
+    colSpan: 'lg:col-span-2', // Wider card
+    minHeight: 'min-h-[480px]',
   }
 ];
 
-// Duplicate projects for seamless marquee
-const marqueeProjects = [...projectsData, ...projectsData];
-
 export function ProjectsSection() {
   return (
-    <SectionContainer id="projects" className="bg-muted/50 px-8 md:px-10">
+    <SectionContainer id="projects" className="bg-muted/50 px-4 md:px-6"> {/* Standard padding here, mosaic handles internal complexity */}
       <SectionTitle icon={LayoutGrid}>Project Experience</SectionTitle>
-
-      <AnimatedSectionWrapper>
-        <div className="relative flex overflow-hidden group group-hover:pause-animation py-4 -mx-4"> {/* Added py-4 and negative margin for spacing */}
-          <div className="flex animate-marquee whitespace-nowrap">
-            {marqueeProjects.map((project, index) => (
-              <div key={`p1-${index}`} className="mx-4"> {/* Added margin between cards */}
-                <Card className="project-card-minecraft w-96 flex-shrink-0"> {/* Fixed width and prevent shrinking */}
-                  <CardHeader className="p-0">
-                    <Image
-                      src={project.image}
-                      alt={project.title}
-                      width={600} // Placeholder width
-                      height={240} // Consistent height
-                      className="object-cover w-full h-60" // Consistent height class
-                      data-ai-hint={project.imageHint}
-                      priority={index < 4} // Prioritize first few images
-                    />
-                  </CardHeader>
-                  <CardContent className="flex-grow p-4 space-y-3">
-                    <CardTitle className="font-headline text-xl text-primary">{project.title}</CardTitle>
-                    <div className="flex items-center text-sm text-muted-foreground">
-                      <CalendarDays className="mr-2 h-4 w-4" />
-                      {project.dates}
-                    </div>
-                    <CardDescription className="text-foreground/80 text-sm leading-relaxed">
-                      {project.description}
-                    </CardDescription>
-                    <div className="flex flex-wrap gap-1 pt-2">
-                      {project.tags.map(tag => (
-                         <span key={tag} className="text-xs bg-secondary/20 text-secondary-foreground px-2 py-0.5 rounded-full">{tag}</span>
-                      ))}
-                    </div>
-                  </CardContent>
-                  {project.link && project.link !== '#' && (
-                    <div className="p-4 pt-0">
-                      <Button asChild variant="default" size="sm" className="group/button mt-2">
-                        <Link href={project.link} target="_blank" rel="noopener noreferrer">
-                          View Project <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover/button:translate-x-1" />
-                        </Link>
-                      </Button>
-                    </div>
-                  )}
-                </Card>
-              </div>
-            ))}
-          </div>
-          <div className="absolute top-0 flex animate-marquee2 whitespace-nowrap py-4"> {/* Ensure consistent py for spacing */}
-             {marqueeProjects.map((project, index) => (
-              <div key={`p2-${index}`} className="mx-4">
-                <Card className="project-card-minecraft w-96 flex-shrink-0">
-                  <CardHeader className="p-0">
-                    <Image
-                      src={project.image}
-                      alt={project.title}
-                      width={600}
-                      height={240}
-                      className="object-cover w-full h-60"
-                      data-ai-hint={project.imageHint}
-                    />
-                  </CardHeader>
-                  <CardContent className="flex-grow p-4 space-y-3">
-                    <CardTitle className="font-headline text-xl text-primary">{project.title}</CardTitle>
-                    <div className="flex items-center text-sm text-muted-foreground">
-                      <CalendarDays className="mr-2 h-4 w-4" />
-                      {project.dates}
-                    </div>
-                    <CardDescription className="text-foreground/80 text-sm leading-relaxed">
-                      {project.description}
-                    </CardDescription>
-                    <div className="flex flex-wrap gap-1 pt-2">
-                      {project.tags.map(tag => (
-                        <span key={tag} className="text-xs bg-secondary/20 text-secondary-foreground px-2 py-0.5 rounded-full">{tag}</span>
-                      ))}
-                    </div>
-                  </CardContent>
-                  {project.link && project.link !== '#' && (
-                    <div className="p-4 pt-0">
-                       <Button asChild variant="default" size="sm" className="group/button mt-2">
-                        <Link href={project.link} target="_blank" rel="noopener noreferrer">
-                          View Project <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover/button:translate-x-1" />
-                        </Link>
-                      </Button>
-                    </div>
-                  )}
-                </Card>
-              </div>
-            ))}
-          </div>
-        </div>
-      </AnimatedSectionWrapper>
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
+        {projectsData.map((project, index) => (
+          <AnimatedSectionWrapper
+            key={project.title}
+            delay={`duration-700 delay-${index * 100}`}
+            className={cn("h-full", project.colSpan)} // Apply colSpan for mosaic
+          >
+            <Card className={cn("project-card-bubble group", project.minHeight)}> {/* Add group for image hover effect */}
+              <CardHeader className="p-0 relative overflow-hidden project-image-container aspect-[16/10]">
+                <Image
+                  src={project.image}
+                  alt={project.title}
+                  fill // Use fill to respect aspect ratio container
+                  className="object-cover transition-transform duration-300 ease-in-out group-hover:scale-105"
+                  data-ai-hint={project.imageHint}
+                  priority={index < 2}
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                />
+              </CardHeader>
+              <CardContent className="flex-grow p-5 space-y-3">
+                <CardTitle className="font-headline text-xl text-primary">{project.title}</CardTitle>
+                <div className="flex items-center text-sm text-muted-foreground">
+                  <CalendarDays className="mr-2 h-4 w-4" />
+                  {project.dates}
+                </div>
+                <CardDescription className="text-foreground/80 text-sm leading-relaxed">
+                  {project.description}
+                </CardDescription>
+                <div className="flex flex-wrap gap-2 pt-2">
+                  {project.tags.map(tag => (
+                     <span key={tag} className="text-xs bg-primary/10 text-primary px-2.5 py-1 rounded-full">{tag}</span>
+                  ))}
+                </div>
+              </CardContent>
+              <CardFooter className="p-5 pt-2 flex gap-3">
+                {project.githubLink && (
+                  <Button asChild variant="outline" size="sm" className="group/button flex-1 btn-treasure-box">
+                    <Link href={project.githubLink} target="_blank" rel="noopener noreferrer">
+                      <Github className="mr-2 h-4 w-4" /> View Code
+                    </Link>
+                  </Button>
+                )}
+                {project.demoLink && (
+                  <Button asChild variant="default" size="sm" className="group/button flex-1">
+                    <Link href={project.demoLink} target="_blank" rel="noopener noreferrer">
+                      Live Demo <ExternalLink className="ml-2 h-4 w-4 transition-transform group-hover/button:translate-x-1" />
+                    </Link>
+                  </Button>
+                )}
+              </CardFooter>
+            </Card>
+          </AnimatedSectionWrapper>
+        ))}
+      </div>
     </SectionContainer>
   );
 }
