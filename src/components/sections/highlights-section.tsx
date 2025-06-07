@@ -2,47 +2,41 @@
 "use client";
 
 import Image from 'next/image';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 // SectionContainer removed as marquee will be full-width
 import { SectionTitle } from '@/components/layout/section-title';
 import { Sparkles } from 'lucide-react'; 
 
 const highlightsData = [
   {
-    title: 'AI Research Breakthrough',
-    description: 'Led a team to an 81% reduction in system hallucinations for an AI tutor.',
-    image: 'https://placehold.co/320x192.png', // Updated size
-    imageHint: 'AI abstract concept',
+    title: 'Samsung Innovation Campus',
+    image: 'https://placehold.co/320x192.png',
+    imageHint: 'samsung campus event',
   },
   {
-    title: 'Samsung AI Intern Top Project',
-    description: 'Developed a CNN with 99.61% accuracy for plant disease classification.',
-    image: 'https://placehold.co/320x192.png', // Updated size
-    imageHint: 'data plant recognition',
+    title: 'Cyber Mind Seminar',
+    image: 'https://placehold.co/320x192.png',
+    imageHint: 'cybersecurity seminar',
   },
   {
-    title: 'Hackathon Winner: CitroHack',
-    description: 'Awarded "Best Beginner Project" for an innovative fitness application.',
-    image: 'https://placehold.co/320x192.png', // Updated size
-    imageHint: 'team collaboration coding',
+    title: 'Python Workshop',
+    image: 'https://placehold.co/320x192.png',
+    imageHint: 'python coding workshop',
   },
   {
-    title: 'Data Visualization Champion',
-    description: 'Secured 1st place by creating an impactful Power BI dashboard under pressure.',
-    image: 'https://placehold.co/320x192.png', // Updated size
-    imageHint: 'charts dashboard analytics',
+    title: 'Java Workshop',
+    image: 'https://placehold.co/320x192.png',
+    imageHint: 'java coding workshop',
   },
   {
-    title: 'Autonomous Car Robotics',
-    description: 'Achieved 2nd place in a competition programming a custom autonomous vehicle.',
-    image: 'https://placehold.co/320x192.png', // Updated size
-    imageHint: 'robot car technology',
+    title: 'ICEQ - 1st Place Winner',
+    image: 'https://placehold.co/320x192.png',
+    imageHint: 'ICEQ award ceremony',
   },
   {
-    title: 'Published Research: ICEQ',
-    description: 'Presented AI-driven personalized learning research, selected from 150+ participants.',
-    image: 'https://placehold.co/320x192.png', // Updated size
-    imageHint: 'academic presentation conference',
+    title: 'Autonomous Car Training',
+    image: 'https://placehold.co/320x192.png',
+    imageHint: 'autonomous car robot',
   }
 ];
 
@@ -74,9 +68,7 @@ export function HighlightsSection() {
                 />
                 <CardContent className="p-4">
                   <CardTitle className="text-md font-semibold text-primary leading-tight mb-1 truncate">{highlight.title}</CardTitle>
-                  <CardDescription className="text-xs text-foreground/80 leading-snug h-10 overflow-hidden">
-                    {highlight.description}
-                  </CardDescription>
+                  {/* CardDescription removed as per user request */}
                 </CardContent>
               </Card>
             </div>
@@ -96,9 +88,7 @@ export function HighlightsSection() {
                 />
                 <CardContent className="p-4">
                   <CardTitle className="text-md font-semibold text-primary leading-tight mb-1 truncate">{highlight.title}</CardTitle>
-                  <CardDescription className="text-xs text-foreground/80 leading-snug h-10 overflow-hidden">
-                    {highlight.description}
-                  </CardDescription>
+                  {/* CardDescription removed as per user request */}
                 </CardContent>
               </Card>
             </div>
