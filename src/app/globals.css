@@ -250,7 +250,7 @@
 
 
   .bg-blue-gradient-flow {
-    background: linear-gradient(-45deg, hsl(var(--background)), hsl(210 50% 28%), hsl(220 50% 14%), hsl(210 70% 32%), hsl(220 50% 18%));
+    background: linear-gradient(-45deg, hsl(var(--background)), hsl(210 50% 22%), hsl(220 50% 10%), hsl(210 70% 28%), hsl(220 50% 14%)); /* Darkened further */
     background-size: 300% 300%;
     animation: animate-gradient-x 20s ease infinite;
     border-top: 1px solid hsl(var(--border)/0.3);
@@ -339,24 +339,19 @@
     100% { background-position: 0px 200px; }
   }
 
-  @keyframes marquee {
-    0% { transform: translateX(0%); }
-    100% { transform: translateX(-100%); }
-  }
-  @keyframes marquee2 {
-    0% { transform: translateX(100%); }
-    100% { transform: translateX(0%); }
-  }
-
+  /* .animate-marquee and .animate-marquee2 are now driven by Tailwind config directly */
+  /* It's better to define these as Tailwind utilities if their keyframes are in tailwind.config.ts */
+  /* For now, assuming Tailwind will generate .animate-marquee based on config. */
+  /* If not, these might need to be explicitly: */
   .animate-marquee {
-    animation: marquee 40s linear infinite;
+     /* animation: marquee [duration from tailwind.config.ts] linear infinite; */
+     /* Tailwind automatically creates this utility if 'marquee' is in theme.extend.animation */
   }
-  .animate-marquee2 {
-    animation: marquee2 40s linear infinite;
-  }
+  /* .animate-marquee2 utility class is removed as its animation is removed from config */
+
 
   .group-hover\:pause-animation:hover .animate-marquee,
-  .group-hover\:pause-animation:hover .animate-marquee2 {
+  .group-hover\:pause-animation:hover .animate-marquee2 { /* Keeping marquee2 selector for skills ribbon if it uses it */
     animation-play-state: paused;
   }
 

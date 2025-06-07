@@ -3,7 +3,6 @@
 
 import Image from 'next/image';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-// SectionContainer removed as marquee will be full-width
 import { SectionTitle } from '@/components/layout/section-title';
 import { Sparkles } from 'lucide-react'; 
 
@@ -40,23 +39,21 @@ const highlightsData = [
   }
 ];
 
-// Duplicate for seamless marquee
-const marqueeHighlights = [...highlightsData, ...highlightsData, ...highlightsData];
+// Duplicate for seamless marquee (2x is enough for a translateX(-50%) loop)
+const marqueeItems = [...highlightsData, ...highlightsData];
 
 
 export function HighlightsSection() {
   return (
     <section id="highlights" className="py-16 md:py-20 bg-background">
-      {/* Container for the title, keeping it constrained */}
       <div className="container mx-auto max-w-5xl px-4 md:px-6">
         <SectionTitle icon={Sparkles}>Journey Highlights</SectionTitle>
       </div>
 
-      {/* Marquee container is now full-width */}
       <div className="w-full overflow-hidden relative group group-hover:pause-animation py-4 mt-8 md:mt-12">
         <div className="flex animate-marquee whitespace-nowrap">
-          {marqueeHighlights.map((highlight, index) => (
-            <div key={`hl1-${index}`} className="mx-3">
+          {marqueeItems.map((highlight, index) => (
+            <div key={`hl-loop-${index}`} className="mx-3 flex-shrink-0"> {/* Added flex-shrink-0 */}
               <Card className="highlight-photocard">
                 <Image
                   src={highlight.image}
@@ -68,32 +65,12 @@ export function HighlightsSection() {
                 />
                 <CardContent className="p-4">
                   <CardTitle className="text-md font-semibold text-primary leading-tight mb-1 truncate">{highlight.title}</CardTitle>
-                  {/* CardDescription removed as per user request */}
                 </CardContent>
               </Card>
             </div>
           ))}
         </div>
-        <div className="absolute top-0 flex animate-marquee2 whitespace-nowrap py-4">
-           {marqueeHighlights.map((highlight, index) => (
-            <div key={`hl2-${index}`} className="mx-3">
-               <Card className="highlight-photocard">
-                 <Image
-                  src={highlight.image}
-                  alt={highlight.title}
-                  width={320}
-                  height={192}
-                  className="object-cover"
-                  data-ai-hint={highlight.imageHint}
-                />
-                <CardContent className="p-4">
-                  <CardTitle className="text-md font-semibold text-primary leading-tight mb-1 truncate">{highlight.title}</CardTitle>
-                  {/* CardDescription removed as per user request */}
-                </CardContent>
-              </Card>
-            </div>
-          ))}
-        </div>
+        {/* The second div with animate-marquee2 has been removed */}
       </div>
     </section>
   );
