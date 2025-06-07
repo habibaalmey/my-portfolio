@@ -9,11 +9,22 @@ const Card = React.forwardRef<
   <div
     ref={ref}
     className={cn(
-      "rounded-lg border bg-card text-card-foreground shadow-sm",
+      "rounded-lg border bg-card text-card-foreground shadow-xl relative overflow-hidden", // Increased shadow, added relative & overflow-hidden
       className
     )}
-    {...props}
-  />
+  >
+    <div
+      className="absolute inset-0 pointer-events-none"
+      style={{
+        // Subtle radial gradient from top-left
+        background: `radial-gradient(ellipse at 0% 0%, hsla(var(--primary), 0.12) 0%, transparent 60%)`
+      }}
+    ></div>
+    {/* Wrapper for children to ensure they are rendered above the gradient */}
+    <div className="relative z-[1] h-full flex flex-col">
+      {props.children}
+    </div>
+  </div>
 ))
 Card.displayName = "Card"
 
