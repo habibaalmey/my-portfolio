@@ -169,7 +169,13 @@
     box-shadow: 0 -8px 35px -5px hsl(var(--primary)/0.7), 0 10px 20px hsl(var(--primary)/0.3);
   }
 
-
+  .binary-code-ribbon {
+    @apply absolute top-0 bottom-0 w-12 bg-no-repeat opacity-75; /* w-12 = 48px */
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='30' height='200' viewBox='0 0 30 200'%3E%3Cstyle%3Etext %7B font-family: monospace; font-size: 14px; fill: hsla(50, 100%25, 60%25, 0.15); text-anchor: middle; dominant-baseline: middle; %7D%3C/style%3E%3Ctext x='50%25' y='10%25'%3E0%3C/text%3E%3Ctext x='50%25' y='20%25'%3E1%3C/text%3E%3Ctext x='50%25' y='30%25'%3E1%3C/text%3E%3Ctext x='50%25' y='40%25'%3E0%3C/text%3E%3Ctext x='50%25' y='50%25'%3E1%3C/text%3E%3Ctext x='50%25' y='60%25'%3E0%3C/text%3E%3Ctext x='50%25' y='70%25'%3E0%3C/text%3E%3Ctext x='50%25' y='80%25'%3E1%3C/text%3E%3Ctext x='50%25' y='90%25'%3E0%3C/text%3E%3C/svg%3E");
+    background-size: 100% auto; /* Cover width, auto height for pattern */
+    animation: binary-flow 7s linear infinite;
+    z-index: 0; 
+  }
 }
 
 @layer utilities {
@@ -192,7 +198,7 @@
 
   @keyframes binary-flow {
     0% { background-position: 0 0; }
-    100% { background-position: 0px 120px; } 
+    100% { background-position: 0px 200px; } /* Matches SVG height */
   }
 
   /* Marquee animation for skills ribbon */
@@ -231,9 +237,9 @@
     border-right: .15em solid hsl(var(--primary)); 
     white-space: nowrap; 
     margin: 0 auto; 
-    letter-spacing: 0.08em; /* Adjusted for pixel font */
+    /* letter-spacing is better handled by the font-headline class's natural spacing or can be adjusted there if needed */
     animation: 
-      typing 3.5s steps(30, end), /* Adjusted steps for potentially shorter name in pixel font */
+      typing 3.5s steps(30, end),
       blink-caret .75s step-end infinite;
   }
 
@@ -263,4 +269,3 @@
   }
 
 }
-

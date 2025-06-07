@@ -38,7 +38,7 @@ export function Header() {
       <div className="container mx-auto flex h-20 max-w-screen-2xl items-center justify-between px-4 md:px-6">
         <Link href="/" className="flex items-center space-x-2" onClick={isMobileMenuOpen ? closeMobileMenu : undefined}>
           <div className="text-3xl md:text-4xl text-primary overflow-hidden whitespace-nowrap">
-             <span className="font-pixel typewriter-text">{fullName}</span>
+             <span className="font-headline typewriter-text">{fullName}</span>
           </div>
         </Link>
         
@@ -76,7 +76,7 @@ export function Header() {
               <div className="flex flex-col space-y-2">
                 <Link href="/" className="flex items-center space-x-2 mb-6" onClick={closeMobileMenu}>
                    <div className="text-3xl text-primary overflow-hidden whitespace-nowrap">
-                     <span className="font-pixel typewriter-text">{fullName}</span>
+                     <span className="font-headline typewriter-text">{fullName}</span>
                   </div>
                 </Link>
                 {navItems.map((item) => (
