@@ -3,7 +3,7 @@
 
 import Image from 'next/image';
 import { Card, CardContent, CardDescription, CardHeader, CardFooter, CardTitle } from '@/components/ui/card';
-import { LayoutGrid, CalendarDays, Github, ExternalLink } from 'lucide-react';
+import { LayoutGrid, Github, ExternalLink } from 'lucide-react';
 import { SectionContainer } from '@/components/layout/section-container';
 import { SectionTitle } from '@/components/layout/section-title';
 import { AnimatedSectionWrapper } from '@/components/ui/animated-section-wrapper';
@@ -39,8 +39,9 @@ const projectsData = [
     imageHint: 'neural network 3d',
     dates: 'November 2025 – December 2025',
     tags: ['AI', 'Python', 'Blender', 'MNIST'],
-    githubLink: '#', // Show disabled "View Code"
-    demoLink: null,  // No demo/video button
+    githubLink: '#', 
+    demoLink: null,
+    demoButtonText: null,
   },
   {
     title: 'Plant Disease Detection | AI-Powered Diagnosis Tool',
@@ -59,7 +60,7 @@ const projectsData = [
     imageHint: 'data science future',
     dates: 'Coming Soon',
     tags: ['Data Science', 'Machine Learning', 'Python'],
-    githubLink: '#', 
+    githubLink: null, 
     demoLink: null,  
   }
 ];
@@ -89,10 +90,7 @@ export function ProjectsSection() {
               </CardHeader>
               <CardContent className="flex-grow p-5 space-y-3">
                 <CardTitle className="font-headline text-xl text-primary">{project.title}</CardTitle>
-                <div className="flex items-center text-sm text-muted-foreground">
-                  <CalendarDays className="mr-2 h-4 w-4" />
-                  {project.dates}
-                </div>
+                {/* Dates display removed from here */}
                 <CardDescription className="text-foreground/80 text-sm leading-relaxed">
                   {project.description}
                 </CardDescription>
