@@ -6,13 +6,13 @@ import { AnimatedSectionWrapper } from '@/components/ui/animated-section-wrapper
 import Link from 'next/link';
 import { Badge } from '@/components/ui/badge';
 
-const aboutMeText = "I am a fourth-year Computer Science student with a passion for the intersection of business and information technology. I am highly organized and detail-oriented, consistently delivering quality results in both academic research and industry projects. With particular expertise in data analysis and machine learning, my experience enables me to solve problems with technical precision while understanding business needs.";
+const aboutMeText =
+  "I am a fourth-year Computer Science student with a passion for the intersection of business and information technology. I am highly organized and detail-oriented, consistently delivering quality results in both academic research and industry projects. With particular expertise in data analysis and machine learning, my experience enables me to solve problems with technical precision while understanding business needs.";
 
 const skills = [
   'Python', 'Java', 'SQL', 'HTML/CSS', 'Pandas',
   'Scikit-learn', 'TensorFlow', 'Power BI', 'LangChain', 'Git',
   'Figma', 'Feature Engineering', 'Business Analytics', 'Neural Networks', 'Project Management',
-  // Duplicates for seamless loop
   'Python', 'Java', 'SQL', 'HTML/CSS', 'Pandas',
   'Scikit-learn', 'TensorFlow', 'Power BI', 'LangChain', 'Git',
   'Figma', 'Feature Engineering', 'Business Analytics', 'Neural Networks', 'Project Management',
@@ -32,26 +32,26 @@ export function AboutMeSection() {
   return (
     <section id="about">
       {/* Part 1: Summary, Contact, CV - Darker Background */}
-      <div className="bg-background relative"> {/* Added relative for starfield positioning */}
+      <div className="bg-background relative">
         <div className="absolute inset-0 -z-10 overflow-hidden bg-starfield opacity-50"></div>
-        <div className="container mx-auto max-w-5xl px-4 py-16 md:px-6 md:py-24 relative z-10"> {/* Added z-10 */}
+        <div className="container mx-auto max-w-5xl px-4 py-16 md:px-6 md:py-24 relative z-10">
           <SectionTitle>About Me</SectionTitle>
           <AnimatedSectionWrapper>
             <div className="flex flex-col md:flex-row items-center md:items-start gap-10 md:gap-16">
               <div className="md:w-1/3 flex-shrink-0 flex flex-col items-center md:items-start">
-                <div className="digital-glow-frame mb-6 md:mb-0 md:ml-0 md:mr-auto rounded-full">
-                  <div className="image-screen-glow rounded-full">
-                    {/* USER_EDITABLE_IMAGE: About Me Picture */}
-                    {/* Replace the 'src' value below with your 'About Me' image URL. */}
-                    {/* Current placeholder: https://placehold.co/300x300.png */}
+                {/* Image Container with Circle Fix */}
+                {/* USER_EDITABLE_IMAGE_HINT: professional portrait */}
+                {/* USER_EDITABLE_IMAGE: About Me Picture */}
+                <div className="digital-glow-frame mb-6 md:mb-0 md:ml-0 md:mr-auto rounded-full w-[240px] h-[240px] overflow-hidden">
+                  <div className="image-screen-glow rounded-full overflow-hidden w-full h-full">
                     <Image
-                      src="https://placehold.co/300x300.png"
+                      src="https://placehold.co/240x240.png"
                       alt="Habiba Almetnawy"
-                      width={300}
-                      height={300}
-                      className="rounded-full transform transition-all duration-300 ease-in-out hover:scale-[1.03]"
-                      data-ai-hint="professional portrait"
+                      width={240}
+                      height={240}
+                      className="rounded-full object-cover w-full h-full transform transition-all duration-300 ease-in-out hover:scale-[1.03]"
                       priority
+                      data-ai-hint="professional portrait" 
                     />
                   </div>
                 </div>
