@@ -127,7 +127,7 @@
   }
 
   .digital-glow-frame {
-    @apply relative p-1 bg-transparent shadow-md;
+    @apply relative p-1 bg-transparent; /* Removed shadow-md */
     width: fit-content;
     margin-left: auto;
     margin-right: auto;
@@ -140,7 +140,9 @@
     border-radius: inherit; 
   }
   .digital-glow-frame::before {
-    box-shadow: 0 0 25px 10px hsl(var(--primary)/0.6), 0 0 45px 20px hsl(var(--primary)/0.4);
+    /* Enhanced "under shadow" highlight: more offset, spread, and shining */
+    box-shadow: 0 10px 35px 15px hsl(var(--primary)/0.6), /* Main downward diffuse glow */
+                0  5px 20px  5px hsl(var(--primary)/0.4);   /* Secondary closer, sharper glow */
     animation: pulse-glow 3s infinite alternate;
   }
   .digital-glow-frame::after {
@@ -148,7 +150,7 @@
     margin: -2px; 
   }
   .digital-glow-frame .image-screen-glow {
-    @apply bg-background p-1 border-2 border-primary/70;
+    @apply bg-background p-1 border-2 border-primary/70 rounded-full;
   }
 
   @keyframes pulse-glow {
@@ -414,5 +416,7 @@
   }
 
 }
+
+    
 
     
