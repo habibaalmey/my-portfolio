@@ -41,14 +41,14 @@ export function AboutMeSection() {
           <SectionTitle>About Me</SectionTitle>
           <AnimatedSectionWrapper>
             <div className="flex flex-col md:flex-row items-center md:items-start gap-10 md:gap-16">
-              <div className="md:w-1/3 flex-shrink-0 flex flex-col items-center">
-                <div className="digital-glow-frame mb-6 md:mb-0">
+              <div className="md:w-1/3 flex-shrink-0 flex flex-col items-center md:items-start">
+                <div className="digital-glow-frame mb-6 md:mb-0 md:ml-0 md:mr-auto">
                   <div className="image-screen-glow">
                     {/* USER_EDITABLE_IMAGE: About Me Picture */}
                     {/* Replace the 'src' value below with your 'About Me' image URL. */}
                     {/* Current placeholder: https://placehold.co/300x300.png */}
                     <Image
-                      src="/About-me.png"
+                      src="https://placehold.co/300x300.png"
                       alt="Habiba Almetnawy"
                       width={300}
                       height={300}

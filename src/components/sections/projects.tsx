@@ -1,7 +1,6 @@
 
 "use client";
 
-import Image from 'next/image';
 import { Card, CardContent, CardDescription, CardHeader, CardFooter, CardTitle } from '@/components/ui/card';
 import { LayoutGrid, Github, ExternalLink } from 'lucide-react';
 import { SectionContainer } from '@/components/layout/section-container';
@@ -15,10 +14,7 @@ const projectsData = [
   {
     title: 'Guardians of Sustainability | Infrastructure Monitoring Platform',
     description: 'Developed an AI-powered urban infrastructure monitoring platform using Python, which reduced issue detection time by 40% and improved reporting accuracy by 30% through image recognition and Google Maps integration. Designed to support government and community efforts by automatically identifying and reporting environmental issues such as fallen trees and damaged infrastructure.',
-    // USER_EDITABLE_PROJECT_IMAGE: Guardians of Sustainability
-    // Replace 'https://placehold.co/640x360.png' below with the image URL for this project.
-    image: '/urban.jpg',
-    imageHint: 'urban AI monitoring',
+    // USER_EDITABLE_PROJECT_IMAGE: Guardians of Sustainability (Image removed from display)
     tags: ['AI', 'Python', 'Computer Vision', 'Google Maps API'],
     githubLink: 'https://github.com/habibaalmey/Guardians-of-Sustainability',
     demoLink: 'https://guardians-of-sustainability.web.app/',
@@ -26,10 +22,7 @@ const projectsData = [
   {
     title: 'UAEU Internship Portal | University Internship Management System',
     description: "Created a comprehensive internship portal for UAEU's College of IT to handle the application, review, and tracking process. Manipulated SQL databases to manage user data and internship records, and built a dynamic interface using HTML, CSS, and JavaScript. The system features student workflows, admin dashboards, and company-specific access.",
-    // USER_EDITABLE_PROJECT_IMAGE: UAEU Internship Portal
-    // Replace 'https://placehold.co/640x360.png' below with the image URL for this project.
-    image: '/intern.jpg',
-    imageHint: 'web portal interface',
+    // USER_EDITABLE_PROJECT_IMAGE: UAEU Internship Portal (Image removed from display)
     tags: ['Web Development', 'SQL', 'JavaScript', 'HTML/CSS'],
     githubLink: '#',
     demoLink: null,
@@ -37,10 +30,7 @@ const projectsData = [
   {
     title: 'Neural Network Visualizer | 3D AI Model Animation',
     description: "Built a 3D visualization of a neural network using Blender and Python to demonstrate how handwritten digits (MNIST dataset) are processed and classified. Each pixel was represented as a cube, with animated keyframe transitions showing data flow, weight connections, and prediction intensity. Designed to help peers better understand neural networks through clear and engaging visual representation.",
-    // USER_EDITABLE_PROJECT_IMAGE: Neural Network Visualizer
-    // Replace 'https://placehold.co/640x360.png' below with the image URL for this project.
-    image: '/nn.png',
-    imageHint: 'neural network 3d',
+    // USER_EDITABLE_PROJECT_IMAGE: Neural Network Visualizer (Image removed from display)
     tags: ['AI', 'Python', 'Blender', 'MNIST'],
     githubLink: '#',
     demoLink: null,
@@ -49,10 +39,7 @@ const projectsData = [
   {
     title: 'Plant Disease Detection | AI-Powered Diagnosis Tool',
     description: "Designed and trained a convolutional neural network using MobileNetV2, achieving 99.61% accuracy in identifying plant diseases. Conducted extensive testing across various species to ensure robustness and reliability in real-world agricultural scenarios. Integrated a chatbot powered by LLaMA 3.1 and Groq API to deliver instant disease insights and treatment recommendations based on model predictions.",
-    // USER_EDITABLE_PROJECT_IMAGE: Plant Disease Detection
-    // Replace 'https://placehold.co/640x360.png' below with the image URL for this project.
-    image: '/plant.jpg',
-    imageHint: 'plant disease AI',
+    // USER_EDITABLE_PROJECT_IMAGE: Plant Disease Detection (Image removed from display)
     tags: ['Python', 'TensorFlow', 'Keras', 'MobileNetV2', 'LLaMA 3.1', 'Groq API'],
     githubLink: '#',
     demoLink: null,
@@ -60,10 +47,7 @@ const projectsData = [
   {
     title: 'Upcoming Data Science Project',
     description: 'Exciting new data science project in the works. Stay tuned for updates as development progresses!',
-    // USER_EDITABLE_PROJECT_IMAGE: Upcoming Data Science Project
-    // Replace 'https://placehold.co/640x360.png' below with the image URL for this project.
-    image: '/data.jpg',
-    imageHint: 'data science future',
+    // USER_EDITABLE_PROJECT_IMAGE: Upcoming Data Science Project (Image removed from display)
     tags: ['Data Science', 'Machine Learning', 'Python'],
     githubLink: null,
     demoLink: null,
@@ -81,18 +65,8 @@ export function ProjectsSection() {
             delay={`duration-700 delay-${index * 100}`}
             className="h-full"
           >
-            <Card className={cn("project-card-boxy group h-full p-0 overflow-hidden")}>
-              <CardHeader className="p-0 relative overflow-hidden project-image-container">
-                <Image
-                  src={project.image}
-                  alt={project.title}
-                  fill
-                  className="object-cover transition-transform duration-300 ease-in-out group-hover:scale-105"
-                  data-ai-hint={project.imageHint}
-                  priority={index < 3}
-                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                />
-              </CardHeader>
+            <Card className={cn("project-card-boxy group h-full p-0 overflow-hidden flex flex-col")}>
+              {/* Image CardHeader removed */}
               <CardContent className="flex-grow p-5 space-y-3">
                 <CardTitle className="font-headline text-xl text-primary">{project.title}</CardTitle>
                 <CardDescription className="text-foreground/80 text-sm leading-relaxed">
@@ -114,11 +88,11 @@ export function ProjectsSection() {
                     disabled={project.githubLink === '#'}
                   >
                     <Link href={project.githubLink || '#'} target="_blank" rel="noopener noreferrer" aria-disabled={project.githubLink === '#'}>
-                      <Github className="mr-2 h-4 w-4" /> View Code
+                      <Github className="mr-2 h-4 w-4" /> {project.demoButtonText && project.title.includes("Neural Network Visualizer") ? project.demoButtonText : 'View Code'}
                     </Link>
                   </Button>
                 )}
-                {project.demoLink !== null && (
+                {project.demoLink !== null && !project.title.includes("Neural Network Visualizer") && (
                   <Button
                     asChild
                     variant="default"
