@@ -34,13 +34,14 @@ const projectsData = [
   },
   {
     title: 'Neural Network Visualizer | 3D AI Model Animation',
-    description: "Built a 3D visualization of a neural network using Blender and Python to demonstrate how handwritten digits (MNIST dataset) are processed and classified. Each pixel was represented as a cube, with animated keyframe transitions showing data flow, weight connections, and prediction intensity. Designed to help peers better understand neural networks, the project was presented to multiple sections by professor request due to its educational impact.",
+    description: "Built a 3D visualization of a neural network using Blender and Python to demonstrate how handwritten digits (MNIST dataset) are processed and classified. Each pixel was represented as a cube, with animated keyframe transitions showing data flow, weight connections, and prediction intensity. Designed to help peers better understand neural networks through clear and engaging visual representation.",
     image: 'https://placehold.co/640x360.png',
     imageHint: 'neural network 3d',
     dates: 'November 2025 – December 2025',
-    tags: ['AI', 'Python', 'Blender'],
+    tags: ['AI', 'Python', 'Blender', 'MNIST'],
     githubLink: null,
-    demoLink: null,
+    demoLink: '#',
+    demoButtonText: 'View Video',
   },
   {
     title: 'Future Project Beta',
@@ -53,14 +54,14 @@ const projectsData = [
     demoLink: '#',
   },
   {
-    title: 'Innovative Tech Solution Gamma',
-    description: "A groundbreaking solution leveraging advanced AI to solve complex problems in the industry. Full details to be unveiled upon launch.",
+    title: 'Plant Disease Detection | AI-Powered Diagnosis Tool',
+    description: "Designed and trained a convolutional neural network using MobileNetV2, achieving 99.61% accuracy in identifying plant diseases. Conducted extensive testing across various species to ensure robustness and reliability in real-world agricultural scenarios. Integrated a chatbot powered by LLaMA 3.1 and Groq API to deliver instant disease insights and treatment recommendations based on model predictions.",
     image: 'https://placehold.co/640x360.png',
-    imageHint: 'AI solution network',
-    dates: 'Q4 2025',
-    tags: ['AI', 'Machine Learning', 'Innovation'],
+    imageHint: 'plant disease AI',
+    dates: 'March 2025 – April 2025',
+    tags: ['Python', 'TensorFlow', 'Keras', 'MobileNetV2', 'LLaMA 3.1', 'Groq API'],
     githubLink: '#',
-    demoLink: '#',
+    demoLink: null,
   },
   {
     title: 'Personal Portfolio Website',
@@ -69,7 +70,7 @@ const projectsData = [
     imageHint: 'portfolio website design',
     dates: 'Ongoing',
     tags: ['Next.js', 'React', 'TailwindCSS', 'ShadCN UI', 'Genkit'],
-    githubLink: '#', 
+    githubLink: '#',
     demoLink: null,
   }
 ];
@@ -113,25 +114,31 @@ export function ProjectsSection() {
                 </div>
               </CardContent>
               <CardFooter className="p-5 pt-2 flex gap-3 mt-auto">
-                {project.title === 'Personal Portfolio Website' ? (
-                  <Button asChild variant="outline" size="sm" className="group/button flex-1 btn-treasure-box" disabled={!project.githubLink}>
-                    <Link href={project.githubLink || '#'} target="_blank" rel="noopener noreferrer" aria-disabled={!project.githubLink}>
+                {project.githubLink !== null && (
+                  <Button
+                    asChild
+                    variant="outline"
+                    size="sm"
+                    className="group/button flex-1 btn-treasure-box"
+                    disabled={project.githubLink === '#'}
+                  >
+                    <Link href={project.githubLink || '#'} target="_blank" rel="noopener noreferrer" aria-disabled={project.githubLink === '#'}>
                       <Github className="mr-2 h-4 w-4" /> View Code
                     </Link>
                   </Button>
-                ) : (
-                  <>
-                    <Button asChild variant="outline" size="sm" className="group/button flex-1 btn-treasure-box" disabled={!project.githubLink}>
-                      <Link href={project.githubLink || '#'} target="_blank" rel="noopener noreferrer" aria-disabled={!project.githubLink}>
-                        <Github className="mr-2 h-4 w-4" /> View Code
-                      </Link>
-                    </Button>
-                    <Button asChild variant="default" size="sm" className="group/button flex-1" disabled={!project.demoLink}>
-                      <Link href={project.demoLink || '#'} target="_blank" rel="noopener noreferrer" aria-disabled={!project.demoLink}>
-                        Live Demo <ExternalLink className="ml-2 h-4 w-4 transition-transform group-hover/button:translate-x-1" />
-                      </Link>
-                    </Button>
-                  </>
+                )}
+                {project.demoLink !== null && (
+                  <Button
+                    asChild
+                    variant="default"
+                    size="sm"
+                    className="group/button flex-1"
+                    disabled={project.demoLink === '#'}
+                  >
+                    <Link href={project.demoLink || '#'} target="_blank" rel="noopener noreferrer" aria-disabled={project.demoLink === '#'}>
+                      {project.demoButtonText || 'Live Demo'} <ExternalLink className="ml-2 h-4 w-4 transition-transform group-hover/button:translate-x-1" />
+                    </Link>
+                  </Button>
                 )}
               </CardFooter>
             </Card>
