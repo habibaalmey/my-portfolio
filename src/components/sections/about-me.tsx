@@ -85,8 +85,8 @@ export function AboutMeSection() {
         </div>
       </div>
 
-      {/* Part 2: Full-width skills ribbon - Yellow Gradient Background */}
-      <div className="w-full overflow-hidden bg-gradient-to-r from-primary to-accent py-4 md:py-6">
+      {/* Part 2: Full-width skills ribbon - Gradient Background */}
+      <div className="w-full overflow-hidden bg-gradient-to-r from-secondary via-primary/40 to-secondary py-4 md:py-6">
         <div className="relative flex group group-hover:pause-animation">
           <div className="flex animate-skills-marquee whitespace-nowrap">
             {skills.map((skill, index) => <SkillBadge key={`s1-${index}`} skill={skill} />)}
