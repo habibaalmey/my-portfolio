@@ -38,19 +38,17 @@ export function AboutMeSection() {
           <AnimatedSectionWrapper>
             <div className="flex flex-col md:flex-row items-center md:items-start gap-10 md:gap-16">
               <div className="md:w-1/3 flex-shrink-0 flex flex-col items-center md:items-start">
-                {/* Image Container with Circle Fix */}
-                {/* USER_EDITABLE_IMAGE_HINT: professional portrait */}
                 {/* USER_EDITABLE_IMAGE: About Me Picture */}
-                <div className="digital-glow-frame mb-6 md:mb-0 md:ml-0 md:mr-auto rounded-full w-[240px] h-[240px] overflow-hidden">
-                  <div className="image-screen-glow rounded-full overflow-hidden w-full h-full">
+                <div className="digital-glow-frame mb-6 md:mb-0 md:ml-0 md:mr-auto rounded-lg w-[240px] h-[240px] overflow-hidden">
+                  <div className="image-screen-glow rounded-md overflow-hidden w-full h-full">
                     <Image
                       src="https://placehold.co/240x240.png"
                       alt="Habiba Almetnawy"
                       width={240}
                       height={240}
-                      className="rounded-full object-cover w-full h-full transform transition-all duration-300 ease-in-out hover:scale-[1.03]"
+                      className="rounded-md object-cover w-full h-full transform transition-all duration-300 ease-in-out hover:scale-[1.03]"
                       priority
-                      data-ai-hint="professional portrait" 
+                      data-ai-hint="professional portrait"
                     />
                   </div>
                 </div>
