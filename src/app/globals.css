@@ -127,7 +127,7 @@
   }
 
   .digital-glow-frame {
-    @apply relative p-1 bg-transparent; /* Removed shadow-md */
+    @apply relative p-1 bg-transparent;
     width: fit-content;
     margin-left: auto;
     margin-right: auto;
@@ -137,20 +137,20 @@
     content: '';
     @apply absolute inset-0 pointer-events-none;
     z-index: -1;
-    border-radius: inherit; 
+    border-radius: inherit;
   }
   .digital-glow-frame::before {
-    /* Enhanced "under shadow" highlight: more offset, spread, and shining */
-    box-shadow: 0 10px 35px 15px hsl(var(--primary)/0.6), /* Main downward diffuse glow */
-                0  5px 20px  5px hsl(var(--primary)/0.4);   /* Secondary closer, sharper glow */
+    box-shadow: 0 12px 40px 20px hsl(var(--primary)/0.55), /* Main downward diffuse glow, softer, wider, more 'under' */
+                0  6px 25px  8px hsl(var(--primary)/0.35);   /* Secondary closer, also a bit softer and wider */
     animation: pulse-glow 3s infinite alternate;
   }
   .digital-glow-frame::after {
     @apply border-2 border-primary/80;
-    margin: -2px; 
+    margin: -2px;
+    border-radius: inherit;
   }
   .digital-glow-frame .image-screen-glow {
-    @apply bg-background p-1 border-2 border-primary/70 rounded-full;
+    @apply bg-background p-1 border-2 border-primary/70 rounded-full relative;
   }
 
   @keyframes pulse-glow {
