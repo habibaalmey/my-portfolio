@@ -24,7 +24,7 @@ const projectsData = [
     description: "Created a comprehensive internship portal for UAEU's College of IT to handle the application, review, and tracking process. Manipulated SQL databases to manage user data and internship records, and built a dynamic interface using HTML, CSS, and JavaScript. The system features student workflows, admin dashboards, and company-specific access.",
     // USER_EDITABLE_PROJECT_IMAGE: UAEU Internship Portal (Image removed from display)
     tags: ['Web Development', 'SQL', 'JavaScript', 'HTML/CSS'],
-    githubLink: '#',
+    githubLink: 'https://github.com/habibaalmey/UAEU-Internship-Portal',
     demoLink: null,
   },
   {
@@ -32,7 +32,7 @@ const projectsData = [
     description: "Built a 3D visualization of a neural network using Blender and Python to demonstrate how handwritten digits (MNIST dataset) are processed and classified. Each pixel was represented as a cube, with animated keyframe transitions showing data flow, weight connections, and prediction intensity. Designed to help peers better understand neural networks through clear and engaging visual representation.",
     // USER_EDITABLE_PROJECT_IMAGE: Neural Network Visualizer (Image removed from display)
     tags: ['AI', 'Python', 'Blender', 'MNIST'],
-    githubLink: '#',
+    githubLink: 'https://github.com/habibaalmey/Neural-Network-Visualizer',
     demoLink: null,
     demoButtonText: 'View Code',
   },
@@ -41,7 +41,7 @@ const projectsData = [
     description: "Designed and trained a convolutional neural network using MobileNetV2, achieving 99.61% accuracy in identifying plant diseases. Conducted extensive testing across various species to ensure robustness and reliability in real-world agricultural scenarios. Integrated a chatbot powered by LLaMA 3.1 and Groq API to deliver instant disease insights and treatment recommendations based on model predictions.",
     // USER_EDITABLE_PROJECT_IMAGE: Plant Disease Detection (Image removed from display)
     tags: ['Python', 'TensorFlow', 'Keras', 'MobileNetV2', 'LLaMA 3.1', 'Groq API'],
-    githubLink: '#',
+    githubLink: 'https://github.com/habibaalmey/Plant-Disease-Detection',
     demoLink: null,
   },
   {
