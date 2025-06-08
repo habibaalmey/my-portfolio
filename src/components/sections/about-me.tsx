@@ -40,9 +40,9 @@ export function AboutMeSection() {
         <div className="container mx-auto max-w-5xl px-4 py-16 md:px-6 md:py-24 relative z-10"> {/* Added z-10 */}
           <SectionTitle>About Me</SectionTitle>
           <AnimatedSectionWrapper>
-            <div className="flex flex-col md:flex-row items-center md:items-start gap-10 md:gap-16">
-              <div className="md:w-1/3 flex-shrink-0 flex flex-col items-center md:items-start">
-                <div className="digital-glow-frame mb-6 md:mb-0 md:ml-0 md:mr-auto">
+            <div className="flex flex-col md:flex-row items-center gap-10 md:gap-16">
+              <div className="md:w-1/3 flex-shrink-0 flex flex-col items-center">
+                <div className="digital-glow-frame mb-6 md:mb-0">
                   <div className="image-screen-glow">
                     {/* USER_EDITABLE_IMAGE: About Me Picture */}
                     {/* Replace the 'src' value below with your 'About Me' image URL. */}
