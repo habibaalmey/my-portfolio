@@ -39,10 +39,6 @@ const highlightsData = [
   }
 ];
 
-// Duplicate for seamless marquee (2x is enough for a translateX(-50%) loop)
-const marqueeItems = [...highlightsData, ...highlightsData];
-
-
 export function HighlightsSection() {
   return (
     <section id="highlights" className="py-16 md:py-20 bg-background">
@@ -50,10 +46,10 @@ export function HighlightsSection() {
         <SectionTitle icon={Sparkles}>Journey Highlights</SectionTitle>
       </div>
 
-      <div className="w-full overflow-hidden relative group group-hover:pause-animation py-4 mt-8 md:mt-12">
-        <div className="flex animate-marquee whitespace-nowrap">
-          {marqueeItems.map((highlight, index) => (
-            <div key={`hl-loop-${index}`} className="mx-3 flex-shrink-0"> {/* Added flex-shrink-0 */}
+      <div className="w-full overflow-hidden flex whitespace-nowrap group group-hover:pause-animation py-4 mt-8 md:mt-12">
+        <div className="flex animate-continuous-marquee whitespace-nowrap">
+          {highlightsData.map((highlight, index) => (
+            <div key={`set1-hl-${index}`} className="mx-3 flex-shrink-0">
               <Card className="highlight-photocard">
                 <Image
                   src={highlight.image}
@@ -70,7 +66,25 @@ export function HighlightsSection() {
             </div>
           ))}
         </div>
-        {/* The second div with animate-marquee2 has been removed */}
+        <div className="flex animate-continuous-marquee whitespace-nowrap">
+          {highlightsData.map((highlight, index) => (
+            <div key={`set2-hl-${index}`} className="mx-3 flex-shrink-0">
+              <Card className="highlight-photocard">
+                <Image
+                  src={highlight.image}
+                  alt={highlight.title}
+                  width={320} 
+                  height={192} 
+                  className="object-cover" 
+                  data-ai-hint={highlight.imageHint}
+                />
+                <CardContent className="p-4">
+                  <CardTitle className="text-md font-semibold text-primary leading-tight mb-1 truncate">{highlight.title}</CardTitle>
+                </CardContent>
+              </Card>
+            </div>
+          ))}
+        </div>
       </div>
     </section>
   );
