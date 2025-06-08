@@ -19,8 +19,8 @@ const projectsData = [
     imageHint: 'urban AI monitoring',
     dates: 'November 2024 – February 2025',
     tags: ['AI', 'Python', 'Computer Vision', 'Google Maps API'],
-    githubLink: '#',
-    demoLink: '#',
+    githubLink: 'https://github.com/habibaalmey/Guardians-of-Sustainability',
+    demoLink: 'https://guardians-of-sustainability.web.app/',
   },
   {
     title: 'UAEU Internship Portal | University Internship Management System',
