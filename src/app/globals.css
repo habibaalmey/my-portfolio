@@ -280,7 +280,7 @@
       6px 6px 0px hsl(var(--border) / 0.9);
   }
   .project-card-boxy .project-image-container {
-    @apply rounded-none overflow-hidden shadow-inner aspect-[16/9] relative bg-muted/20;
+    @apply rounded-none overflow-hidden shadow-inner aspect-[4/3] relative bg-muted/20;
   }
   /* img tag styling for NextImage will be object-cover fill by default through props */
 

@@ -17,7 +17,7 @@ const projectsData = [
     description: 'Developed an AI-powered urban infrastructure monitoring platform using Python, which reduced issue detection time by 40% and improved reporting accuracy by 30% through image recognition and Google Maps integration. Designed to support government and community efforts by automatically identifying and reporting environmental issues such as fallen trees and damaged infrastructure.',
     // USER_EDITABLE_PROJECT_IMAGE: Guardians of Sustainability
     // Replace 'https://placehold.co/640x360.png' below with the image URL for this project.
-    image: 'https://placehold.co/640x360.png',
+    image: '/urban.jpg',
     imageHint: 'urban AI monitoring',
     tags: ['AI', 'Python', 'Computer Vision', 'Google Maps API'],
     githubLink: 'https://github.com/habibaalmey/Guardians-of-Sustainability',
@@ -28,7 +28,7 @@ const projectsData = [
     description: "Created a comprehensive internship portal for UAEU's College of IT to handle the application, review, and tracking process. Manipulated SQL databases to manage user data and internship records, and built a dynamic interface using HTML, CSS, and JavaScript. The system features student workflows, admin dashboards, and company-specific access.",
     // USER_EDITABLE_PROJECT_IMAGE: UAEU Internship Portal
     // Replace 'https://placehold.co/640x360.png' below with the image URL for this project.
-    image: 'https://placehold.co/640x360.png',
+    image: '/intern.jpg',
     imageHint: 'web portal interface',
     tags: ['Web Development', 'SQL', 'JavaScript', 'HTML/CSS'],
     githubLink: '#',
@@ -39,7 +39,7 @@ const projectsData = [
     description: "Built a 3D visualization of a neural network using Blender and Python to demonstrate how handwritten digits (MNIST dataset) are processed and classified. Each pixel was represented as a cube, with animated keyframe transitions showing data flow, weight connections, and prediction intensity. Designed to help peers better understand neural networks through clear and engaging visual representation.",
     // USER_EDITABLE_PROJECT_IMAGE: Neural Network Visualizer
     // Replace 'https://placehold.co/640x360.png' below with the image URL for this project.
-    image: 'https://placehold.co/640x360.png',
+    image: '/nn.png',
     imageHint: 'neural network 3d',
     tags: ['AI', 'Python', 'Blender', 'MNIST'],
     githubLink: '#',
@@ -51,7 +51,7 @@ const projectsData = [
     description: "Designed and trained a convolutional neural network using MobileNetV2, achieving 99.61% accuracy in identifying plant diseases. Conducted extensive testing across various species to ensure robustness and reliability in real-world agricultural scenarios. Integrated a chatbot powered by LLaMA 3.1 and Groq API to deliver instant disease insights and treatment recommendations based on model predictions.",
     // USER_EDITABLE_PROJECT_IMAGE: Plant Disease Detection
     // Replace 'https://placehold.co/640x360.png' below with the image URL for this project.
-    image: 'https://placehold.co/640x360.png',
+    image: '/plant.jpg',
     imageHint: 'plant disease AI',
     tags: ['Python', 'TensorFlow', 'Keras', 'MobileNetV2', 'LLaMA 3.1', 'Groq API'],
     githubLink: '#',
@@ -62,7 +62,7 @@ const projectsData = [
     description: 'Exciting new data science project in the works. Stay tuned for updates as development progresses!',
     // USER_EDITABLE_PROJECT_IMAGE: Upcoming Data Science Project
     // Replace 'https://placehold.co/640x360.png' below with the image URL for this project.
-    image: 'https://placehold.co/640x360.png',
+    image: '/data.jpg',
     imageHint: 'data science future',
     tags: ['Data Science', 'Machine Learning', 'Python'],
     githubLink: null,

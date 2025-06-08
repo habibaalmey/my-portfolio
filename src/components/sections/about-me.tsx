@@ -48,7 +48,7 @@ export function AboutMeSection() {
                     {/* Replace the 'src' value below with your 'About Me' image URL. */}
                     {/* Current placeholder: https://placehold.co/300x300.png */}
                     <Image
-                      src="https://placehold.co/300x300.png"
+                      src="/About-me.png"
                       alt="Habiba Almetnawy"
                       width={300}
                       height={300}
