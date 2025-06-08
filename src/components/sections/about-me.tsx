@@ -22,9 +22,9 @@ const skills = [
 ];
 
 const SkillBadge = ({ skill }: { skill: string }) => (
-  <Badge 
-    className="mx-2 my-1 text-sm px-4 py-1.5 shadow-sm whitespace-nowrap 
-               bg-card text-card-foreground border border-primary-foreground/20 
+  <Badge
+    className="mx-2 my-1 text-sm px-4 py-1.5 shadow-sm whitespace-nowrap
+               bg-card text-card-foreground border border-primary-foreground/20
                hover:bg-card/90"
   >
     {skill}
