@@ -39,19 +39,8 @@ const projectsData = [
     imageHint: 'neural network 3d',
     dates: 'November 2025 – December 2025',
     tags: ['AI', 'Python', 'Blender', 'MNIST'],
-    githubLink: null,
-    demoLink: '#',
-    demoButtonText: 'View Video',
-  },
-  {
-    title: 'Future Project Beta',
-    description: "Currently in the planning phase, this project aims to address key challenges in its domain. More information to follow as development progresses.",
-    image: 'https://placehold.co/640x360.png',
-    imageHint: 'planning blueprint strategy',
-    dates: 'In Progress',
-    tags: ['Strategy', 'Development'],
-    githubLink: '#',
-    demoLink: '#',
+    githubLink: '#', // Show disabled "View Code"
+    demoLink: null,  // No demo/video button
   },
   {
     title: 'Plant Disease Detection | AI-Powered Diagnosis Tool',
@@ -64,14 +53,14 @@ const projectsData = [
     demoLink: null,
   },
   {
-    title: 'Personal Portfolio Website',
-    description: "The very website you are currently viewing! Built with Next.js, Tailwind CSS, ShadCN UI, and Genkit for AI features. Showcases my skills and projects in a dynamic and interactive way.",
+    title: 'Upcoming Data Science Project',
+    description: 'Exciting new data science project in the works. Stay tuned for updates as development progresses!',
     image: 'https://placehold.co/640x360.png',
-    imageHint: 'portfolio website design',
-    dates: 'Ongoing',
-    tags: ['Next.js', 'React', 'TailwindCSS', 'ShadCN UI', 'Genkit'],
-    githubLink: '#',
-    demoLink: null,
+    imageHint: 'data science future',
+    dates: 'Coming Soon',
+    tags: ['Data Science', 'Machine Learning', 'Python'],
+    githubLink: '#', 
+    demoLink: null,  
   }
 ];
 
