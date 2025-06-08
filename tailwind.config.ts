@@ -128,7 +128,7 @@ export default {
       animation: {
         'accordion-down': 'accordion-down 0.2s ease-out',
         'accordion-up': 'accordion-up 0.2s ease-out',
-        'marquee': 'marquee 100s linear infinite',
+        'marquee': 'marquee 25s linear infinite', // Changed from 100s to 25s
         'skills-marquee': 'skills-marquee 120s linear infinite',
         'skills-marquee2': 'skills-marquee2 120s linear infinite',
         'body-gradient': 'animate-gradient-x 25s ease infinite',
