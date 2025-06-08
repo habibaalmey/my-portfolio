@@ -15,9 +15,10 @@ const projectsData = [
   {
     title: 'Guardians of Sustainability | Infrastructure Monitoring Platform',
     description: 'Developed an AI-powered urban infrastructure monitoring platform using Python, which reduced issue detection time by 40% and improved reporting accuracy by 30% through image recognition and Google Maps integration. Designed to support government and community efforts by automatically identifying and reporting environmental issues such as fallen trees and damaged infrastructure.',
+    // USER_EDITABLE_PROJECT_IMAGE: Guardians of Sustainability
+    // Replace 'https://placehold.co/640x360.png' below with the image URL for this project.
     image: 'https://placehold.co/640x360.png',
     imageHint: 'urban AI monitoring',
-    dates: 'November 2024 – February 2025',
     tags: ['AI', 'Python', 'Computer Vision', 'Google Maps API'],
     githubLink: 'https://github.com/habibaalmey/Guardians-of-Sustainability',
     demoLink: 'https://guardians-of-sustainability.web.app/',
@@ -25,9 +26,10 @@ const projectsData = [
   {
     title: 'UAEU Internship Portal | University Internship Management System',
     description: "Created a comprehensive internship portal for UAEU's College of IT to handle the application, review, and tracking process. Manipulated SQL databases to manage user data and internship records, and built a dynamic interface using HTML, CSS, and JavaScript. The system features student workflows, admin dashboards, and company-specific access.",
+    // USER_EDITABLE_PROJECT_IMAGE: UAEU Internship Portal
+    // Replace 'https://placehold.co/640x360.png' below with the image URL for this project.
     image: 'https://placehold.co/640x360.png',
     imageHint: 'web portal interface',
-    dates: 'February 2025 – May 2025',
     tags: ['Web Development', 'SQL', 'JavaScript', 'HTML/CSS'],
     githubLink: '#',
     demoLink: null,
@@ -35,20 +37,22 @@ const projectsData = [
   {
     title: 'Neural Network Visualizer | 3D AI Model Animation',
     description: "Built a 3D visualization of a neural network using Blender and Python to demonstrate how handwritten digits (MNIST dataset) are processed and classified. Each pixel was represented as a cube, with animated keyframe transitions showing data flow, weight connections, and prediction intensity. Designed to help peers better understand neural networks through clear and engaging visual representation.",
+    // USER_EDITABLE_PROJECT_IMAGE: Neural Network Visualizer
+    // Replace 'https://placehold.co/640x360.png' below with the image URL for this project.
     image: 'https://placehold.co/640x360.png',
     imageHint: 'neural network 3d',
-    dates: 'November 2025 – December 2025',
     tags: ['AI', 'Python', 'Blender', 'MNIST'],
-    githubLink: '#', 
+    githubLink: '#',
     demoLink: null,
-    demoButtonText: null,
+    demoButtonText: 'View Code',
   },
   {
     title: 'Plant Disease Detection | AI-Powered Diagnosis Tool',
     description: "Designed and trained a convolutional neural network using MobileNetV2, achieving 99.61% accuracy in identifying plant diseases. Conducted extensive testing across various species to ensure robustness and reliability in real-world agricultural scenarios. Integrated a chatbot powered by LLaMA 3.1 and Groq API to deliver instant disease insights and treatment recommendations based on model predictions.",
+    // USER_EDITABLE_PROJECT_IMAGE: Plant Disease Detection
+    // Replace 'https://placehold.co/640x360.png' below with the image URL for this project.
     image: 'https://placehold.co/640x360.png',
     imageHint: 'plant disease AI',
-    dates: 'March 2025 – April 2025',
     tags: ['Python', 'TensorFlow', 'Keras', 'MobileNetV2', 'LLaMA 3.1', 'Groq API'],
     githubLink: '#',
     demoLink: null,
@@ -56,12 +60,13 @@ const projectsData = [
   {
     title: 'Upcoming Data Science Project',
     description: 'Exciting new data science project in the works. Stay tuned for updates as development progresses!',
+    // USER_EDITABLE_PROJECT_IMAGE: Upcoming Data Science Project
+    // Replace 'https://placehold.co/640x360.png' below with the image URL for this project.
     image: 'https://placehold.co/640x360.png',
     imageHint: 'data science future',
-    dates: 'Coming Soon',
     tags: ['Data Science', 'Machine Learning', 'Python'],
-    githubLink: null, 
-    demoLink: null,  
+    githubLink: null,
+    demoLink: null,
   }
 ];
 
@@ -90,7 +95,6 @@ export function ProjectsSection() {
               </CardHeader>
               <CardContent className="flex-grow p-5 space-y-3">
                 <CardTitle className="font-headline text-xl text-primary">{project.title}</CardTitle>
-                {/* Dates display removed from here */}
                 <CardDescription className="text-foreground/80 text-sm leading-relaxed">
                   {project.description}
                 </CardDescription>
