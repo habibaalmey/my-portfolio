@@ -100,10 +100,9 @@ export default {
           to: { width: '100%', opacity: '1' },
         },
         'marquee': { 
-          '0%': { transform: 'translateX(0)' }, /* Changed */
-          '100%': { transform: 'translateX(-50%)' }, /* Changed */
+          '0%': { transform: 'translateX(0)' },
+          '100%': { transform: 'translateX(-50%)' },
         },
-        /* marquee2 keyframe removed */
         'skills-marquee': { 
           '0%': { transform: 'translateX(0%)' },
           '100%': { transform: 'translateX(-100%)' },
@@ -129,8 +128,7 @@ export default {
       animation: {
         'accordion-down': 'accordion-down 0.2s ease-out',
         'accordion-up': 'accordion-up 0.2s ease-out',
-        'marquee': 'marquee 180s linear infinite', /* Duration updated */
-        /* marquee2 animation removed */
+        'marquee': 'marquee 100s linear infinite',
         'skills-marquee': 'skills-marquee 120s linear infinite',
         'skills-marquee2': 'skills-marquee2 120s linear infinite',
         'body-gradient': 'animate-gradient-x 25s ease infinite',
