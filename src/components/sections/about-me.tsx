@@ -6,8 +6,7 @@ import { AnimatedSectionWrapper } from '@/components/ui/animated-section-wrapper
 import Link from 'next/link';
 import { Badge } from '@/components/ui/badge';
 
-const aboutMeText =
-  "I am a fourth-year Computer Science student with a passion for the intersection of business and information technology. I am highly organized and detail-oriented, consistently delivering quality results in both academic research and industry projects. With particular expertise in data analysis and machine learning, my experience enables me to solve problems with technical precision while understanding business needs.";
+const aboutMeText = "Hii! I'm a fourth-year Computer Science student at UAEU passionate about where business meets technology. I love the ocean and swimming, but I'm equally passionate about diving into data to uncover insights that drive real business decisions. I'm detail-oriented and consistently deliver quality results across academic research and industry projects. With expertise in data analysis and machine learning, I bring technical precision to solving complex problems while always keeping business impact in mind.";
 
 const skills = [
   'Python', 'Java', 'SQL', 'HTML/CSS', 'Pandas',
