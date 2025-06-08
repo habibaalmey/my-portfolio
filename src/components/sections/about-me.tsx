@@ -45,12 +45,12 @@ export function AboutMeSection() {
                 <div className="digital-glow-frame mb-6 md:mb-0">
                   <div className="image-screen-glow">
                     <Image
-                      src="https://placehold.co/300x300.png"
+                      src="https://storage.googleapis.com/gweb-aip-us-east1-prod-storage/dev_public/studio_fe_pro_storage_hosted_images/05b3f221891c463d97107624ca15696c-original.png"
                       alt="Habiba Almetnawy"
                       width={300}
                       height={300}
                       className="rounded-sm transform transition-all duration-300 ease-in-out hover:scale-[1.03]"
-                      data-ai-hint="profile portrait"
+                      data-ai-hint="professional portrait"
                       priority
                     />
                   </div>
