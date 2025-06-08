@@ -58,7 +58,7 @@ export function AboutMeSection() {
                 </p>
                 <div className="mb-10 flex flex-col items-center md:items-start space-y-6">
                   <div className="flex items-center justify-center md:justify-start space-x-6 text-foreground/80">
-                    <Link href="mailto:700040241@uaeu.ac.ae" aria-label="Email" className="hover:text-primary transition-colors">
+                    <Link href="mailto:habibaalmetnawy18@gmail.com" aria-label="Email" className="hover:text-primary transition-colors">
                       <Mail className="h-6 w-6 text-accent" />
                     </Link>
                     <Link href="https://github.com/habibaalmey" target="_blank" rel="noopener noreferrer" aria-label="GitHub" className="hover:text-primary transition-colors">

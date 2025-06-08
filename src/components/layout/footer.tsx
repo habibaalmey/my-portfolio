@@ -13,7 +13,7 @@ export function Footer() {
           <Link href="https://www.linkedin.com/in/habibaalmetnawy" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
             <Linkedin className="h-5 w-5 text-muted-foreground transition-colors hover:text-foreground" />
           </Link>
-          <Link href="mailto:700040241@uaeu.ac.ae" aria-label="Email">
+          <Link href="mailto:habibaalmetnawy18@gmail.com" aria-label="Email">
             <Mail className="h-5 w-5 text-muted-foreground transition-colors hover:text-foreground" />
           </Link>
         </div>
