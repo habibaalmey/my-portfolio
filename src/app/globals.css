@@ -127,7 +127,7 @@
   }
 
   .digital-glow-frame {
-    @apply relative p-1 bg-transparent rounded-lg shadow-md;
+    @apply relative p-1 bg-transparent shadow-md; /* rounded-lg is default, can be overridden by component */
     width: fit-content;
     margin-left: auto;
     margin-right: auto;
@@ -135,7 +135,7 @@
   .digital-glow-frame::before,
   .digital-glow-frame::after {
     content: '';
-    @apply absolute inset-0 rounded-lg pointer-events-none;
+    @apply absolute inset-0 rounded-full pointer-events-none; /* Changed from rounded-lg */
     z-index: -1; /* Behind the image */
   }
   .digital-glow-frame::before { /* Outer glow */
@@ -147,7 +147,7 @@
     margin: -2px; /* Slightly offset for layering */
   }
   .digital-glow-frame .image-screen-glow {
-    @apply bg-background p-1 rounded-sm border border-primary/20;
+    @apply bg-background p-1 border border-primary/20; /* rounded-sm is default, can be overridden by component */
   }
 
   @keyframes pulse-glow {
