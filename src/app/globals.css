@@ -140,17 +140,18 @@
     border-radius: inherit;
   }
   .digital-glow-frame::before {
-    box-shadow: 0 12px 40px 20px hsl(var(--primary)/0.55), /* Main downward diffuse glow, softer, wider, more 'under' */
-                0  6px 25px  8px hsl(var(--primary)/0.35);   /* Secondary closer, also a bit softer and wider */
+    box-shadow: 0 12px 120px 80px hsl(var(--primary)/0.6), /* Main downward diffuse glow, significantly larger spread and blur */
+                0  6px 60px 30px hsl(var(--primary)/0.4);   /* Secondary closer, also larger */
     animation: pulse-glow 3s infinite alternate;
   }
   .digital-glow-frame::after {
     @apply border-2 border-primary/80;
-    margin: -2px;
+    margin: -2px; /* Adjust if border makes frame too small */
     border-radius: inherit;
   }
   .digital-glow-frame .image-screen-glow {
-    @apply bg-background p-1 border-2 border-primary/70 rounded-full relative;
+    @apply bg-background p-1 border-2 border-primary/70 relative;
+    border-radius: inherit; /* Ensure this also inherits if parent is rounded-full */
   }
 
   @keyframes pulse-glow {
