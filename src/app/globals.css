@@ -134,14 +134,11 @@
   .digital-glow-frame::before {
     content: '';
     @apply absolute inset-0 pointer-events-none rounded-full opacity-100;
-    /* Creative, prominent yellow glow */
-    box-shadow: 0 0 25px 10px hsl(var(--primary)), 0 0 70px 30px hsl(var(--primary)/0.6);
     z-index: -1; /* Behind the image content */
+    animation: pulse-glow-creative 3s infinite alternate ease-in-out;
   }
 
-  /* Removed .digital-glow-frame::after for simplicity */
-
-  .digital-glow-frame .image-screen-glow {
+  .image-screen-glow {
     @apply bg-background p-1 border border-primary/50 relative rounded-full;
     /* Subtle inset shadow for depth, ensure z-index if needed, but relative should be enough */
     box-shadow: inset 0 1px 3px hsl(var(--background)/0.4);
@@ -405,22 +402,12 @@
     100% { box-shadow: 0 0 8px hsl(var(--primary)/0.7); opacity: 0.8; }
   }
 
-  @keyframes pulse-glow { /* Original pulse-glow, keeping if used elsewhere, but new one is pulse-glow-creative */
-    from { opacity: 0.7; transform: scale(0.97); }
-    to { opacity: 1; transform: scale(1.03); }
-  }
-
-  /* New keyframe for creative pulsing aura */
   @keyframes pulse-glow-creative {
-    from {
-      transform: scale(1);
-      box-shadow: 0 0 35px 8px hsl(var(--primary)/0.4);
-      opacity: 0.7;
+    0%, 100% { /* Base state (halved from previous prominent glow) */
+      box-shadow: 0 0 12px 5px hsl(var(--primary)/0.7), 0 0 35px 15px hsl(var(--primary)/0.4);
     }
-    to {
-      transform: scale(1.03);
-      box-shadow: 0 0 50px 15px hsl(var(--primary)/0.6); /* Brighter and slightly larger shadow */
-      opacity: 1;
+    50% { /* Pulsed state (slightly stronger) */
+      box-shadow: 0 0 15px 7px hsl(var(--primary)), 0 0 42px 18px hsl(var(--primary)/0.6);
     }
   }
 }
