@@ -137,11 +137,11 @@
     content: '';
     @apply absolute inset-0 pointer-events-none;
     z-index: -1;
-    border-radius: inherit;
+    border-radius: inherit; 
   }
   .digital-glow-frame::before {
-    box-shadow: 0 12px 120px 80px hsl(var(--primary)/0.6), /* Main downward diffuse glow, significantly larger spread and blur */
-                0  6px 60px 30px hsl(var(--primary)/0.4);   /* Secondary closer, also larger */
+    box-shadow: 0 12px 480px 320px hsl(var(--primary)/0.6), /* Main downward diffuse glow, significantly larger spread and blur */
+                0  6px 240px 120px hsl(var(--primary)/0.4);   /* Secondary closer, also larger */
     animation: pulse-glow 3s infinite alternate;
   }
   .digital-glow-frame::after {
@@ -421,3 +421,4 @@
     
 
     
+
