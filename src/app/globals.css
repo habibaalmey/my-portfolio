@@ -127,32 +127,23 @@
   }
 
   .digital-glow-frame {
-    @apply relative p-1 bg-transparent z-10 rounded-full; /* Ensure rounded-full */
-    width: fit-content; /* Remains for structure, actual size from TSX */
-    margin-left: auto; /* Alignment controlled by TSX for responsiveness */
-    margin-right: auto;
+    @apply relative bg-transparent z-10 rounded-full; /* Ensures z-index for pseudo-elements */
+    /* Width/height/margins are set in TSX */
   }
 
-  /* Outer, larger, pulsing aura */
   .digital-glow-frame::before {
     content: '';
     @apply absolute inset-0 pointer-events-none rounded-full opacity-100;
-    box-shadow: 0 0 35px 8px hsl(var(--primary)/0.4); /* Base for animation */
-    animation: pulse-glow-creative 3s infinite alternate;
-    z-index: -2; /* Further back, behind ::after */
+    /* Creative, prominent yellow glow */
+    box-shadow: 0 0 25px 10px hsl(var(--primary)), 0 0 70px 30px hsl(var(--primary)/0.6);
+    z-index: -1; /* Behind the image content */
   }
 
-  /* Inner, sharper highlight - static */
-  .digital-glow-frame::after {
-    content: '';
-    @apply absolute inset-0 pointer-events-none rounded-full opacity-100;
-    box-shadow: 0 0 15px 4px hsl(var(--primary)/0.7); /* Static sharp glow */
-    z-index: -1; /* In front of ::before, behind parent content */
-  }
+  /* Removed .digital-glow-frame::after for simplicity */
 
   .digital-glow-frame .image-screen-glow {
-    @apply bg-background p-1 border border-primary/50 relative rounded-full; /* Thinner border, ensure rounded */
-    /* Subtle inset shadow for depth */
+    @apply bg-background p-1 border border-primary/50 relative rounded-full;
+    /* Subtle inset shadow for depth, ensure z-index if needed, but relative should be enough */
     box-shadow: inset 0 1px 3px hsl(var(--background)/0.4);
   }
 
@@ -433,3 +424,4 @@
     }
   }
 }
+

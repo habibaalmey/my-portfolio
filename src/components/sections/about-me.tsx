@@ -40,7 +40,7 @@ export function AboutMeSection() {
             <div className="flex flex-col md:flex-row items-center md:items-start gap-10 md:gap-16">
               <div className="md:w-1/3 flex-shrink-0 flex flex-col items-center md:items-start">
                 {/* USER_EDITABLE_IMAGE: About Me Picture */}
-                <div className="digital-glow-frame mb-6 md:mb-0 md:ml-0 md:mr-auto rounded-full w-[300px] h-[300px] overflow-hidden">
+                <div className="digital-glow-frame mb-6 md:mb-0 md:ml-0 md:mr-auto rounded-full w-[300px] h-[300px]">
                   <div className="image-screen-glow rounded-full overflow-hidden w-full h-full">
                     <Image
                       src="https://placehold.co/300x300.png"
