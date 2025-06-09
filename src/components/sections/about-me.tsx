@@ -43,7 +43,7 @@ export function AboutMeSection() {
                 <div className="digital-glow-frame mb-6 md:mb-0 md:ml-0 md:mr-auto rounded-full w-[300px] h-[300px]">
                   <div className="image-screen-glow rounded-full overflow-hidden w-full h-full">
                     <Image
-                      src="https://placehold.co/300x300.png"
+                      src="/About-me.png"
                       alt="Habiba Almetnawy"
                       width={300}
                       height={300}
