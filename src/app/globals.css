@@ -127,36 +127,35 @@
   }
 
   .digital-glow-frame {
-    @apply relative p-1 bg-transparent z-10;
-    width: fit-content;
-    margin-left: auto;
+    @apply relative p-1 bg-transparent z-10 rounded-full; /* Ensure rounded-full */
+    width: fit-content; /* Remains for structure, actual size from TSX */
+    margin-left: auto; /* Alignment controlled by TSX for responsiveness */
     margin-right: auto;
   }
-  .digital-glow-frame::before,
-  .digital-glow-frame::after {
-    content: '';
-    @apply absolute inset-0 pointer-events-none opacity-100; /* Ensure full opacity for ::before */
-    z-index: -1;
-    border-radius: inherit;
-  }
+
+  /* Outer, larger, pulsing aura */
   .digital-glow-frame::before {
-     /* Using fully opaque HSL primary color for a solid, shining yellow glow */
-     box-shadow: 0 0 20px 5px hsl(var(--primary)), 0 0 50px 15px hsl(var(--primary));
-  }
-  .digital-glow-frame::after {
-    @apply border-2 border-primary/80;
-    margin: -2px;
-    border-radius: inherit;
-  }
-  .digital-glow-frame .image-screen-glow {
-    @apply bg-background p-1 border-2 border-primary/70 relative;
-    border-radius: inherit;
+    content: '';
+    @apply absolute inset-0 pointer-events-none rounded-full opacity-100;
+    box-shadow: 0 0 35px 8px hsl(var(--primary)/0.4); /* Base for animation */
+    animation: pulse-glow-creative 3s infinite alternate;
+    z-index: -2; /* Further back, behind ::after */
   }
 
-  @keyframes pulse-glow {
-    from { opacity: 0.7; transform: scale(0.97); }
-    to { opacity: 1; transform: scale(1.03); }
+  /* Inner, sharper highlight - static */
+  .digital-glow-frame::after {
+    content: '';
+    @apply absolute inset-0 pointer-events-none rounded-full opacity-100;
+    box-shadow: 0 0 15px 4px hsl(var(--primary)/0.7); /* Static sharp glow */
+    z-index: -1; /* In front of ::before, behind parent content */
   }
+
+  .digital-glow-frame .image-screen-glow {
+    @apply bg-background p-1 border border-primary/50 relative rounded-full; /* Thinner border, ensure rounded */
+    /* Subtle inset shadow for depth */
+    box-shadow: inset 0 1px 3px hsl(var(--background)/0.4);
+  }
+
 
   .card-achievement {
     background-color: hsl(var(--card) / 0.7);
@@ -415,12 +414,22 @@
     100% { box-shadow: 0 0 8px hsl(var(--primary)/0.7); opacity: 0.8; }
   }
 
+  @keyframes pulse-glow { /* Original pulse-glow, keeping if used elsewhere, but new one is pulse-glow-creative */
+    from { opacity: 0.7; transform: scale(0.97); }
+    to { opacity: 1; transform: scale(1.03); }
+  }
+
+  /* New keyframe for creative pulsing aura */
+  @keyframes pulse-glow-creative {
+    from {
+      transform: scale(1);
+      box-shadow: 0 0 35px 8px hsl(var(--primary)/0.4);
+      opacity: 0.7;
+    }
+    to {
+      transform: scale(1.03);
+      box-shadow: 0 0 50px 15px hsl(var(--primary)/0.6); /* Brighter and slightly larger shadow */
+      opacity: 1;
+    }
+  }
 }
-
-    
-
-    
-
-
-
-
