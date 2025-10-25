@@ -89,7 +89,7 @@
 
 @layer base {
   * {
-    @apply border-border;
+    border-color: hsl(var(--border));
   }
   html {
     color: hsl(var(--foreground));
@@ -101,25 +101,30 @@
     scroll-behavior: smooth;
   }
   section {
-    @apply scroll-mt-20; /* Offset for fixed header */
+    scroll-margin-top: 5rem; /* Offset for fixed header */
   }
 }
 
 @layer components {
   .btn-treasure-box {
-    @apply bg-[hsl(var(--treasure-bg))] text-[hsl(var(--treasure-foreground))] border border-[hsl(var(--treasure-border))];
+    background-color: hsl(var(--treasure-bg));
+    color: hsl(var(--treasure-foreground));
+    border: 1px solid hsl(var(--treasure-border));
     box-shadow: inset 0 -2px 0px 0px hsl(var(--treasure-border)),
                 inset 0 1px 1px 0px hsl(var(--treasure-highlight)/0.5),
                 0px 2px 2px 0px hsla(0,0%,0%,0.3);
+    transition: transform 0.2s ease, filter 0.2s ease, background-color 0.2s ease;
   }
   .btn-treasure-box:hover {
-    @apply bg-[hsl(var(--treasure-bg)/0.9)] brightness-110 scale-[1.03];
+    background-color: hsl(var(--treasure-bg) / 0.9);
+    filter: brightness(1.1);
+    transform: scale(1.03);
     box-shadow: inset 0 -2px 0px 0px hsl(var(--treasure-border)/0.8),
                 inset 0 1px 2px 0px hsl(var(--treasure-highlight)/0.7),
                 0px 3px 4px 0px hsla(0,0%,0%,0.3);
   }
   .btn-treasure-box:active {
-    @apply brightness-95;
+    filter: brightness(0.95);
     box-shadow: inset 0 -1px 0px 0px hsl(var(--treasure-border)/0.7),
                 inset 0 1px 1px 0px hsl(var(--treasure-highlight)/0.6),
                 0px 1px 1px 0px hsla(0,0%,0%,0.2);
@@ -127,19 +132,30 @@
   }
 
   .digital-glow-frame {
-    @apply relative bg-transparent z-10 rounded-full; /* Ensures z-index for pseudo-elements */
+    position: relative;
+    background-color: transparent;
+    z-index: 10;
+    border-radius: 9999px; /* Ensures z-index for pseudo-elements */
     /* Width/height/margins are set in TSX */
   }
 
   .digital-glow-frame::before {
     content: '';
-    @apply absolute inset-0 pointer-events-none rounded-full opacity-100;
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    border-radius: 9999px;
+    opacity: 1;
     z-index: -1; /* Behind the image content */
     animation: pulse-glow-creative 3s infinite alternate ease-in-out;
   }
 
   .image-screen-glow {
-    @apply bg-background p-1 border border-primary/50 relative rounded-full;
+    position: relative;
+    background-color: hsl(var(--background));
+    padding: 0.25rem; /* Equivalent to Tailwind p-1 */
+    border: 1px solid hsl(var(--primary) / 0.5);
+    border-radius: 9999px;
     /* Subtle inset shadow for depth, ensure z-index if needed, but relative should be enough */
     box-shadow: inset 0 1px 3px hsl(var(--background)/0.4);
   }
@@ -257,11 +273,20 @@
 
   /* Updated Project Card Style for Boxy Appearance */
   .project-card-boxy {
-    @apply bg-card text-card-foreground rounded-md shadow-lg transition-all duration-300 ease-in-out flex flex-col overflow-hidden p-0;
-    border: 2px solid hsl(var(--border) / 0.4);
+    background-color: hsl(var(--card));
+    color: hsl(var(--card-foreground));
+    border-radius: 0.375rem; /* rounded-md */
     box-shadow:
+      0 10px 15px -3px rgba(0, 0, 0, 0.1),
+      0 4px 6px -4px rgba(0, 0, 0, 0.1),
       2px 2px 0px hsl(var(--border) / 0.6),
       4px 4px 0px hsl(var(--border) / 0.8);
+    transition: all 0.3s ease-in-out;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    padding: 0;
+    border: 2px solid hsl(var(--border) / 0.4);
   }
   .project-card-boxy:hover {
     transform: scale(1.02) translate(-1px, -1px);
@@ -270,7 +295,12 @@
       6px 6px 0px hsl(var(--border) / 0.9);
   }
   .project-card-boxy .project-image-container {
-    @apply rounded-none overflow-hidden shadow-inner aspect-[4/3] relative bg-muted/20;
+    border-radius: 0;
+    overflow: hidden;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.06);
+    aspect-ratio: 4 / 3;
+    position: relative;
+    background-color: hsl(var(--muted) / 0.2);
   }
   /* img tag styling for NextImage will be object-cover fill by default through props */
 
@@ -296,11 +326,23 @@
   }
 
   .highlight-photocard {
-    @apply bg-card text-card-foreground rounded-lg shadow-md overflow-hidden flex-shrink-0 transition-transform duration-300 ease-in-out hover:scale-105;
+    background-color: hsl(var(--card));
+    color: hsl(var(--card-foreground));
+    border-radius: 0.5rem; /* rounded-lg */
+    box-shadow:
+      0 4px 6px -1px rgba(0, 0, 0, 0.1),
+      0 2px 4px -2px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    flex-shrink: 0;
+    transition: transform 0.3s ease-in-out;
     width: 20rem; /* 320px */
   }
+  .highlight-photocard:hover {
+    transform: scale(1.05);
+  }
   .highlight-photocard img {
-    @apply w-full object-cover;
+    width: 100%;
+    object-fit: cover;
     height: 12rem; /* 192px */
   }
 
@@ -360,12 +402,24 @@
 
   /* Creative Timeline */
   .timeline-digital-path {
-    @apply absolute left-0 top-0 bottom-0 w-1 bg-primary/30 rounded-full;
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 0.25rem; /* Tailwind w-1 */
+    background-color: hsl(var(--primary) / 0.3);
+    border-radius: 9999px;
     transform: translateX(calc(1rem - 2px));
   }
   .timeline-digital-path::before {
     content: '';
-    @apply absolute inset-x-0 top-0 h-full w-full opacity-50;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    opacity: 0.5;
     background-image: linear-gradient(
       transparent 0%,
       hsl(var(--primary) / 0.05) 10%,
@@ -384,10 +438,18 @@
 
 
   .timeline-node {
-    @apply absolute top-[0.3rem] h-5 w-5 rounded-full border-2 bg-background ring-4 ring-background transition-all duration-300;
-    border-color: hsl(var(--primary));
-    box-shadow: 0 0 8px hsl(var(--primary)/0.7);
+    position: absolute;
+    top: 0.3rem;
+    height: 1.25rem; /* Tailwind h-5 */
+    width: 1.25rem; /* Tailwind w-5 */
+    border-radius: 9999px;
+    border: 2px solid hsl(var(--primary));
+    background-color: hsl(var(--background));
+    box-shadow:
+      0 0 0 4px hsl(var(--background)), /* Approximate ring-background */
+      0 0 8px hsl(var(--primary)/0.7);
     left: calc(-1rem + 2px);
+    transition: all 0.3s ease;
     animation: timeline-node-pulse 2s infinite ease-in-out;
   }
 
