@@ -1,4 +1,4 @@
 import { config } from 'dotenv';
 config();
 
-import '@/ai/flows/tailor-about-me.ts';
+import '@/ai/flows/tailor-about-me.js';

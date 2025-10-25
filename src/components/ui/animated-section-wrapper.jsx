@@ -1,17 +1,7 @@
-"use client";
+'use client';
 
-import type { PropsWithChildren } from 'react';
 import { useState, useEffect, useRef } from 'react';
 import { cn } from '@/lib/utils';
-
-interface AnimatedSectionWrapperProps extends PropsWithChildren {
-  className?: string;
-  initialClassName?: string; // e.g., 'opacity-0 translate-y-5'
-  finalClassName?: string; // e.g., 'opacity-100 translate-y-0'
-  threshold?: number;
-  triggerOnce?: boolean;
-  delay?: string; // e.g. 'duration-500 delay-300'
-}
 
 export function AnimatedSectionWrapper({
   children,
@@ -20,10 +10,10 @@ export function AnimatedSectionWrapper({
   finalClassName = 'opacity-100 translate-y-0',
   threshold = 0.1,
   triggerOnce = true,
-  delay = 'duration-700'
-}: AnimatedSectionWrapperProps) {
+  delay = 'duration-700',
+}) {
   const [isVisible, setIsVisible] = useState(false);
-  const ref = useRef<HTMLDivElement | null>(null);
+  const ref = useRef(null);
 
   useEffect(() => {
     const element = ref.current;
@@ -37,10 +27,8 @@ export function AnimatedSectionWrapper({
             if (triggerOnce) {
               observer.unobserve(element);
             }
-          } else {
-            if (!triggerOnce) {
-              setIsVisible(false);
-            }
+          } else if (!triggerOnce) {
+            setIsVisible(false);
           }
         });
       },
@@ -57,12 +45,7 @@ export function AnimatedSectionWrapper({
   return (
     <div
       ref={ref}
-      className={cn(
-        'transition-all ease-out',
-        delay,
-        isVisible ? finalClassName : initialClassName,
-        className
-      )}
+      className={cn('transition-all ease-out', delay, isVisible ? finalClassName : initialClassName, className)}
     >
       {children}
     </div>
