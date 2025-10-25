@@ -1,5 +1,5 @@
 
-import { Github, Linkedin, Mail } from 'lucide-react';
+import { Github, Linkedin, Mail } from '@/components/icons';
 import Link from 'next/link';
 
 export function Footer() {

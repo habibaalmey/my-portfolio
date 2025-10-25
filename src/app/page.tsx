@@ -6,7 +6,6 @@ import { ProjectsSection } from '@/components/sections/projects';
 import { ExperienceSection } from '@/components/sections/experience';
 import { HonorsAwardsSection } from '@/components/sections/honors-awards';
 import { HighlightsSection } from '@/components/sections/highlights-section';
-import { Separator } from '@/components/ui/separator';
 
 export default function HomePage() {
   return (

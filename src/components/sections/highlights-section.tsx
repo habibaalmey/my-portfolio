@@ -4,7 +4,7 @@
 import Image from 'next/image';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { SectionTitle } from '@/components/layout/section-title';
-import { Sparkles } from 'lucide-react'; 
+import { Sparkles } from '@/components/icons';
 
 const highlightsData = [
   {

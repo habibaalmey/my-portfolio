@@ -2,11 +2,11 @@
 "use client";
 
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { Briefcase, CalendarDays } from 'lucide-react';
 import { SectionContainer } from '@/components/layout/section-container';
 import { SectionTitle } from '@/components/layout/section-title';
 import { AnimatedSectionWrapper } from '@/components/ui/animated-section-wrapper';
 import { cn } from '@/lib/utils';
+import { Briefcase, CalendarDays } from '@/components/icons';
 
 const experiences = [
   {

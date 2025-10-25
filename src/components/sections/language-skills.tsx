@@ -2,10 +2,10 @@
 "use client";
 
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Languages as LanguagesIcon } from 'lucide-react'; // Renamed to avoid conflict
 import { SectionContainer } from '@/components/layout/section-container';
 import { SectionTitle } from '@/components/layout/section-title';
 import { AnimatedSectionWrapper } from '@/components/ui/animated-section-wrapper';
+import { LanguagesIcon } from '@/components/icons';
 
 const languageSkillsData = [
   {

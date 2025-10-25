@@ -1,11 +1,9 @@
 
 import Image from 'next/image';
-import { Button } from '@/components/ui/button';
-import { Mail, Download, Github, Linkedin } from 'lucide-react';
+import Link from 'next/link';
+import { Mail, Download, Github, Linkedin } from '@/components/icons';
 import { SectionTitle } from '@/components/layout/section-title';
 import { AnimatedSectionWrapper } from '@/components/ui/animated-section-wrapper';
-import Link from 'next/link';
-import { Badge } from '@/components/ui/badge';
 
 const aboutMeText = "Hii! I'm a fourth-year Computer Science student at UAEU passionate about where business meets technology. I love the ocean and swimming, but I'm equally passionate about diving into data to uncover insights that drive real business decisions. I'm detail-oriented and consistently deliver quality results across academic research and industry projects. With expertise in data analysis and machine learning, I bring technical precision to solving complex problems while always keeping business impact in mind.";
 
@@ -19,13 +17,9 @@ const skills = [
 ];
 
 const SkillBadge = ({ skill }: { skill: string }) => (
-  <Badge
-    className="mx-2 my-1 text-sm px-4 py-1.5 shadow-sm whitespace-nowrap
-               bg-card text-card-foreground border border-primary-foreground/20
-               hover:bg-card/90"
-  >
+  <span className="mx-2 my-1 whitespace-nowrap rounded-full border border-primary-foreground/20 bg-card px-4 py-1.5 text-sm text-card-foreground shadow-sm">
     {skill}
-  </Badge>
+  </span>
 );
 
 export function AboutMeSection() {
@@ -70,12 +64,15 @@ export function AboutMeSection() {
                       <Linkedin className="h-6 w-6 text-accent" />
                     </Link>
                   </div>
-                  <Button asChild size="lg" className="btn-treasure-box shadow-md hover:shadow-lg transform transition-all duration-300 ease-in-out hover:scale-[1.03] active:scale-95">
-                    <Link href="/Habiba_Almetnawy_CV.pdf" target="_blank" download>
-                      <Download className="mr-2 h-4 w-4" />
-                      Download My CV
-                    </Link>
-                  </Button>
+                  <Link
+                    href="/Habiba_Almetnawy_CV.pdf"
+                    target="_blank"
+                    download
+                    className="btn-treasure-box inline-flex items-center gap-2 rounded-md px-6 py-3 text-sm font-medium text-primary-foreground shadow-md transition-transform duration-300 ease-in-out hover:scale-[1.03] hover:shadow-lg active:scale-95"
+                  >
+                    <Download className="h-4 w-4" />
+                    Download My CV
+                  </Link>
                 </div>
               </div>
             </div>

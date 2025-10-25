@@ -2,13 +2,12 @@
 "use client";
 
 import { Card, CardContent, CardDescription, CardHeader, CardFooter, CardTitle } from '@/components/ui/card';
-import { LayoutGrid, Github, ExternalLink } from 'lucide-react';
 import { SectionContainer } from '@/components/layout/section-container';
 import { SectionTitle } from '@/components/layout/section-title';
 import { AnimatedSectionWrapper } from '@/components/ui/animated-section-wrapper';
 import Link from 'next/link';
-import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
+import { Github, ExternalLink, LayoutGrid } from '@/components/icons';
 
 const projectsData = [
   {
@@ -79,31 +78,29 @@ export function ProjectsSection() {
                 </div>
               </CardContent>
               <CardFooter className="p-5 pt-2 flex gap-3 mt-auto">
-                {project.githubLink !== null && (
-                  <Button
-                    asChild
-                    variant="outline"
-                    size="sm"
-                    className="group/button flex-1 btn-treasure-box"
-                    disabled={project.githubLink === '#'}
+                {project.githubLink && (
+                  <Link
+                    href={project.githubLink}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex flex-1 items-center justify-center gap-2 rounded-md border border-primary/50 bg-background px-4 py-2 text-sm font-medium text-primary transition hover:bg-primary/10"
                   >
-                    <Link href={project.githubLink || '#'} target="_blank" rel="noopener noreferrer" aria-disabled={project.githubLink === '#'}>
-                      <Github className="mr-2 h-4 w-4" /> {project.demoButtonText && project.title.includes("Neural Network Visualizer") ? project.demoButtonText : 'View Code'}
-                    </Link>
-                  </Button>
+                    <Github className="h-4 w-4" />
+                    {project.demoButtonText && project.title.includes('Neural Network Visualizer')
+                      ? project.demoButtonText
+                      : 'View Code'}
+                  </Link>
                 )}
-                {project.demoLink !== null && !project.title.includes("Neural Network Visualizer") && (
-                  <Button
-                    asChild
-                    variant="default"
-                    size="sm"
-                    className="group/button flex-1"
-                    disabled={project.demoLink === '#'}
+                {project.demoLink && !project.title.includes('Neural Network Visualizer') && (
+                  <Link
+                    href={project.demoLink}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex flex-1 items-center justify-center gap-2 rounded-md border border-primary/40 bg-primary px-4 py-2 text-sm font-medium text-primary-foreground transition hover:brightness-110"
                   >
-                    <Link href={project.demoLink || '#'} target="_blank" rel="noopener noreferrer" aria-disabled={project.demoLink === '#'}>
-                      {project.demoButtonText || 'Live Demo'} <ExternalLink className="ml-2 h-4 w-4 transition-transform group-hover/button:translate-x-1" />
-                    </Link>
-                  </Button>
+                    {project.demoButtonText || 'Live Demo'}
+                    <ExternalLink className="h-4 w-4" />
+                  </Link>
                 )}
               </CardFooter>
             </Card>

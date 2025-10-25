@@ -1,11 +1,11 @@
 
 import type { PropsWithChildren } from 'react';
 import { cn } from '@/lib/utils';
-import type { LucideIcon } from 'lucide-react';
+import type { IconComponent } from '@/components/icons';
 
 interface SectionTitleProps extends PropsWithChildren {
   className?: string;
-  icon?: LucideIcon;
+  icon?: IconComponent;
 }
 
 export function SectionTitle({ className, children, icon: IconComponent }: SectionTitleProps) {

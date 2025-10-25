@@ -2,9 +2,9 @@
 "use client";
 
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { Award, Trophy, CalendarDays } from 'lucide-react';
 import { SectionTitle } from '@/components/layout/section-title';
 import { AnimatedSectionWrapper } from '@/components/ui/animated-section-wrapper';
+import { Award, Trophy, CalendarDays } from '@/components/icons';
 
 const honorsAndAwards = [
   {
